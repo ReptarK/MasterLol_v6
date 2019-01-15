@@ -1,0 +1,143 @@
+League of Legends PatternScans
+
+fnIssueOrder		: 81 EC 10 01 00 00 56 57 8B F9 C7 84 24 10 01 00
+
+fnAttackDelay		: 8B 44 24 04 51 F3 0F 10 80
+
+fnAttackCastDelay	: 83 EC 0C 53 8B 5C 24 14 8B CB 57
+
+fnCastSpell			: "ERROR: Client Tried to cast a spell fro" then UP
+						83 EC 2C 53 55 56 8B 74 24 3C
+						
+fnSpellState		: 83 EC 10 8B 01 8D 54 24 08 56 57 52 FF 50 1C 8D 4C 24 08 51 8B C8 E8 ? ? ? ? 8B 4C 24 14 83 CF FF 85 C9 74 0E 8B C7 F0 0F C1 41 ? 75 05 8B 01 FF 50 04 8B 4C 24 08 85 C9 74 44
+
+fnDrawCircle		: 1. Search of : 83 EC 18 53 55 56 8B F1 57 8D 7E 04
+					  2. Scroll down a lot to reach this : 
+						.text:01487EBE CC CC                             align 10h
+						.text:01487EC0 F3 0F 10 05 18 8F+dword_1487EC0   dd 5100FF3h, 1F58F18h, 4C100FF3h, 0FF30C24h, 8F1C1510h
+						.text:01487EC0 F5 01 F3 0F 10 4C+                dd 0FF301F5h, 25981D10h, 8B5601F3h, 0F182474h, 8B57C12Fh
+						.text:01487EC0 24 0C F3 0F 10 15+                dd 0C710247Ch, 0C46h, 46C70000h, 10h, 100FF33Fh, 0F208F005h
+						.text:01487EC0 1C 8F F5 01 F3 0F+                dd 110FF301h, 0F1C2444h, 2D72C128h, 0A1AF7BE8h, 244C8B00h
+						.text:01487EC0 10 1D 98 25 F3 01+                dd 0D0280F0Ch, 7100FF3h, 0F3CA280Fh, 84F590Fh, 0F3E4570Fh
+						.text:01487EC0 56 8B 74 24 18 0F+                dd 0F3C2590Fh, 849580Fh, 1580FF3h, 92E9h, 0D12F0F00h, 0FF35B72h
+						.text:01487EC0 2F C1 57 8B 7C 24+                dd 45E8C35Ch, 8B00A1AFh, 0F0C244Ch, 0FF3E028h, 0F3085F10h
+						.text:01487EC0 10 C7 46 0C 00 00+                dd 0F317100Fh, 2046100Fh, 49100FF3h, 590FF308h, 5C0FF3CCh
+						.text:01487EC0 00 00 C7 46 10 00+                dd 100FF3D9h, 590FF309h, 580FF3CCh, 0F31C2464h, 0F3D15C0Fh
+						.text:01487EC0 00 00 3F F3 0F 10+                dd 0F3C3580Fh, 25590Fh, 0F301F1DAh, 1856580Fh, 56110FF3h
+						.text:01487EC0 05 F0 08 F2 01 F3+                dd 100FF318h, 0EB1C2454h, 0AEEEE845h, 4C8B00A1h, 280F0C24h
+						.text:01487EC0 0F 11 44 24 1C 0F+                dd 15570FD0h, 1F287F0h, 7100FF3h, 0F3CA280Fh, 84F590Fh
+						.text:01487EC0 28 C1 72 2D E8 7B+                dd 64100FF3h, 0FF31C24h, 0FF3C259h, 0F308495Ch, 0F3015C0Fh
+						.text:01487EC0 AF A1 00 8B 4C 24+                dd 1846580Fh, 46110FF3h, 100FF318h, 0FF32046h, 548BC158h
+						.text:01487EC0 0C 0F 28 D0 F3 0F+                dd 2B82024h, 0F3000000h, 245C100Fh, 110FF314h, 0FF32046h
+						.text:01487EC0 10 07 0F 28 CA F3+                dd 0F3245611h, 2454100Fh, 110FF318h, 1E0h dup(0)
+						.text:01488780 00 00 00 00 00 00+dword_1488780   dd 1A8h dup(0)          ; CODE XREF: sub_14FE560+475p <---- 1488780 = drawCircle
+
+
+fnIsTargetable		: 56 8B F1 E8 ? ? ? ? 84 C0 74 2E
+fnIsAlive			: 56 8B F1 8B 06 8B 80 ?? ?? ?? ?? FF D0 84 C0 74 19
+fnIsTurret			: 8B 4C 24 04 85 C9 74 11 68 00 20 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
+fnIsMinion			: 8B 4C 24 04 85 C9 74 11 68 00 08 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
+fnIsHero			: 8B 4C 24 04 85 C9 74 11 68 00 10 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
+
+fnMainLoop			: 83 EC 08 8D 04 24 0F 57 C0 //TEST
+					__int64 fnMainLoop()
+					{
+					  __int64 v1; // [sp+0h] [bp-8h]@1
+
+					  _mm_storel_pd((double *)&v1, 0i64);
+					  QueryPerformanceCounter((LARGE_INTEGER *)&v1);
+					  return v1;
+					}
+
+/* SKIN */
+fnGetCharacterInfo	: "Load Package - %s:%u" 81 EC ?? ?? ?? ?? A1 ?? ?? ?? ?? 33 C4 89 84 24 ?? ?? ?? ?? 56 8B B4 24 ?? ?? ?? ?? 8B C6
+fnSetModel			: 80 7C 24 ?? ?? 56 8B 74 24 08
+void SetSkin(Object * pEntity, int SkinID)
+{
+	pEntity->pCharacterInfo = GetCharacterInfo(reinterpret_cast<int>(pEntity->ChampionName), SkinID, 0);
+	FuncSetModel(reinterpret_cast<char*>(pEntity), reinterpret_cast<int>(pEntity->ChampionName), SkinID, 0);
+}
+
+///////////////////////
+///////////////////////
+//////// OFFSETS //////
+///////////////////////
+///////////////////////
+
+oGameVersion		: "Version 8.24.255.8524 [PUBLIC]"
+
+oGameTime			: 83 EC 10 53 8B 1D ? ? ? ? 55
+					.text:011577B0 83 EC 10                          sub     esp, 10h
+					.text:011577B3 53                                push    ebx
+					.text:011577B4 8B 1D D4 DC 1E 02                 mov     ebx, dword_21EDCD4
+					.text:011577BA 55                                push    ebp
+					.text:011577BB 56                                push    esi
+					.text:011577BC 57                                push    edi
+					.text:011577BD E8 EE 9A 60 00                    call    sub_17612B0
+					.text:011577C2 83 3D D8 E2 DC 03+                cmp     dword_3DCE2D8, 0 // oGameTime = 3DCE2D8 + 0x10
+
+oLocalPlayer 		: "Play_sfx_TEMP_Reset_Ability"
+					.text:010CDEDB 8B 0D C0 2B DD 03                 mov     ecx, dword_3DD2BC0
+					.text:010CDEE1 8B 01                             mov     eax, [ecx]
+					.text:010CDEE3 8D B9 60 02 00 00                 lea     edi, [ecx+260h]
+					.text:010CDEE9 FF 90 A4 00 00 00                 call    dword ptr [eax+0A4h]
+					.text:010CDEEF 6A 1B                             push    1Bh
+					.text:010CDEF1 68 B0 5B F2 01                    push    offset aPlay_sfx_temp_ ; "Play_sfx_TEMP_Reset_Ability"
+
+oHudManager			: "PerSide.ini"
+					.text:01243156 83 EC 08                          sub     esp, 8
+					.text:01243159 89 35 88 98 52 02                 mov     dword_2529888, esi
+					.text:0124315F 54                                push    esp
+					.text:01243160 E8 FB 41 FC FF                    call    sub_1207360
+					.text:01243165 83 C4 04                          add     esp, 4
+					.text:01243168 8B CE                             mov     ecx, esi
+					.text:0124316A E8 91 B2 2E 00                    call    sub_152E400
+					.text:0124316F 8B 45 00                          mov     eax, [ebp+0]
+					.text:01243172 8D 4C 24 20                       lea     ecx, [esp+174h+var_154]
+					.text:01243176 6A 0B                             push    0Bh
+					.text:01243178 68 AC 9C F4 01                    push    offset aPerside_ini ; "PerSide.ini"
+					
+oObjectManager		: "Reconnect being processed"
+					.text:01262399 B9 08 1C DD 03                    mov     ecx, offset byte_3DD1C08
+					.text:0126239E E8 DD 19 FA FF                    call    sub_1203D80
+					.text:012623A3 8B 35 D8 F7 DC 03                 mov     esi, dword_3DCF7D8
+					.text:012623A9 8D 8C 24 98 0C 00+                lea     ecx, [esp+0C98h]
+					.text:012623B0 68 E0 C2 F4 01                    push    offset aReconnectBeing ; "Reconnect being processed"
+
+
+
+
+
+
+///////////////////
+///////////////////
+//////// OLD //////
+///////////////////
+///////////////////
+
+
+League of Legends PatternScans
+
+fnIssueOrder   	 : 81 EC 68 ?? 00 00 
+fnMainLoop     	 : 83 EC 08 53 8B D9 89 5C 24 04
+fnDrawCircle   	 : 81 EC ? ? ? ? A1 ? ? ? ? 33 C4 89 ? ? ? ? ? ? 83 3D ? ? ? ? ? 56 8B ? ? ? ? ? ? 57 (should be 2nd)
+fnCastSpell    	 : ALE-229C053F 83 EC ?? 53 55 8B ?? ?? ?? 56 57 89 ?? ?? ?? 83 (0x1160720 sub esp,34)
+fnAttackCastDelay: (second) 83 ec ? 53 8b 5c ? ? 8b cb 56
+fnAttackDelay	 : (second) 57 8B 7C 24 08 8B 87 ? ? ? ? 8D 8F ? ? ? ?
+fnOnProcessSpell : 57 8B 7C 24 08 8B 17 85 D2 75
+fnSpellState	 : ALE-84F0B873
+
+fnObjectCreate   : 83 EC 08 56 8B F1 8B 46 6C C6 (sub esp,08)
+fnObjectDelete   : 83 EC 10 53 55 8B 6C 24 1C 56 (sub esp, 10)
+
+
+oRenderer      : 28 F0 ?? ?? ?? ?? ?? ?? ?? FE
+oLocalPlayer   : ?? 41 24 3A
+oObjectManager : search for 10000 (__int32)
+oCursor        : ?? 69 78 ?? 80 ?? ?? ?? ??
+vGameTime      : 00 f3 c0 0a 00 c5 c5 + 0x14
+
+NAVIGATION_AI  : ff 90 ? ? ? ? 80 b8 98 01 00 00 ? 74 ? 8b 0d
+
+//fnCastDelay    	 : 57 8B 7C 24 08 8B 87 ? ? ? ? 8D 8F ? ? ? ? || 83 ec ? 53 8b 5c ? ? 8b cb 56
+

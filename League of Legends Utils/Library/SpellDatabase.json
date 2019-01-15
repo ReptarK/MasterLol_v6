@@ -1,0 +1,2522 @@
+{
+  "Aatrox": [
+    {
+      "Delay": 0.45,
+      "MissileSpeed": 4500.0,
+      "Range": 650.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 285.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 1050.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    },
+    {
+      "MissileSpeed": 1250.0,
+      "Range": 1050.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    }
+  ],
+  "Alistar": [
+    {
+      "Delay": 0.25,
+      "Range": 365.0,
+      "Slot": "Q",
+      "Type": "Self",
+      "Radius": 365.0
+    }
+  ],
+  "Ahri": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileAccel": -3200.0,
+      "MissileMaxSpeed": 2500.0,
+      "MissileMinSpeed": 400.0,
+      "MissileSpeed": 2500.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 100.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileAccel": 1900.0,
+      "MissileMaxSpeed": 2600.0,
+      "MissileMinSpeed": 60.0,
+      "MissileSpeed": 60.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 100.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1550.0,
+      "Range": 1000.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "Amumu": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 550.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 550.0
+    }
+  ],
+  "Anivia": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 850.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "SpellName": "FlashFrostSpell",
+      "Type": "MissileAoe",
+      "Radius": 210.0
+    }
+  ],
+  "Annie": [
+    {
+      "Delay": 0.25,
+      "Range": 600.0,
+      "Slot": "W",
+      "Type": "Cone",
+      "Radius": 0.8642871
+    },
+    {
+      "Delay": 0.25,
+      "Range": 600.0,
+      "Slot": "R",
+      "SpellName": "InfernalGuardian",
+      "Type": "Circle",
+      "Radius": 251.0
+    }
+  ],
+  "Ashe": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 1250.0,
+      "Slot": "W",
+      "Type": "MissileLine"
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 25000.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 130.0
+    }
+  ],
+  "AurelionSol": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileAccel": -500.0,
+      "MissileMaxSpeed": 850.0,
+      "MissileMinSpeed": 600.0,
+      "MissileSpeed": 850.0,
+      "Range": 800.0,
+      "Slot": "Q",
+      "SpellName": "AurelionSolQ",
+      "Type": "MissileAoe",
+      "Acceleration": true,
+      "Radius": 210.0
+    },
+    {
+      "Delay": 0.35,
+      "MissileSpeed": 4500.0,
+      "Range": 1335.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 120.0
+    }
+  ],
+  "Azir": [
+    {
+      "MissileSpeed": 1600.0,
+      "Range": 1750.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ],
+  "Bard": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Delay": 0.5,
+      "MissileFixedTravelTime": 0.5,
+      "MissileSpeed": 2100.0,
+      "Range": 3400.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 350.0
+    }
+  ],
+  "Blitzcrank": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1800.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 600.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 600.0
+    }
+  ],
+  "Brand": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Delay": 0.85,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 240.0
+    }
+  ],
+  "Braum": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.5,
+      "MissileSpeed": 1400.0,
+      "Range": 1200.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 115.0
+    }
+  ],
+  "Caitlyn": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.625,
+      "MissileSpeed": 2200.0,
+      "Range": 1300.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    },
+    {
+      "Delay": 0.5,
+      "Range": 800.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 75.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.15,
+      "MissileSpeed": 1600.0,
+      "Range": 800.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    }
+  ],
+  "Cassiopeia": [
+    {
+      "Delay": 0.38,
+      "Range": 850.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 155.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 3000.0,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 180.0
+    },
+    {
+      "Delay": 0.5,
+      "Range": 825.0,
+      "Slot": "R",
+      "Type": "Cone",
+      "Radius": 1.39626336
+    }
+  ],
+  "Chogath": [
+    {
+      "Delay": 1.2,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 250.0
+    },
+    {
+      "Delay": 0.5,
+      "Range": 650.0,
+      "Slot": "W",
+      "Type": "Cone",
+      "Radius": 0.9773843
+    }
+  ],
+  "Corki": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1000.0,
+      "Range": 825.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 250.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.175,
+      "MissileSpeed": 2000.0,
+      "Range": 1300.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.175,
+      "MissileSpeed": 2000.0,
+      "Range": 1500.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    }
+  ],
+  "Darius": [
+    {
+      "Delay": 0.75,
+      "Range": 270.0,
+      "Slot": "Q",
+      "Type": "Self",
+      "Radius": 270.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 550.0,
+      "Slot": "E",
+      "Type": "Cone",
+      "Radius": 0.87266463
+    }
+  ],
+  "Diana": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1675.0,
+      "Range": 845.0,
+      "Slot": "Q",
+      "Type": "Arc",
+      "Radius": 185.0
+    }
+  ],
+  "DrMundo": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "Draven": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1400.0,
+      "Range": 1100.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 130.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.5,
+      "MissileSpeed": 2000.0,
+      "Range": 25000.0,
+      "Slot": "R",
+      "SpellName": "DravenRCast",
+      "Type": "MissileLine",
+      "Radius": 160.0
+    }
+  ],
+  "Ekko": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1650.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 2300.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    },
+    {
+      "Delay": 2.25,
+      "MissileFixedTravelTime": 1.0,
+      "Range": 1600.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 375.0
+    },
+    {
+      "Delay": 0.75,
+      "Range": 375.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 375.0
+    }
+  ],
+  "Elise": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 1100.0,
+      "Slot": "E",
+      "SpellName": "EliseHumanE",
+      "Type": "MissileLine",
+      "Radius": 55.0
+    }
+  ],
+  "Evelynn": [
+    {
+      "Delay": 0.25,
+      "Range": 650.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 350.0
+    }
+  ],
+  "Ezreal": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 1200.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 1050.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 1.0,
+      "MissileSpeed": 2000.0,
+      "Range": 25000.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 160.0
+    }
+  ],
+  "Fiora": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.48,
+      "MissileSpeed": 3200.0,
+      "Range": 800.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ],
+  "Fizz": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1350.0,
+      "Range": 1275.0,
+      "Slot": "R",
+      "Type": "MissileAoe",
+      "Radius": 255.0
+    },
+    {
+      "Range": 1275.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 255.0
+    }
+  ],
+  "Galio": [
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1300.0,
+      "Range": 900.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 200.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1300.0,
+      "Range": 1180.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 160.0
+    },
+    {
+      "Delay": 2.0,
+      "Range": 560.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 560.0
+    }
+  ],
+  "Gnar": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileAccel": -3000.0,
+      "MissileMaxSpeed": 2500.0,
+      "MissileMinSpeed": 1400.0,
+      "MissileSpeed": 2500.0,
+      "Range": 1125.0,
+      "Slot": "Q",
+      "SpellName": "GnarQ",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 55.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileAccel": 800.0,
+      "MissileMaxSpeed": 2600.0,
+      "MissileMinSpeed": 60.0,
+      "MissileSpeed": 60.0,
+      "Range": 3000.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 75.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.5,
+      "MissileSpeed": 2100.0,
+      "Range": 1125.0,
+      "Slot": "Q",
+      "SpellName": "GnarBigQ",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    },
+    {
+      "Delay": 0.6,
+      "Range": 525.0,
+      "Slot": "W",
+      "SpellName": "GnarBigW",
+      "Type": "Line",
+      "Radius": 80.0
+    },
+    {
+      "MissileSpeed": 902.0,
+      "Range": 475.0,
+      "Slot": "E",
+      "SpellName": "GnarE",
+      "Type": "Circle",
+      "Radius": 150.0
+    },
+    {
+      "MissileSpeed": 800.0,
+      "Range": 475.0,
+      "Slot": "E",
+      "SpellName": "gnarbige",
+      "Type": "Circle",
+      "Radius": 350.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 590.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 590.0
+    }
+  ],
+  "Gragas": [
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1000.0,
+      "Range": 850.0,
+      "Slot": "Q",
+      "SpellName": "GragasQ",
+      "Type": "Circle",
+      "Radius": 250.0
+    },
+    {
+      "Collisions": [
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "MissileSpeed": 910.0,
+      "Range": 600.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1800.0,
+      "Range": 1150.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 350.0
+    }
+  ],
+  "Graves": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 3000.0,
+      "Range": 800.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 1.5,
+      "MissileSpeed": 1600.0,
+      "Range": 900.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 225.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2100.0,
+      "Range": 1100.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 2000.0,
+      "Range": 700.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    }
+  ],
+  "Hecarim": [
+    {
+      "MissileSpeed": 1100.0,
+      "Range": 1000.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 280.0
+    }
+  ],
+  "HeimerTYellow": [
+    {
+      "Delay": 0.425,
+      "MissileAccel": -1000.0,
+      "MissileMaxSpeed": 1650.0,
+      "MissileMinSpeed": 1200.0,
+      "MissileSpeed": 1650.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "SpellName": "HeimerdingerTurretEnergyBlast",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 50.0
+    }
+  ],
+  "HeimerTBlue": [
+    {
+      "Delay": 0.35,
+      "MissileAccel": -1000.0,
+      "MissileMaxSpeed": 1650.0,
+      "MissileMinSpeed": 1200.0,
+      "MissileSpeed": 1650.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "SpellName": "HeimerdingerTurretBigEnergyBlast",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 75.0
+    }
+  ],
+  "Heimerdinger": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileAccel": 4000.0,
+      "MissileMaxSpeed": 3000.0,
+      "MissileMinSpeed": 750.0,
+      "MissileSpeed": 750.0,
+      "Range": 1350.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 40.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileAccel": 4000.0,
+      "MissileMaxSpeed": 3000.0,
+      "MissileMinSpeed": 750.0,
+      "MissileSpeed": 750.0,
+      "Range": 1350.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1200.0,
+      "Range": 925.0,
+      "Slot": "E",
+      "SpellName": "HeimerdingerE",
+      "Type": "Circle",
+      "Radius": 100.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1200.0,
+      "Range": 925.0,
+      "Slot": "E",
+      "SpellName": "HeimerdingerEUlt",
+      "Type": "Circle",
+      "Radius": 150.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileFixedTravelTime": 0.4,
+      "MissileSpeed": 1400.0,
+      "Range": 2500.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 150.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileFixedTravelTime": 0.4,
+      "MissileSpeed": 1400.0,
+      "Range": 2500.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 150.0
+    }
+  ],
+  "Illaoi": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.75,
+      "Range": 850.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 100.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1900.0,
+      "Range": 950.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    },
+    {
+      "Delay": 0.5,
+      "Range": 500.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 500.0
+    }
+  ],
+  "IllaoiMinion": [
+    {
+      "Delay": 0.7,
+      "Range": 800.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 110.0
+    }
+  ],
+  "Irelia": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 1600.0,
+      "Range": 1200.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 120.0
+    }
+  ],
+  "Jayce": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1450.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "SpellName": "JayceShockBlast",
+      "Type": "MissileAoe",
+      "Radius": 210.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "MissileSpeed": 2350.0,
+      "Range": 1600.0,
+      "Slot": "Q",
+      "Type": "MissileAoe",
+      "Radius": 210.0
+    }
+  ],
+  "Janna": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 900.0,
+      "Range": 1700.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 120.0
+    }
+  ],
+  "JarvanIV": [
+    {
+      "Delay": 0.4,
+      "Range": 770.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 70.0
+    },
+    {
+      "Delay": 0.4,
+      "MissileSpeed": 1800.0,
+      "Range": 770.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 120.0
+    }
+  ],
+  "Jhin": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.75,
+      "Range": 2550.0,
+      "Slot": "W",
+      "Type": "Line",
+      "Radius": 40.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 750.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 135.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.2,
+      "MissileSpeed": 5000.0,
+      "Range": 3500.0,
+      "Slot": "R",
+      "SpellName": "JhinRShot",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    }
+  ],
+  "Jinx": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient",
+        "ObjAiMinion"
+      ],
+      "Delay": 0.6,
+      "MissileSpeed": 3300.0,
+      "Range": 1500.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Delay": 1.2,
+      "Range": 1500.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 120.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient"
+      ],
+      "Delay": 0.6,
+      "MissileSpeed": 1700.0,
+      "Range": 25000.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 140.0
+    }
+  ],
+  "Kalista": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient",
+        "ObjAiMinion"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2400.0,
+      "Range": 1200.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    },
+    {
+      "Collisions": [
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1900.0,
+      "Range": 1450.0,
+      "Slot": "R",
+      "Type": "MissileAoe",
+      "Radius": 200.0
+    }
+  ],
+  "Karma": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient",
+        "ObjAiMinion"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient",
+        "ObjAiMinion"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileAoe",
+      "Radius": 250.0
+    }
+  ],
+  "Karthus": [
+    {
+      "Delay": 0.85,
+      "Range": 875.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 160.0
+    }
+  ],
+  "Kassadin": [
+    {
+      "Delay": 0.25,
+      "Range": 585.0,
+      "Slot": "E",
+      "Type": "Cone",
+      "Radius": 1.36135674
+    },
+    {
+      "Delay": 0.25,
+      "Range": 500.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 270.0
+    }
+  ],
+  "Kennen": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.125,
+      "MissileSpeed": 1700.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    }
+  ],
+  "Khazix": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 1025.0,
+      "Slot": "W",
+      "SpellName": "KhazixW",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 1025.0,
+      "Slot": "W",
+      "SpellName": "KhazixWlong",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "MissileSpeed": 1200.0,
+      "Range": 700.0,
+      "Slot": "E",
+      "SpellName": "KhazixE",
+      "Type": "Circle",
+      "Radius": 300.0
+    },
+    {
+      "MissileSpeed": 1200.0,
+      "Range": 900.0,
+      "Slot": "E",
+      "SpellName": "KhazixELong",
+      "Type": "Circle",
+      "Radius": 300.0
+    }
+  ],
+  "Kled": [
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 800.0,
+      "Slot": "Q",
+      "SpellName": "KledQ",
+      "Type": "MissileLine",
+      "Radius": 45.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 3000.0,
+      "Range": 700.0,
+      "Slot": "Q",
+      "SpellName": "KledRiderQ",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    },
+    {
+      "MissileSpeed": 950.0,
+      "Range": 550.0,
+      "Slot": "E",
+      "SpellName": "KledE",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    }
+  ],
+  "KogMaw": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1650.0,
+      "Range": 1200.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1400.0,
+      "Range": 1400.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 120.0
+    },
+    {
+      "Delay": 1.15,
+      "Range": 1200.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 225.0
+    }
+  ],
+  "Leblanc": [
+    {
+      "MissileSpeed": 1450.0,
+      "Range": 600.0,
+      "Slot": "W",
+      "SpellName": "LeblancSlide",
+      "Type": "Circle",
+      "Radius": 220.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1750.0,
+      "Range": 950.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 55.0
+    },
+    {
+      "MissileSpeed": 1450.0,
+      "Range": 600.0,
+      "Slot": "R",
+      "SpellName": "LeblancSlideM",
+      "Type": "Circle",
+      "Radius": 220.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1750.0,
+      "Range": 950.0,
+      "Slot": "R",
+      "SpellName": "LeblancSoulShackleM",
+      "Type": "MissileLine",
+      "Radius": 55.0
+    }
+  ],
+  "LeeSin": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1800.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "SpellName": "BlindMonkQOne",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 750.0,
+      "Range": 800.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    }
+  ],
+  "Leona": [
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 900.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Delay": 0.95,
+      "Range": 1200.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 300.0
+    }
+  ],
+  "Lissandra": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2200.0,
+      "Range": 700.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 75.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 2200.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    }
+  ],
+  "Lucian": [
+    {
+      "Delay": 0.36,
+      "Range": 900.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 65.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.3,
+      "MissileSpeed": 1600.0,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "MissileAoe",
+      "Radius": 200.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 2800.0,
+      "Range": 1200.0,
+      "Slot": "R",
+      "SpellName": "lucianrmissile",
+      "Type": "MissileLine",
+      "Radius": 110.0
+    }
+  ],
+  "Lulu": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1450.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1450.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "Lux": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1200.0,
+      "Range": 1300.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1200.0,
+      "Range": 1300.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1300.0,
+      "Range": 1100.0,
+      "Slot": "E",
+      "SpellName": "LuxLightStrikeKugel",
+      "Type": "Circle",
+      "Radius": 330.0
+    },
+    {
+      "Delay": 1.0,
+      "Range": 3300.0,
+      "Slot": "R",
+      "Type": "Line",
+      "Radius": 150.0
+    }
+  ],
+  "MissFortune": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 2000.0,
+      "Range": 1450.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 20.0
+    }
+  ],
+  "Malphite": [
+    {
+      "MissileSpeed": 2000.0,
+      "Range": 1000.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 270.0
+    }
+  ],
+  "Malzahar": [
+    {
+      "Delay": 0.5,
+      "Range": 900.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 85.0
+    },
+    {
+      "MissileSpeed": 1600.0,
+      "Range": 750.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 85.0
+    }
+  ],
+  "Morgana": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1200.0,
+      "Range": 1300.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ],
+  "Nami": [
+    {
+      "Delay": 0.25,
+      "MissileFixedTravelTime": 0.7,
+      "Range": 875.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 200.0
+    },
+    {
+      "Delay": 0.5,
+      "MissileSpeed": 850.0,
+      "Range": 2750.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 250.0
+    }
+  ],
+  "Nautilus": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 1150.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    }
+  ],
+  "Nidalee": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1300.0,
+      "Range": 1500.0,
+      "Slot": "Q",
+      "SpellName": "JavelinToss",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    }
+  ],
+  "Nocturne": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1400.0,
+      "Range": 1200.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "Olaf": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    }
+  ],
+  "Orianna": [
+    {
+      "MissileSpeed": 1200.0,
+      "Range": 815.0,
+      "Slot": "Q",
+      "Type": "MissileAoe",
+      "Radius": 145.0
+    },
+    {
+      "MissileSpeed": 1850.0,
+      "Range": 1500.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    },
+    {
+      "Delay": 0.5,
+      "Range": 400.0,
+      "Slot": "R",
+      "Type": "Self",
+      "Radius": 400.0
+    }
+  ],
+  "Quinn": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1550.0,
+      "Range": 1050.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "Poppy": [
+    {
+      "Delay": 0.35,
+      "Range": 430.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 100.0
+    },
+    {
+      "Delay": 1.35,
+      "Range": 430.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 100.0
+    },
+    {
+      "CastRangeGrowthDuration": 0.5,
+      "CastRangeGrowthMax": 1200,
+      "CastRangeGrowthMin": 500,
+      "CastRangeGrowthStartTime": 0.5,
+      "Chargeable": true,
+      "Delay": 0.35,
+      "MissileSpeed": 1600.0,
+      "Range": 1200.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    }
+  ],
+  "RekSai": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.125,
+      "MissileSpeed": 1950.0,
+      "Range": 1500.0,
+      "Slot": "Q",
+      "SpellName": "reksaiqburrowed",
+      "Type": "MissileLine",
+      "Radius": 65.0
+    }
+  ],
+  "Rengar": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 1000.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ],
+  "Riven": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 1075.0,
+      "Slot": "R",
+      "SpellName": "RivenIzunaBlade",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    }
+  ],
+  "Rumble": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 950.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "MissileSpeed": 1600.0,
+      "Range": 1200.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 200.0
+    }
+  ],
+  "Ryze": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 55.0
+    }
+  ],
+  "Sejuani": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "MissileSpeed": 1000.0,
+      "Range": 650.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 75.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1600.0,
+      "Range": 1100.0,
+      "Slot": "R",
+      "Type": "MissileAoe",
+      "Radius": 350.0
+    }
+  ],
+  "Shen": [
+    {
+      "MissileSpeed": 1200.0,
+      "Range": 600.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    }
+  ],
+  "Shyvana": [
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 950.0,
+      "Slot": "E",
+      "SpellName": "ShyvanaFireball",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1250.0,
+      "Range": 1000.0,
+      "Slot": "R",
+      "SpellName": "ShyvanaTransformCast",
+      "Type": "MissileLine",
+      "Radius": 150.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 2000.0,
+      "Range": 850.0,
+      "Slot": "E",
+      "SpellName": "ShyvanaFireballDragon2",
+      "Type": "MissileLine"
+    }
+  ],
+  "Sion": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1800.0,
+      "Range": 800.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ],
+  "Sivir": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1350.0,
+      "Range": 1250.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 1350.0,
+      "Range": 1250.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 100.0
+    }
+  ],
+  "Skarner": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 1000.0,
+      "Slot": "E",
+      "SpellName": "SkarnerFracture",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ],
+  "Sona": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2400.0,
+      "Range": 1000.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 140.0
+    }
+  ],
+  "Soraka": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1100.0,
+      "Range": 800.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 260.0
+    },
+    {
+      "Delay": 0.25,
+      "Range": 875.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 250.0
+    }
+  ],
+  "Swain": [
+    {
+      "Delay": 1.15,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 240.0
+    }
+  ],
+  "Syndra": [
+    {
+      "MissileFixedTravelTime": 0.6,
+      "Range": 825.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 180.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 950.0,
+      "Slot": "W",
+      "SpellName": "SyndraWCast",
+      "Type": "Circle",
+      "Radius": 210.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 2500.0,
+      "Range": 675.0,
+      "Slot": "E",
+      "SpellName": "syndrae",
+      "Type": "Cone",
+      "Radius": 0.6981317
+    },
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 2500.0,
+      "Range": 675.0,
+      "Slot": "E",
+      "SpellName": "syndrae5",
+      "Type": "Cone",
+      "Radius": 1.04719758
+    },
+    {
+      "MissileSpeed": 2000.0,
+      "Range": 1200.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "TahmKench": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2800.0,
+      "Range": 875.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    }
+  ],
+  "Talon": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2300.0,
+      "Range": 700.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Radius": 75.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 1850.0,
+      "Range": 700.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Radius": 75.0
+    }
+  ],
+  "Taliyah": [
+    {
+      "Delay": 0.25,
+      "MissileAccel": -5000.0,
+      "MissileMaxSpeed": 3600.0,
+      "MissileMinSpeed": 1500.0,
+      "MissileSpeed": 3600.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Acceleration": true,
+      "Radius": 100.0
+    },
+    {
+      "Delay": 0.8,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 200.0
+    }
+  ],
+  "Taric": [
+    {
+      "Delay": 1.0,
+      "Range": 610.0,
+      "Slot": "E",
+      "Type": "Line",
+      "Radius": 90.0
+    }
+  ],
+  "Teemo": [
+    {
+      "Delay": 0.25,
+      "Range": 400.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 135.0
+    }
+  ],
+  "Thresh": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.5,
+      "MissileSpeed": 1900.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "SpellName": "ThreshQ",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "MissileSpeed": 2000.0,
+      "Range": 1075.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 110.0
+    }
+  ],
+  "Tristana": [
+    {
+      "Delay": 0.25,
+      "MissileSpeed": 1000.0,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 270.0
+    }
+  ],
+  "TwistedFate": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1000.0,
+      "Range": 1450.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 40.0
+    }
+  ],
+  "Twitch": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1400.0,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 275.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 4000.0,
+      "Range": 1100.0,
+      "Slot": "R",
+      "SpellName": "TwitchSprayAndPrayAttack",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    }
+  ],
+  "Urgot": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.15,
+      "MissileSpeed": 1600.0,
+      "Range": 1000.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1500.0,
+      "Range": 900.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 250.0
+    }
+  ],
+  "Varus": [
+    {
+      "CastRangeGrowthDuration": 1.3,
+      "CastRangeGrowthMax": 1525,
+      "CastRangeGrowthMin": 925,
+      "Chargeable": true,
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 1900.0,
+      "Range": 1525.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileFixedTravelTime": 0.5,
+      "Range": 925.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 235.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1950.0,
+      "Range": 1250.0,
+      "Slot": "R",
+      "Type": "MissileLine",
+      "Radius": 120.0
+    }
+  ],
+  "Veigar": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2200.0,
+      "Range": 950.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    },
+    {
+      "Delay": 1.2,
+      "Range": 900.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 225.0
+    },
+    {
+      "Delay": 0.8,
+      "Range": 725.0,
+      "RingRadius": 350,
+      "Slot": "E",
+      "Type": "Ring",
+      "Radius": 80.0
+    }
+  ],
+  "Velkoz": [
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1300.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "SpellName": "VelkozQ",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 2100.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "SpellName": "VelkozQSplitActivate",
+      "Type": "MissileLine",
+      "Radius": 45.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 1200.0,
+      "Slot": "W",
+      "Type": "MissileLine",
+      "Radius": 88.0
+    },
+    {
+      "Delay": 0.25,
+      "MissileFixedTravelTime": 0.55,
+      "Range": 800.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 225.0
+    }
+  ],
+  "Vi": [
+    {
+      "CastRangeGrowthDuration": 1.25,
+      "CastRangeGrowthMax": 775,
+      "CastRangeGrowthMin": 250,
+      "Chargeable": true,
+      "MissileSpeed": 1500.0,
+      "Range": 775.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    }
+  ],
+  "Viktor": [
+    {
+      "Range": 700.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 300.0
+    },
+    {
+      "MissileSpeed": 1050.0,
+      "Range": 700.0,
+      "Slot": "E",
+      "SpellName": "ViktorDeathRay",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    },
+    {
+      "Delay": 0.7,
+      "MissileSpeed": 1500.0,
+      "Range": 700.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    },
+    {
+      "Delay": 1.0,
+      "MissileSpeed": 1500.0,
+      "Range": 700.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 80.0
+    }
+  ],
+  "Xerath": [
+    {
+      "CastRangeGrowthDuration": 1.5,
+      "CastRangeGrowthMax": 1500,
+      "CastRangeGrowthMin": 750,
+      "Chargeable": true,
+      "Delay": 0.5,
+      "Range": 1500.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 95.0
+    },
+    {
+      "Delay": 0.75,
+      "Range": 1000.0,
+      "Slot": "W",
+      "Type": "Circle",
+      "Radius": 250.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall",
+        "ObjAiMinion",
+        "AiHeroClient"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1400.0,
+      "Range": 1125.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 60.0
+    },
+    {
+      "MissileFixedTravelTime": 0.6,
+      "Range": 5600.0,
+      "Slot": "R",
+      "SpellName": "XerathRMissileWrapper",
+      "Type": "Circle",
+      "Radius": 200.0
+    }
+  ],
+  "Yasuo": [
+    {
+      "Delay": 0.325,
+      "Range": 475.0,
+      "Slot": "Q",
+      "SpellName": "YasuoQW",
+      "Type": "Line",
+      "Radius": 55.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.3,
+      "MissileSpeed": 1200.0,
+      "Range": 1100.0,
+      "Slot": "Q",
+      "SpellName": "YasuoQ3W",
+      "Type": "MissileLine",
+      "Radius": 90.0
+    }
+  ],
+  "Zac": [
+    {
+      "Delay": 0.4,
+      "Range": 550.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 120.0
+    },
+    {
+      "CastRangeGrowthDuration": 0.9,
+      "CastRangeGrowthMax": 1650,
+      "CastRangeGrowthMin": 300,
+      "Chargeable": true,
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileSpeed": 1250.0,
+      "Range": 1650.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 250.0
+    }
+  ],
+  "Zed": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 925.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 925.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 925.0,
+      "Slot": "Q",
+      "Type": "MissileLine",
+      "Radius": 50.0
+    }
+  ],
+  "Ziggs": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1700.0,
+      "Range": 850.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 125.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileFixedTravelTime": 0.48,
+      "Range": 1300.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 125.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "MissileFixedTravelTime": 0.43,
+      "Range": 1300.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 125.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1750.0,
+      "Range": 1000.0,
+      "Slot": "W",
+      "SpellName": "ZiggsW",
+      "Type": "Circle",
+      "Radius": 275.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1550.0,
+      "Range": 900.0,
+      "Slot": "E",
+      "Type": "Circle",
+      "Radius": 235.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.38,
+      "MissileSpeed": 1550.0,
+      "Range": 5300.0,
+      "Slot": "R",
+      "Type": "Circle",
+      "Radius": 500.0
+    }
+  ],
+  "Zilean": [
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileFixedTravelTime": 0.45,
+      "Range": 900.0,
+      "Slot": "Q",
+      "Type": "Circle",
+      "Radius": 150.0
+    }
+  ],
+  "Zyra": [
+    {
+      "Delay": 0.85,
+      "Range": 800.0,
+      "Slot": "Q",
+      "Type": "Line",
+      "Radius": 85.0
+    },
+    {
+      "Collisions": [
+        "YasuoWall"
+      ],
+      "Delay": 0.25,
+      "MissileSpeed": 1150.0,
+      "Range": 1150.0,
+      "Slot": "E",
+      "Type": "MissileLine",
+      "Radius": 70.0
+    }
+  ]
+}
