@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Misks">
+      <UniqueIdentifier>{de6c4fb8-af7d-4e35-aef5-cfd6d4e4a724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misks">
+      <UniqueIdentifier>{57076e37-2847-4a5d-a907-8c1630bc521f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{24ce8bff-b9a3-42c7-8df3-861e16959e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{f5308554-d7e6-4194-b0e0-5b6e9c75cf29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\ObjectManager">
+      <UniqueIdentifier>{19b5337f-465d-44c5-b6c7-5f7274ed19a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\ObjectManager">
+      <UniqueIdentifier>{39cdf317-3eff-40a2-86cd-6d34fa970d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{a6784986-4f20-4a41-86b8-c5c089d7bf4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{d78d1afc-1c2a-4515-9687-8348d4363644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\ObjectManager\GameObjects">
+      <UniqueIdentifier>{3cfe96f4-e5a8-4df3-929d-6d6edae508cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\ObjectManager\GameObjects">
+      <UniqueIdentifier>{748e81ee-0535-4f9e-ac00-4b9a4c3f9143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{bf6b321b-8aa2-4c88-b6c7-58ab2cd46a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{fffd0512-53d5-4fc1-a4eb-2057c2b63fc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Patchables">
+      <UniqueIdentifier>{708ab262-186b-4006-88a3-f69d33685827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Patchables">
+      <UniqueIdentifier>{6ae6a597-afba-49f4-a1fc-534b13d28336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render">
+      <UniqueIdentifier>{2cd1e426-0acd-4923-b296-9476276be00f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render\Draw">
+      <UniqueIdentifier>{b8107c78-17f9-4e5b-b5c8-30ace70910d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render">
+      <UniqueIdentifier>{c7686395-e722-4b21-a6cc-0233ec7398b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Draw">
+      <UniqueIdentifier>{9a2f468d-f1ed-4d21-8279-46aeb9230683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\detours">
+      <UniqueIdentifier>{9cb30958-4e31-4ae7-b79c-95a8d40ba5aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{f207e12f-e50f-44a0-8a68-ef15d096f19a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{e9a447d2-1769-4860-a2c3-0b705b0085e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\ObjectManager\GameObjects\AttackableUnit">
+      <UniqueIdentifier>{e435c57e-97d2-487d-9d47-a0d821213565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base">
+      <UniqueIdentifier>{9d18c67e-ea8b-4376-be73-8c507c424493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\ObjectManager\GameObjects\AttackableUnit">
+      <UniqueIdentifier>{dbd1be13-39c6-4db9-9ea5-55cdafcaffa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base">
+      <UniqueIdentifier>{3fee68cb-a799-4fb5-9b6a-7caa23c87ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Spellbook">
+      <UniqueIdentifier>{7b53aa04-c321-408b-8547-eb4cb1d9fbe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Spellbook">
+      <UniqueIdentifier>{fa08fec3-cfbf-42d6-bfee-6a5c817ec118}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\D3DHooks">
+      <UniqueIdentifier>{a0b6dd13-1354-4cc1-9ef4-d1682d8ccc7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\D3DHooks">
+      <UniqueIdentifier>{7539564b-20ae-47d7-9513-79d313d1ee39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\GameFunctions">
+      <UniqueIdentifier>{41114295-c36a-460d-9fd9-3e69b64e33d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\GameFunctions">
+      <UniqueIdentifier>{6accece3-d7b0-4bc4-91c6-cd229992f689}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SDK\Game.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Patchables.cpp">
+      <Filter>Source Files\Game\Patchables</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Options.cpp">
+      <Filter>Source Files\Misks</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Utilities.cpp">
+      <Filter>Source Files\Misks</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Render.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Draw.cpp">
+      <Filter>Source Files\Render\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\ObjectManager.cpp">
+      <Filter>Source Files\Objects\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\GameObject.cpp">
+      <Filter>Source Files\Objects\ObjectManager\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\D3DHooks.cpp">
+      <Filter>Source Files\D3DHooks</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\menu\input.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\menu\menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\menu\menuItems.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\menu\tools.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\menu\menuDraw.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\AttackableUnit.cpp">
+      <Filter>Source Files\Objects\ObjectManager\GameObjects\AttackableUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Obj_AI_Base.cpp">
+      <Filter>Source Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\AIHeroClient.cpp">
+      <Filter>Source Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Spellbook.cpp">
+      <Filter>Source Files\Objects\Spellbook</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SDK\Offsets.h">
+      <Filter>Header Files\Game\Patchables</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Patchables.h">
+      <Filter>Header Files\Game\Patchables</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\math\Vector.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\LolString.h">
+      <Filter>Header Files\Misks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Macros.h">
+      <Filter>Header Files\Misks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Options.h">
+      <Filter>Header Files\Misks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\StaticEnums.h">
+      <Filter>Header Files\Misks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Utilities.h">
+      <Filter>Header Files\Misks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\detours\detours.h">
+      <Filter>Header Files\detours</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\colors_define.h">
+      <Filter>Header Files\Render\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Draw.h">
+      <Filter>Header Files\Render\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Render.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameObject.h">
+      <Filter>Header Files\Objects\ObjectManager\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameObjectVTable.h">
+      <Filter>Header Files\Objects\ObjectManager\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\TestComponents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\D3DHooks.h">
+      <Filter>Header Files\D3DHooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\menu\input.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\menu\menu.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\menu\menuItems.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\menu\tools.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\menu\menuDraw.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\AttackableUnit.h">
+      <Filter>Header Files\Objects\ObjectManager\GameObjects\AttackableUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Obj_AI_Base.h">
+      <Filter>Header Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\AIHeroClient.h">
+      <Filter>Header Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\ObjectManager.h">
+      <Filter>Header Files\Objects\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Spellbook.h">
+      <Filter>Header Files\Objects\Spellbook</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\SpellCastInfo.h">
+      <Filter>Header Files\Objects\Spellbook</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\SpellDataInst.h">
+      <Filter>Header Files\Objects\Spellbook</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\SpellInfo.h">
+      <Filter>Header Files\Objects\Spellbook</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\SpellData.h">
+      <Filter>Header Files\Objects\Spellbook</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Game.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Hooks.h">
+      <Filter>Header Files\Game\GameFunctions</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\EventManager.h">
+      <Filter>Header Files\Game\GameFunctions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SDK\detours\detours.lib">
+      <Filter>Header Files\detours</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

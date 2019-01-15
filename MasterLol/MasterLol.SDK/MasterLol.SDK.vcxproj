@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{60670505-F791-4979-B4D3-22DD57CDCC4E}</ProjectGuid>
+    <RootNamespace>MasterLolProject</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectName>MasterLol.SDK</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\d3d9;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="SDK\AIHeroClient.cpp" />
+    <ClCompile Include="SDK\AttackableUnit.cpp" />
+    <ClCompile Include="SDK\Draw.cpp" />
+    <ClCompile Include="SDK\Game.cpp" />
+    <ClCompile Include="SDK\GameCursor.cpp" />
+    <ClCompile Include="SDK\GameObject.cpp" />
+    <ClCompile Include="SDK\D3DHooks.cpp" />
+    <ClCompile Include="SDK\Inputs.cpp" />
+    <ClCompile Include="SDK\menu\menuDraw.cpp" />
+    <ClCompile Include="SDK\menu\input.cpp" />
+    <ClCompile Include="SDK\menu\menu.cpp" />
+    <ClCompile Include="SDK\menu\menuItems.cpp" />
+    <ClCompile Include="SDK\menu\tools.cpp" />
+    <ClCompile Include="SDK\ObjectManager.cpp" />
+    <ClCompile Include="SDK\Obj_AI_Base.cpp" />
+    <ClCompile Include="SDK\Options.cpp" />
+    <ClCompile Include="SDK\Patchables.cpp" />
+    <ClCompile Include="SDK\Spellbook.cpp" />
+    <ClCompile Include="SDK\SpellDataInst.cpp" />
+    <ClCompile Include="SDK\SpellInfo.cpp" />
+    <ClCompile Include="SDK\stdafx.cpp" />
+    <ClCompile Include="SDK\Utilities.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SDK\AIHeroClient.h" />
+    <ClInclude Include="SDK\AttackableUnit.h" />
+    <ClInclude Include="SDK\colors_define.h" />
+    <ClInclude Include="SDK\detours\detours.h" />
+    <ClInclude Include="SDK\Draw.h" />
+    <ClInclude Include="SDK\EnumMacro.h" />
+    <ClInclude Include="SDK\EventManager.h" />
+    <ClInclude Include="SDK\Game.h" />
+    <ClInclude Include="SDK\GameCursor.h" />
+    <ClInclude Include="SDK\Hooks.h" />
+    <ClInclude Include="SDK\GameObject.h" />
+    <ClInclude Include="SDK\GameObjectVTable.h" />
+    <ClInclude Include="SDK\D3DHooks.h" />
+    <ClInclude Include="SDK\Inputs.h" />
+    <ClInclude Include="SDK\LolString.h" />
+    <ClInclude Include="SDK\Macros.h" />
+    <ClInclude Include="SDK\math\Vector.hpp" />
+    <ClInclude Include="SDK\menu\menuDraw.h" />
+    <ClInclude Include="SDK\menu\input.h" />
+    <ClInclude Include="SDK\menu\menu.h" />
+    <ClInclude Include="SDK\menu\menuItems.h" />
+    <ClInclude Include="SDK\menu\tools.h" />
+    <ClInclude Include="SDK\MissileClient.h" />
+    <ClInclude Include="SDK\Names.h" />
+    <ClInclude Include="SDK\ObjectManager.h" />
+    <ClInclude Include="SDK\Obj_AI_Base.h" />
+    <ClInclude Include="SDK\Obj_AI_Turret.h" />
+    <ClInclude Include="SDK\Offsets.h" />
+    <ClInclude Include="SDK\Options.h" />
+    <ClInclude Include="SDK\Patchables.h" />
+    <ClInclude Include="SDK\Spellbook.h" />
+    <ClInclude Include="SDK\SpellCastInfo.h" />
+    <ClInclude Include="SDK\SpellData.h" />
+    <ClInclude Include="SDK\SpellDataInst.h" />
+    <ClInclude Include="SDK\SpellInclude.h" />
+    <ClInclude Include="SDK\SpellInfo.h" />
+    <ClInclude Include="SDK\StaticEnums.h" />
+    <ClInclude Include="SDK\stdafx.h" />
+    <ClInclude Include="SDK\TestComponents.h" />
+    <ClInclude Include="SDK\UnitInclude.h" />
+    <ClInclude Include="SDK\Utilities.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SDK\detours\detours.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
