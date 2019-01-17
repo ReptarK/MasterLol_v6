@@ -6,28 +6,19 @@
 #include "Macros.h"
 #include "GameObjectVTable.h"
 
-struct BBox
-{
-	float MinimumX;
-	float MinimumY;
-	float MinimumZ;
-	float MaximumX;
-	float MaximumY;
-	float MaximumZ;
-};
-
 class GameObject
 {
 public:
 	GameObjectVTable * GetVirtual();
 
-	MAKE_GET(Index, short, Offsets::GameObject::Index);
-	MAKE_GET(Team, GameObjectTeam, Offsets::GameObject::Team);
-	MAKE_GET(NetworkId, uint, Offsets::GameObject::NetworkId);
-	MAKE_GET(IsVisible, bool, Offsets::GameObject::VisibleOnScreen);
+	MAKE_GET( Index, short, Offsets::GameObject::Index );
+	MAKE_GET( Team, GameObjectTeam, Offsets::GameObject::Team );
+	MAKE_GET( NetworkId, uint, Offsets::GameObject::NetworkId );
+	MAKE_GET( IsVisible, bool, Offsets::GameObject::VisibleOnScreen );
 
 	float GetBoundingRadius();
 
+	// Types
 	bool IsHero();
 	bool IsMissile();
 	bool IsMinion();
@@ -35,7 +26,7 @@ public:
 	bool IsInhibitor();
 	bool IsTroyEnt();
 	bool IsNexus();
-
+	EUnitType GetType();
 
 	Vector3 GetPos();
 	std::string GetName();

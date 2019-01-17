@@ -101,3 +101,12 @@ float Game::GetPing()
 {
 	return 60;
 }
+
+void Game::PrintChat( char* Message, DWORD color)
+{
+	typedef void( __thiscall* _fnPrintChat )( DWORD ChatClient, const char* Message, int Color );
+	static _fnPrintChat oPrintChat = ( _fnPrintChat )( Patchables::LolBase + fnPrintChat );
+	static DWORD chatClient = *( DWORD* )( Patchables::LolBase + oChatClientPtr );
+
+	return oPrintChat( chatClient, Message, color );
+}

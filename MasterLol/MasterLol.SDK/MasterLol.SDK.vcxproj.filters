@@ -70,12 +70,6 @@
     <Filter Include="Header Files\detours">
       <UniqueIdentifier>{9cb30958-4e31-4ae7-b79c-95a8d40ba5aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Menu">
-      <UniqueIdentifier>{f207e12f-e50f-44a0-8a68-ef15d096f19a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Menu">
-      <UniqueIdentifier>{e9a447d2-1769-4860-a2c3-0b705b0085e4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Objects\ObjectManager\GameObjects\AttackableUnit">
       <UniqueIdentifier>{e435c57e-97d2-487d-9d47-a0d821213565}</UniqueIdentifier>
     </Filter>
@@ -137,21 +131,6 @@
     </ClCompile>
     <ClCompile Include="SDK\D3DHooks.cpp">
       <Filter>Source Files\D3DHooks</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\menu\input.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\menu\menu.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\menu\menuItems.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\menu\tools.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\menu\menuDraw.cpp">
-      <Filter>Source Files\Menu</Filter>
     </ClCompile>
     <ClCompile Include="SDK\AttackableUnit.cpp">
       <Filter>Source Files\Objects\ObjectManager\GameObjects\AttackableUnit</Filter>
@@ -226,21 +205,6 @@
     </ClInclude>
     <ClInclude Include="SDK\D3DHooks.h">
       <Filter>Header Files\D3DHooks</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\menu\input.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\menu\menu.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\menu\menuItems.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\menu\tools.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\menu\menuDraw.h">
-      <Filter>Header Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="SDK\AttackableUnit.h">
       <Filter>Header Files\Objects\ObjectManager\GameObjects\AttackableUnit</Filter>

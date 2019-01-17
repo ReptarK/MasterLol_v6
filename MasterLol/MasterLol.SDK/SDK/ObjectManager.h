@@ -37,9 +37,9 @@ public:
 	GameObject* GetUnitByNetworkId(uint networkId);
 
 
-	std::vector<GameObject*> GetType(UnitType type);
+	std::vector<GameObject*> GetType(EUnitType type);
 	template<class T>
-	std::vector<T*> GetType(UnitType type);
+	std::vector<T*> GetType(EUnitType type);
 
 	GameObject* operator[] (const uint index);
 

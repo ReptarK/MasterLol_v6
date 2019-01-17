@@ -29,22 +29,22 @@ namespace Names
 		Dragon
 	)
 
-	static bool IsName(GameObject* object, std::string name)
+	static bool IsName( GameObject* object, std::string name )
 	{
-		std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+		std::transform( name.begin(), name.end(), name.begin(), ::tolower );
 		std::string objectLowerName = object->GetName();
-		std::transform(objectLowerName.begin(), objectLowerName.end(), objectLowerName.begin(), ::tolower);
+		std::transform( objectLowerName.begin(), objectLowerName.end(), objectLowerName.begin(), ::tolower );
 
 		return objectLowerName == name;
 	}
 
-	static bool ContainsName(GameObject* object, std::string name)
+	static bool ContainsName( GameObject* object, std::string name )
 	{
-		std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+		std::transform( name.begin(), name.end(), name.begin(), ::tolower );
 		std::string objectLowerName = object->GetName();
-		std::transform(objectLowerName.begin(), objectLowerName.end(), objectLowerName.begin(), ::tolower);
+		std::transform( objectLowerName.begin(), objectLowerName.end(), objectLowerName.begin(), ::tolower );
 
-		return objectLowerName.find(name) != std::string::npos;
+		return objectLowerName.find( name ) != std::string::npos;
 	}
 }
 

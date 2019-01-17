@@ -25,13 +25,13 @@ public:
 	enum class AttackableUnit
 	{
 		// Booleans
-		IsInvulnerable	= 0x0394,
-		IsTargetable	= 0x060C,
+		//IsInvulnerable	= 0x0394,
+		//IsTargetable	= 0x060C,
 
-		Mana		= 0x2CC,
-		MaxMana		= Mana + 0x10,
-		Health		= 0xF7C,
-		MaxHealth	= Health + 0x10,
+		Mana		    = 0x44C,
+		MaxMana		    = Mana + 0x10,
+		Health		    = 0xF7C,
+		MaxHealth	    = Health + 0x10,
 
 		AllShield		= 0x6B8,
 		PhisicalShield	= AllShield + 0x10,
@@ -39,27 +39,21 @@ public:
 		StopShieldFade	= MagicalShield + 0x20,
 
 		CaracterState	= 0x804,
-		UnitStats		= 0xE20,
-		CombatType		= 0x16E4,
+		UnitStats		= 0x1818,
+		CombatType		= 0x1DC8,
 	};
 
 	enum class Obj_AI_Base
 	{
-		Gold = 0x1268,
+		Gold		= 0x1C88,
+		AIName		= 0x2460,
 
-		AIName		= 0x179C,
-		AIManager	= 0x17B4,
-
-		ManaCost_Q	= 0x1D00,
-		ManaCost_W	= ManaCost_Q + (0x16 * 1),
-		ManaCost_E	= ManaCost_Q + (0x16 * 2),
-		ManaCost_R	= ManaCost_Q + (0x16 * 3),
-		SpellBook	= 0x2174,
+		SpellBook	= 0x29F0,
 	};
 
 	enum class AIHeroClient
 	{
-		Level = 0x3934
+		Level = 0x4B2C
 	};
 
 	enum class MissileClient
@@ -75,18 +69,25 @@ public:
 
 	enum class Spellbook
 	{
+		ManaCostQ = 0x28,
+		ManaCostW = ManaCostQ + 0x10,
+		ManaCostE = ManaCostQ + ( 0x10 * 2 ),
+		ManaCostR = ManaCostQ + ( 0x10 * 3 ),
+
 		GetSpells = 0x530
 	};
 
 	enum class SpellDataInst
 	{
-		Level = 0x1C,
-		CooldownExpires = 0x24,
-		Ammo = 0x28,
-		AmmoRechargeStart = 0x58,
-		ToggleState = 0x64, // Karthus
-		Cooldown = 0x68,
-		SpellInfo = 0x11C
+		// TODO
+		Level				= 0x1C,
+		CooldownExpires		= 0x24,
+		Ammo				= 0x28,
+		AmmoRechargeStart	= 0x58,
+		ToggleState			= 0x64, // Karthus
+		Cooldown			= 0x68,
+
+		SpellInfo			= 0x124
 	};
 
 	enum class SpellInfo
@@ -99,22 +100,21 @@ public:
 		MissileName			= 0x58,
 		SpellName			= 0x7C,
 		EffectAmount		= 0xD0,
-		Coefficient			= 0x1F4,
-		Coefficient2		= 0x1F8,
-		CooldownTime		= 0x274,
-		CastRange			= 0x390,
-		CastRadius			= 0x03DC,
-		CastConeAngle		= 0x400,
-		CastConeDistance	= 0x404,
-		CastTargetAdditionalUnitsRadius		= 0x0408,
-		LuaOnMissileUpdateDistanceInterval	= 0x040C,
-		CastType			= 0x0414,
-		SpellDamageRatio	= 0x041C,
-		PhysicalDamageRatio = 0x420,
-		MissileSpeed		= 0x042C,
-		LineWidth			= 0x460,
-		ManaCost			= 0x4FC,
-		TargetingType		= 0x600
+		Coefficient			= 0x200,
+		Coefficient2		= 0x204,
+		CooldownTime		= 0x280,
+		CastRange			= 0x3B4,
+		CastRadius			= 0x3EC,
+		CastConeAngle		= 0x41C,
+		CastConeDistance	= 0x420,
+		CastTargetAdditionalUnitsRadius		= 0x424,
+		LuaOnMissileUpdateDistanceInterval	= 0x428,
+		SpellDamageRatio	= 0x440,
+		PhysicalDamageRatio = 0x444,
+		MissileSpeed		= 0x450,
+		LineWidth			= 0x484,
+		ManaCost			= 0x520,
+		CastType			= 0x664
 	};
 
 	enum class SpellCastInfo

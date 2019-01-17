@@ -114,8 +114,8 @@ class AttackableUnit
 	: public GameObject
 {
 public:
-	MAKE_GET(IsInvulnerable, bool, Offsets::AttackableUnit::IsInvulnerable);
-	MAKE_GET(IsTargetable, bool, Offsets::AttackableUnit::IsTargetable);
+	//MAKE_GET(IsInvulnerable, bool, Offsets::AttackableUnit::IsInvulnerable);
+	//MAKE_GET(IsTargetable, bool, Offsets::AttackableUnit::IsTargetable);
 
 	MAKE_GET(Health, float, Offsets::AttackableUnit::Health);
 	MAKE_GET(MaxHealth, float, Offsets::AttackableUnit::MaxHealth);
@@ -139,6 +139,9 @@ public:
 
 	bool IsMelee();
 	bool IsRanged();
+
+	bool IsAlive();
+	bool IsTargetable();
 
 	float GetHealthPercent();
 	float GetManaPercent();

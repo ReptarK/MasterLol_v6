@@ -4,8 +4,8 @@
 class SpellData
 {
 public:
-	MAKE_GET(SpellName, char*, Offsets::SpellData::SpellName);
 	MAKE_GET(MissileName, char*, Offsets::SpellData::MissileName);
+	MAKE_GET(SpellName, char*, Offsets::SpellData::SpellName);
 	MAKE_SPELL_DATA_ARRAY(EffectAmount, float, Offsets::SpellData::EffectAmount);
 	MAKE_GET(Cooeficient, float, Offsets::SpellData::Coefficient);
 	MAKE_GET(Coefficient2, float, Offsets::SpellData::Coefficient2);
@@ -21,5 +21,4 @@ public:
 	MAKE_GET(PhysicalDamageRatio, float, Offsets::SpellData::PhysicalDamageRatio);
 	MAKE_GET(MissileSpeed, float, Offsets::SpellData::MissileSpeed);
 	MAKE_SPELL_DATA_ARRAY(ManaCost, float, Offsets::SpellData::ManaCost);
-	MAKE_GET(TargetingType, float, Offsets::SpellData::TargetingType);
 };

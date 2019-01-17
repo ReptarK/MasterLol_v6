@@ -31,6 +31,7 @@
 #define oGameVersion 0x2E80678
 #define oRenderer 0x2E92DD4			// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
 #define oZoomClass 0x2E73358
+#define oUnderMouseObj 0x221F944	// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 
 
 

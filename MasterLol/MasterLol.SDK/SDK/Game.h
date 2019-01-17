@@ -21,5 +21,6 @@ public:
 	bool IsGameFocused();
 	float GetGameTime();
 	float GetPing();
+	void PrintChat( char* Message, DWORD color );
 };
 

@@ -13,7 +13,8 @@ public:
 	MAKE_GET(ToggleState, ToggleState, Offsets::SpellDataInst::ToggleState);
 	MAKE_GET(Cooldown, float, Offsets::SpellDataInst::Cooldown);
 
-	//MAKE_GET(SpellInfo, SpellInfo*, Offsets::SpellDataInst::SpellInfo);
-
-	SpellInfo* GetSpellInfo();
+	SpellInfo* GetSpellInfo()
+	{
+		return *reinterpret_cast< SpellInfo** >( ( DWORD )this + static_cast< __int32 >( Offsets::SpellDataInst::SpellInfo ) );
+	}
 };

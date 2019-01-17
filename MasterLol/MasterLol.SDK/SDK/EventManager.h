@@ -20,20 +20,20 @@
 
 enum class EventIndex
 {
-	OnMainLoop				= 1,
-	OnDrawingEndScene		= 2,
-	OnReset					= 3,
-	OnDrawingPresent		= 4,
+	OnMainLoop = 1,
+	OnDrawingEndScene = 2,
+	OnReset = 3,
+	OnDrawingPresent = 4,
 	OnDrawingRangeIndicator = 5,
-	OnGameObjectCreate		= 6,
-	OnGameObjectDelete		= 7,
+	OnGameObjectCreate = 6,
+	OnGameObjectDelete = 7,
 	OnObjAIBaseProcessSpell = 8,
-	OnObjAIBaseIssueOrder	= 9,
-	OnPlayerBuyItem			= 10,
-	OnPlayerSellItem		= 11,
-	OnPlayerSwapItem		= 12,
-	OnPlayerDoEmote			= 13,
-	OnSpellbookCastSpell	= 14
+	OnObjAIBaseIssueOrder = 9,
+	OnPlayerBuyItem = 10,
+	OnPlayerSellItem = 11,
+	OnPlayerSwapItem = 12,
+	OnPlayerDoEmote = 13,
+	OnSpellbookCastSpell = 14
 };
 
 namespace EventDefines
@@ -41,51 +41,51 @@ namespace EventDefines
 	class ItemNode;
 
 	//Game
-	typedef void(OnMainLoop)();
+	typedef void( OnMainLoop )();
 
 	//Drawing
-	typedef void(OnDrawingEndScene)(IDirect3DDevice9*);
-	typedef void(OnReset)(IDirect3DDevice9*, D3DPRESENT_PARAMETERS*);
-	typedef void(OnDrawingPresent)(LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*);
-	typedef void(OnDrawingRangeIndicator)(Vector3* position, float range, int* color, int, float, int, float alpha);
+	typedef void( OnDrawingEndScene )( IDirect3DDevice9* );
+	typedef void( OnReset )( IDirect3DDevice9*, D3DPRESENT_PARAMETERS* );
+	typedef void( OnDrawingPresent )( LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA* );
+	typedef void( OnDrawingRangeIndicator )( Vector3* position, float range, int* color, int, float, int, float alpha );
 
 	//ObjectManager
-	typedef void(OnGameObjectCreate)(GameObject*);
-	typedef int(OnGameObjectDelete)(GameObject*);
+	typedef void( OnGameObjectCreate )( GameObject* );
+	typedef int( OnGameObjectDelete )( GameObject* );
 
 	//Obj_AI_Base
-	typedef bool(OnObjAIBaseProcessSpell)(Spellbook* spellbook, SpellCastInfo*);
-	typedef bool(OnObjAIBaseIssueOrder)(GameObject*, GameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint);
+	typedef bool( OnObjAIBaseProcessSpell )( Spellbook* spellbook, SpellCastInfo* );
+	typedef bool( OnObjAIBaseIssueOrder )( GameObject*, GameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint );
 
 	//AIHeroClient
 
 	//Player
-	typedef bool(OnPlayerBuyItem)(AIHeroClient*, int, ItemNode*);
-	typedef bool(OnPlayerSellItem)(AIHeroClient*, int, ItemNode*);
-	typedef bool(OnPlayerSwapItem)(AIHeroClient*, uint, uint);
-	typedef bool(OnPlayerDoEmote)(AIHeroClient*, short);
+	typedef bool( OnPlayerBuyItem )( AIHeroClient*, int, ItemNode* );
+	typedef bool( OnPlayerSellItem )( AIHeroClient*, int, ItemNode* );
+	typedef bool( OnPlayerSwapItem )( AIHeroClient*, uint, uint );
+	typedef bool( OnPlayerDoEmote )( AIHeroClient*, short );
 
 	//AttackableUnit
 
 	//Spellbook
-	typedef bool(OnSpellbookCastSpell)(Spellbook*, SpellDataInst*, SpellSlot::SpellSlot,  Vector3*, Vector3*, uint);
+	typedef bool( OnSpellbookCastSpell )( Spellbook*, SpellDataInst*, ESpellSlot::ESpellSlot, Vector3*, Vector3*, uint );
 
 	//Chat
-	typedef bool(OnChatInput)(char**);
-	typedef bool(OnChatMessage)(AIHeroClient*, char**);
-	typedef bool(OnChatClientSideMessage)(char**);
-	typedef bool(OnChatSendWhisper)(char**, char**);
+	typedef bool( OnChatInput )( char** );
+	typedef bool( OnChatMessage )( AIHeroClient*, char** );
+	typedef bool( OnChatClientSideMessage )( char** );
+	typedef bool( OnChatSendWhisper )( char**, char** );
 
 	//AudioManager
-	typedef void(OnAudioManagerPlaySound)(std::string);
+	typedef void( OnAudioManagerPlaySound )( std::string );
 
 	//r3dCamera
-	typedef bool(OnCameraZoom)();
+	typedef bool( OnCameraZoom )();
 }
 
 
 // ReSharper disable once CppClassNeedsConstructorBecauseOfUninitializedMember
-template <EventIndex uniqueEventNumber, typename T, typename ... TArgs> 
+template <EventIndex uniqueEventNumber, typename T, typename ... TArgs>
 class EventHandler
 {
 	std::vector<void*> m_EventCallbacks;
@@ -94,7 +94,7 @@ class EventHandler
 public:
 	static EventHandler* GetInstance()
 	{
-		if (instance == nullptr)
+		if ( instance == nullptr )
 		{
 			instance = new EventHandler();
 		}
@@ -102,42 +102,42 @@ public:
 		return instance;
 	}
 
-	void Add(void* callback)
+	void Add( void* callback )
 	{
-		if (callback != nullptr)
+		if ( callback != nullptr )
 		{
-			m_EventCallbacks.push_back(callback);
+			m_EventCallbacks.push_back( callback );
 		}
 	}
 
-	void Remove(void* listener)
+	void Remove( void* listener )
 	{
-		if (listener == nullptr)
+		if ( listener == nullptr )
 		{
 			return;
 		}
 
-		auto eventPtr = find(m_EventCallbacks.begin(), m_EventCallbacks.end(), listener);
-		if (eventPtr != m_EventCallbacks.end())
+		auto eventPtr = find( m_EventCallbacks.begin(), m_EventCallbacks.end(), listener );
+		if ( eventPtr != m_EventCallbacks.end() )
 		{
-			m_EventCallbacks.erase(find(m_EventCallbacks.begin(), m_EventCallbacks.end(), listener));
+			m_EventCallbacks.erase( find( m_EventCallbacks.begin(), m_EventCallbacks.end(), listener ) );
 		}
 
 		this->t_RemovalTickCount = GetTickCount();
 	}
 
-	bool __cdecl TriggerProcess(TArgs... args)
+	bool __cdecl TriggerProcess( TArgs... args )
 	{
 		auto process = true;
 		auto tickCount = GetTickCount();
 
-		for (auto ptr : m_EventCallbacks)
+		for ( auto ptr : m_EventCallbacks )
 		{
-			if (ptr != nullptr)
+			if ( ptr != nullptr )
 			{
-				if (tickCount - t_RemovalTickCount > EVENT_TIMEOUT_EJECT)
+				if ( tickCount - t_RemovalTickCount > EVENT_TIMEOUT_EJECT )
 				{
-					if (!static_cast<T*>(ptr) (args...))
+					if ( !static_cast< T* >( ptr ) ( args... ) )
 					{
 						process = false;
 					}
@@ -148,17 +148,17 @@ public:
 		return process;
 	}
 
-	bool __cdecl Trigger(TArgs... args)
+	bool __cdecl Trigger( TArgs... args )
 	{
 		auto tickCount = GetTickCount();
 
-		for (auto ptr : m_EventCallbacks)
+		for ( auto ptr : m_EventCallbacks )
 		{
-			if (ptr != nullptr)
+			if ( ptr != nullptr )
 			{
-				if (tickCount - t_RemovalTickCount > EVENT_TIMEOUT_EJECT)
+				if ( tickCount - t_RemovalTickCount > EVENT_TIMEOUT_EJECT )
 				{
-					static_cast<T*>(ptr) (args...);
+					static_cast< T* >( ptr ) ( args... );
 				}
 			}
 		}

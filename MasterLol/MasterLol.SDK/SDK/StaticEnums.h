@@ -65,16 +65,16 @@ DECLARE_ENUM(SummonerSpellEnum,
 )
 
 DECLARE_ENUM( SpellCastType,
+	Unknown,
+	Targeted,
 	Circle,
 	MissileLine,
-	Line,
 	Self,
 	MissileAoe,
+	Line,
 	Cone,
 	Arc,
-	Targeted,
-	Free,
-	Unknown
+	Free
 )
 
 DECLARE_ENUM( ESpellSlot,
@@ -173,6 +173,18 @@ enum class CollisionFlags
 	Building = 64,
 	Prop = 128,
 	GlobalVision = 256
+};
+
+enum class EUnitType
+{
+	Hero,
+	Minion,
+	Turret,
+	Inhibitor,
+	Nexus,
+	Troy,
+	Missile,
+	Unknown
 };
 
 enum class UnitType

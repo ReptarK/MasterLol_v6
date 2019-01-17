@@ -10,14 +10,17 @@ class SpellData;
 class Spellbook
 {
 public:
-	static void ApplyHooks();
-	static void ShutDown();
 
+	MAKE_GET( ManaCostQ, float, Offsets::Spellbook::ManaCostQ );
+	MAKE_GET( ManaCostW, float, Offsets::Spellbook::ManaCostW );
+	MAKE_GET( ManaCostE, float, Offsets::Spellbook::ManaCostE );
+	MAKE_GET( ManaCostR, float, Offsets::Spellbook::ManaCostR );
 
-	SpellState GetSpellState(ESpellSlot::ESpellSlot);
+	SpellState GetSpellState( ESpellSlot::ESpellSlot );
 
 	SpellDataInst** GetSpells();
-	SpellDataInst* GetSpell(ESpellSlot::ESpellSlot slot);
+	SpellDataInst* GetSpell( ESpellSlot::ESpellSlot slot );
 
-	bool CastSpell(ESpellSlot::ESpellSlot slot, Vector3 dstPosition, Vector3 srcPosition = Vector3(0, 0, 0), uint targetNetworkId = 0);
+	bool CastSpell( ESpellSlot::ESpellSlot slot, Vector3 dstPosition, Vector3 srcPosition = Vector3( 0, 0, 0 ), uint targetNetworkId = 0 );
+	void UpdateChargeableSpell( ESpellSlot::ESpellSlot slot, Vector3 position, bool releaseCast );
 };

@@ -99,7 +99,7 @@ GameObject * ObjectManager::GetUnitByNetworkId(uint networkId)
 
 
 
-std::vector<GameObject*> ObjectManager::GetType(UnitType type)
+std::vector<GameObject*> ObjectManager::GetType(EUnitType type)
 {
 	GameObject** unitArray = GetUnitArray();
 	std::vector<GameObject*> ret;
@@ -112,7 +112,7 @@ std::vector<GameObject*> ObjectManager::GetType(UnitType type)
 }
 
 template<class T>
-inline std::vector<T*> ObjectManager::GetType(UnitType type)
+inline std::vector<T*> ObjectManager::GetType(EUnitType type)
 {
 	GameObject** unitArray = GetUnitArray();
 	std::vector<T*> ret;
@@ -132,7 +132,7 @@ GameObject* ObjectManager::operator[](const uint index)
 AIHeroClient * ObjectManager::GetHeroFromChampionEnum(Champion::Champion championToFind, bool isAlly)
 {
 	auto player = ObjectManager::Get().GetPlayer();
-	auto heros = ObjectManager::Get().GetType<AIHeroClient>(UnitType::AIHeroClient);
+	auto heros = ObjectManager::Get().GetType<AIHeroClient>(EUnitType::Hero);
 	for (auto hero : heros)
 	{
 		// Team Check

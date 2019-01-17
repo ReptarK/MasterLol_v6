@@ -16,10 +16,9 @@ public:
 	char pad_0x0368[0x2C]; //0x0368
 	__int32 isDashing; //0x0394 
 	char pad_0x0398[0x26C]; //0x0398
-
 }; //Size=0x0604
 
-class AIManager_Client
+class AIManager
 {
 public:
 	char pad_0000[4]; //0x0000
@@ -32,20 +31,14 @@ class Obj_AI_Base
 	: public AttackableUnit
 {
 public:
-	static void ApplyHooks();
+	MAKE_GET( Gold, float, Offsets::Obj_AI_Base::Gold );
 
-	MAKE_GET(Gold, float, Offsets::Obj_AI_Base::Gold);
-	MAKE_GET(ManaCost_Q, float, Offsets::Obj_AI_Base::ManaCost_Q);
-	MAKE_GET(ManaCost_W, float, Offsets::Obj_AI_Base::ManaCost_W);
-	MAKE_GET(ManaCost_E, float, Offsets::Obj_AI_Base::ManaCost_E);
-	MAKE_GET(ManaCost_R, float, Offsets::Obj_AI_Base::ManaCost_R);
-
-	AIManager_Client* GetAIManager_Client();
+	AIManager* GetAIManager();
 	Spellbook* GetSpellbook();
 	std::string GetAIName();
 
 	// Game Functions
-	bool IssueOrder(Vector3 pos, GameObjectOrder = GameObjectOrder::MoveTo, GameObject* = nullptr);
+	bool IssueOrder( Vector3 pos, GameObjectOrder = GameObjectOrder::MoveTo, GameObject* = nullptr );
 
 	float GetAttackDelay();
 	float GetAttackCastDelay();

@@ -73,6 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+    <IntDir>$(SolutionDir)$(Configuration)\Build</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,11 +133,6 @@
     <ClCompile Include="SDK\GameObject.cpp" />
     <ClCompile Include="SDK\D3DHooks.cpp" />
     <ClCompile Include="SDK\Inputs.cpp" />
-    <ClCompile Include="SDK\menu\menuDraw.cpp" />
-    <ClCompile Include="SDK\menu\input.cpp" />
-    <ClCompile Include="SDK\menu\menu.cpp" />
-    <ClCompile Include="SDK\menu\menuItems.cpp" />
-    <ClCompile Include="SDK\menu\tools.cpp" />
     <ClCompile Include="SDK\ObjectManager.cpp" />
     <ClCompile Include="SDK\Obj_AI_Base.cpp" />
     <ClCompile Include="SDK\Options.cpp" />
@@ -165,11 +161,6 @@
     <ClInclude Include="SDK\LolString.h" />
     <ClInclude Include="SDK\Macros.h" />
     <ClInclude Include="SDK\math\Vector.hpp" />
-    <ClInclude Include="SDK\menu\menuDraw.h" />
-    <ClInclude Include="SDK\menu\input.h" />
-    <ClInclude Include="SDK\menu\menu.h" />
-    <ClInclude Include="SDK\menu\menuItems.h" />
-    <ClInclude Include="SDK\menu\tools.h" />
     <ClInclude Include="SDK\MissileClient.h" />
     <ClInclude Include="SDK\Names.h" />
     <ClInclude Include="SDK\ObjectManager.h" />
