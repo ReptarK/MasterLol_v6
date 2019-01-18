@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7638DC55-C6F9-4263-98C4-97A822EFA882}</ProjectGuid>
     <RootNamespace>MasterLolCommon</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -123,16 +123,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Common\Damage.h" />
+    <ClInclude Include="Common\GameFunctions.h" />
     <ClInclude Include="Common\Geometry\Circle3D.h" />
     <ClInclude Include="Common\Geometry\CircleCollision.h" />
     <ClInclude Include="Common\Geometry\Line3D.h" />
     <ClInclude Include="Common\Geometry\LineCollision.h" />
+    <ClInclude Include="Common\Imgui\imconfig.h" />
+    <ClInclude Include="Common\Imgui\imgui.h" />
+    <ClInclude Include="Common\Imgui\imgui_internal.h" />
+    <ClInclude Include="Common\Imgui\imstb_rectpack.h" />
+    <ClInclude Include="Common\Imgui\imstb_textedit.h" />
+    <ClInclude Include="Common\Imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Damage.cpp" />
+    <ClCompile Include="Common\GameFunctions.cpp" />
     <ClCompile Include="Common\Geometry\Circle3D.cpp" />
     <ClCompile Include="Common\Geometry\CircleCollision.cpp" />
     <ClCompile Include="Common\Geometry\LineCollision.cpp" />
+    <ClCompile Include="Common\Imgui\imgui.cpp" />
+    <ClCompile Include="Common\Imgui\imgui_demo.cpp" />
+    <ClCompile Include="Common\Imgui\imgui_draw.cpp" />
+    <ClCompile Include="Common\Imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MasterLol.SDK\MasterLol.SDK.vcxproj">

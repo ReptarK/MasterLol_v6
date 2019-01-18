@@ -9,7 +9,6 @@ class GameObject;
 class Obj_AI_Base;
 
 class ObjectManager
-	:public Singleton<ObjectManager>
 {
 	struct ObjectManager_struct
 	{
@@ -20,26 +19,25 @@ class ObjectManager
 		uint highestObjectId;		// 0x14
 		uint highestHeroId;			// 0x18
 	};
-	friend class Singleton<ObjectManager>;
 
 	ObjectManager() {}
 	~ObjectManager() {}
 
 public:
-	uint GetMaxSize();
-	uint GetUsedIndexes();
-	uint GetHighestObjectId();
-	uint GetHighestPlayerId();
+	static uint GetMaxSize();
+	static uint GetUsedIndexes();
+	static uint GetHighestObjectId();
+	static uint GetHighestPlayerId();
 
-	GameObject** GetUnitArray();
-	AIHeroClient* GetPlayer();
+	static GameObject** GetUnitArray();
+	static AIHeroClient* GetPlayer();
 
-	GameObject* GetUnitByNetworkId(uint networkId);
+	static GameObject* GetUnitByNetworkId(uint networkId);
 
 
-	std::vector<GameObject*> GetType(EUnitType type);
+	static std::vector<GameObject*> GetType(EUnitType type);
 	template<class T>
-	std::vector<T*> GetType(EUnitType type);
+	static std::vector<T*> GetType(EUnitType type);
 
 	GameObject* operator[] (const uint index);
 

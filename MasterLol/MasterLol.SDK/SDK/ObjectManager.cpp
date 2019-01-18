@@ -4,21 +4,6 @@
 #include "Hooks.h"
 #include "EventManager.h"
 
-//MAKE_HOOK<convention_type::thiscall_r, void, void*, GameObject*> OnObjectCreate_Hook;
-//MAKE_HOOK<convention_type::thiscall_r, int, void*, GameObject*> OnDeleteObject_Hook;
-//
-//void __fastcall OnObjectCreate(void* thisPtr, void* EDX, GameObject* unknown)
-//{
-//	EventHandler<EventIndex::OnGameObjectCreate, EventDefines::OnGameObjectCreate, GameObject*>::GetInstance()->Trigger((GameObject*)thisPtr);
-//	OnObjectCreate_Hook.CallOriginal(thisPtr, unknown);
-//}
-//
-//int __fastcall OnDeleteObject(void* thisPtr, void* EDX, GameObject* object)
-//{
-//	EventHandler<EventIndex::OnGameObjectDelete, EventDefines::OnGameObjectDelete, GameObject*>::GetInstance()->Trigger((GameObject*)object);
-//	return OnDeleteObject_Hook.CallOriginal(thisPtr, object);
-//}
-
 uint ObjectManager::GetMaxSize()
 {
 	ObjectManager_struct* objectManager = reinterpret_cast<ObjectManager_struct*>(Patchables::LolBase + oObjManager);
@@ -131,8 +116,8 @@ GameObject* ObjectManager::operator[](const uint index)
 
 AIHeroClient * ObjectManager::GetHeroFromChampionEnum(Champion::Champion championToFind, bool isAlly)
 {
-	auto player = ObjectManager::Get().GetPlayer();
-	auto heros = ObjectManager::Get().GetType<AIHeroClient>(EUnitType::Hero);
+	auto player = ObjectManager::GetPlayer();
+	auto heros = ObjectManager::GetType<AIHeroClient>(EUnitType::Hero);
 	for (auto hero : heros)
 	{
 		// Team Check

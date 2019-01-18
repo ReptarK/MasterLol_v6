@@ -2,23 +2,26 @@
 #include "Circle3D.h"
 #include <SDK/Obj_AI_Base.h>
 
-class LineCollision;
-
-class CircleCollision
-	: public Circle3D
+namespace Geometry
 {
-public:
-	CircleCollision( Obj_AI_Base* object = nullptr, float radius = 1 ) : Circle3D( object->GetPos(), radius ) {
-		_object = object;
-	}
+	class LineCollision;
 
-	Obj_AI_Base* GetAIObject() { return _object; }
-	void SetAIObject( Obj_AI_Base* object ) { _object = object; }
+	class CircleCollision
+		: public Circle3D
+	{
+	public:
+		CircleCollision( Obj_AI_Base* object = nullptr, float radius = 1 ) : Circle3D( object->GetPos(), radius ) {
+			_object = object;
+		}
 
-	virtual Vector3 GetPos() { return GetAIObject()->GetPos()/* + GetAIObject()->GetAIManager_Client()->pNavigation->vVelocity * 5*/; }
+		Obj_AI_Base* GetAIObject() { return _object; }
+		void SetAIObject( Obj_AI_Base* object ) { _object = object; }
 
-	bool IsCollision( Circle3D );
+		virtual Vector3 GetPos() { return GetAIObject()->GetPos()/* + GetAIObject()->GetAIManager_Client()->pNavigation->vVelocity * 5*/; }
 
-private:
-	Obj_AI_Base * _object;
-};
+		bool IsCollision( Circle3D );
+
+	private:
+		Obj_AI_Base * _object;
+	};
+}

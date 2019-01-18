@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Geometry">
       <UniqueIdentifier>{2c871a28-f90e-421c-9a61-906276fd3ae9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Imgui">
+      <UniqueIdentifier>{09364a40-4a4c-4040-91fa-fd2443544992}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Imgui">
+      <UniqueIdentifier>{b9678363-cdad-42a5-aa96-51c0a926f5f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\Geometry\Circle3D.h">
@@ -36,6 +42,27 @@
     <ClInclude Include="Common\Damage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Common\Imgui\imconfig.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Imgui\imgui.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Imgui\imgui_internal.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Imgui\imstb_rectpack.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Imgui\imstb_textedit.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Imgui\imstb_truetype.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\GameFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Geometry\Circle3D.cpp">
@@ -48,6 +75,21 @@
       <Filter>Source Files\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="Common\Damage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Imgui\imgui.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Imgui\imgui_demo.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Imgui\imgui_draw.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Imgui\imgui_widgets.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\GameFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
