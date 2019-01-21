@@ -5,7 +5,7 @@
 //        parse files
 //        extract glyph metrics
 //        extract glyph shapes
-//        Render glyphs to one-channel bitmaps with antialiasing (box filter)
+//        render glyphs to one-channel bitmaps with antialiasing (box filter)
 //
 //   Todo:
 //        non-MS cmaps
@@ -60,7 +60,7 @@
 //   1.09 (2016-01-16) warning fix; avoid crash on outofmem; use allocation userdata properly
 //   1.08 (2015-09-13) document stbtt_Rasterize(); fixes for vertical & horizontal edges
 //   1.07 (2015-08-01) allow PackFontRanges to accept arrays of sparse codepoints;
-//                     variant PackFontRanges to pack and Render in separate phases;
+//                     variant PackFontRanges to pack and render in separate phases;
 //                     fix stbtt_GetFontOFfsetForIndex (never worked for non-0 input?);
 //                     fixed an assert() bug in the new rasterizer
 //                     replace assert() with STBTT_assert() in new rasterizer
@@ -283,7 +283,7 @@ void my_stbtt_print(float x, float y, char *text)
 //
 //////////////////////////////////////////////////////////////////////////////
 //
-// Complete program (this compiles): Get a single bitmap, print as ASCII art
+// Complete program (this compiles): get a single bitmap, print as ASCII art
 //
 #if 0
 #include <stdio.h>
@@ -338,7 +338,7 @@ int main(int arg, char **argv)
    stbtt_fontinfo font;
    int i,j,ascent,baseline,ch=0;
    float scale, xpos=2; // leave a little padding in case the character extends left
-   char *text = "Heljo World!"; // intentionally misspelled to Show 'lj' brokenness
+   char *text = "Heljo World!"; // intentionally misspelled to show 'lj' brokenness
 
    fread(buffer, 1, 1000000, fopen("c:/windows/fonts/arialbd.ttf", "rb"));
    stbtt_InitFont(&font, buffer, 0);
@@ -354,8 +354,8 @@ int main(int arg, char **argv)
       stbtt_GetCodepointBitmapBoxSubpixel(&font, text[ch], scale,scale,x_shift,0, &x0,&y0,&x1,&y1);
       stbtt_MakeCodepointBitmapSubpixel(&font, &screen[baseline + y0][(int) xpos + x0], x1-x0,y1-y0, 79, scale,scale,x_shift,0, text[ch]);
       // note that this stomps the old data, so where character boxes overlap (e.g. 'lj') it's wrong
-      // because this API is really for baking character bitmaps into textures. if you want to Render
-      // a sequence of characters, you really need to Render each bitmap to a temp buffer, then
+      // because this API is really for baking character bitmaps into textures. if you want to render
+      // a sequence of characters, you really need to render each bitmap to a temp buffer, then
       // "alpha blend" that into the working buffer
       xpos += (advance * scale);
       if (text[ch+1])
@@ -396,20 +396,20 @@ int main(int arg, char **argv)
    typedef char stbtt__check_size32[sizeof(stbtt_int32)==4 ? 1 : -1];
    typedef char stbtt__check_size16[sizeof(stbtt_int16)==2 ? 1 : -1];
 
-   // #define your own STBTT_ifloor/STBTT_iceil() to avoid Math.h
+   // #define your own STBTT_ifloor/STBTT_iceil() to avoid math.h
    #ifndef STBTT_ifloor
-   #include <Math.h>
+   #include <math.h>
    #define STBTT_ifloor(x)   ((int) floor(x))
    #define STBTT_iceil(x)    ((int) ceil(x))
    #endif
 
    #ifndef STBTT_sqrt
-   #include <Math.h>
+   #include <math.h>
    #define STBTT_sqrt(x)      sqrt(x)
    #endif
 
    #ifndef STBTT_fabs
-   #include <Math.h>
+   #include <math.h>
    #define STBTT_fabs(x)      fabs(x)
    #endif
 
@@ -552,8 +552,8 @@ STBTT_DEF int  stbtt_PackFontRange(stbtt_pack_context *spc, unsigned char *fontd
 // Creates character bitmaps from the font_index'th font found in fontdata (use
 // font_index=0 if you don't know what that is). It creates num_chars_in_range
 // bitmaps for characters with unicode values starting at first_unicode_char_in_range
-// and increasing. Data for how to Render them is stored in chardata_for_range;
-// pass these to stbtt_GetPackedQuad to Get back renderable quads.
+// and increasing. Data for how to render them is stored in chardata_for_range;
+// pass these to stbtt_GetPackedQuad to get back renderable quads.
 //
 // font_size is the full height of the character from ascender to descender,
 // as computed by stbtt_ScaleForPixelHeight. To use a point size as computed
@@ -569,7 +569,7 @@ typedef struct
    int *array_of_unicode_codepoints;       // if non-zero, then this is an array of unicode codepoints
    int num_chars;
    stbtt_packedchar *chardata_for_range; // output
-   unsigned char h_oversample, v_oversample; // don't Set these, they're used internally
+   unsigned char h_oversample, v_oversample; // don't set these, they're used internally
 } stbtt_pack_range;
 
 STBTT_DEF int  stbtt_PackFontRanges(stbtt_pack_context *spc, unsigned char *fontdata, int font_index, stbtt_pack_range *ranges, int num_ranges);
@@ -587,11 +587,11 @@ STBTT_DEF void stbtt_PackSetOversampling(stbtt_pack_context *spc, unsigned int h
 // pack context. The default (no oversampling) is achieved by h_oversample=1
 // and v_oversample=1. The total number of pixels required is
 // h_oversample*v_oversample larger than the default; for example, 2x2
-// oversampling requires 4x the storage of 1x1. For best results, Render
+// oversampling requires 4x the storage of 1x1. For best results, render
 // oversampled textures with bilinear filtering. Look at the readme in
 // stb/tests/oversample for information about oversampled fonts
 //
-// To use with PackFontRangesGather etc., you must Set it before calls
+// To use with PackFontRangesGather etc., you must set it before calls
 // call to PackFontRangesGatherRects.
 
 STBTT_DEF void stbtt_GetPackedQuad(stbtt_packedchar *chardata, int pw, int ph,  // same data as above
@@ -642,7 +642,7 @@ STBTT_DEF int stbtt_GetNumberOfFonts(const unsigned char *data);
 
 STBTT_DEF int stbtt_GetFontOffsetForIndex(const unsigned char *data, int index);
 // Each .ttf/.ttc file may have more than one font. Each font has a sequential
-// index number starting from 0. Call this function to Get the font offset for
+// index number starting from 0. Call this function to get the font offset for
 // a given index; it returns -1 if the index is out of range. A regular .ttf
 // file will only define one font and it always be at offset 0, so it will
 // return '0' for index 0, and -1 for all other indices.
@@ -801,7 +801,7 @@ STBTT_DEF unsigned char *stbtt_GetCodepointBitmapSubpixel(const stbtt_fontinfo *
 STBTT_DEF void stbtt_MakeCodepointBitmap(const stbtt_fontinfo *info, unsigned char *output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint);
 // the same as stbtt_GetCodepointBitmap, but you pass in storage for the bitmap
 // in the form of 'output', with row spacing of 'out_stride' bytes. the bitmap
-// is clipped to out_w/out_h bytes. Call stbtt_GetCodepointBitmapBox to Get the
+// is clipped to out_w/out_h bytes. Call stbtt_GetCodepointBitmapBox to get the
 // width and height and positioning info for it first.
 
 STBTT_DEF void stbtt_MakeCodepointBitmapSubpixel(const stbtt_fontinfo *info, unsigned char *output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint);
@@ -809,7 +809,7 @@ STBTT_DEF void stbtt_MakeCodepointBitmapSubpixel(const stbtt_fontinfo *info, uns
 // shift for the character
 
 STBTT_DEF void stbtt_GetCodepointBitmapBox(const stbtt_fontinfo *font, int codepoint, float scale_x, float scale_y, int *ix0, int *iy0, int *ix1, int *iy1);
-// Get the bbox of the bitmap centered around the glyph origin; so the
+// get the bbox of the bitmap centered around the glyph origin; so the
 // bitmap width is ix1-ix0, height is iy1-iy0, and location to place
 // the bitmap top left is (leftSideBearing*scale,iy0).
 // (Note that the bitmap uses y-increases-down, but the shape uses
@@ -852,7 +852,7 @@ STBTT_DEF void stbtt_Rasterize(stbtt__bitmap *result,        // 1-channel bitmap
 // Finding the right font...
 //
 // You should really just solve this offline, keep your own tables
-// of what font is what, and don't try to Get it out of the .ttf file.
+// of what font is what, and don't try to get it out of the .ttf file.
 // That's because getting it out of the .ttf file is really hard, because
 // the names in the file can appear in many possible encodings, in many
 // possible languages, and e.g. if you need a case-insensitive comparison,
@@ -861,10 +861,10 @@ STBTT_DEF void stbtt_Rasterize(stbtt__bitmap *result,        // 1-channel bitmap
 //
 // But you can use the provided functions in two possible ways:
 //     stbtt_FindMatchingFont() will use *case-sensitive* comparisons on
-//             unicode-encoded names to try to GetOffset the font you want;
+//             unicode-encoded names to try to find the font you want;
 //             you can run this before calling stbtt_InitFont()
 //
-//     stbtt_GetFontNameString() lets you Get any of the various strings
+//     stbtt_GetFontNameString() lets you get any of the various strings
 //             from the file yourself and do your own comparisons on them.
 //             You have to have called stbtt_InitFont() first.
 
@@ -873,7 +873,7 @@ STBTT_DEF int stbtt_FindMatchingFont(const unsigned char *fontdata, const char *
 // returns the offset (not index) of the font that matches, or -1 if none
 //   if you use STBTT_MACSTYLE_DONTCARE, use a font name like "Arial Bold".
 //   if you use any other flag, use a font name like "Arial"; this checks
-//     the 'macStyle' header field; i don't know if fonts Set this consistently
+//     the 'macStyle' header field; i don't know if fonts set this consistently
 #define STBTT_MACSTYLE_DONTCARE     0
 #define STBTT_MACSTYLE_BOLD         1
 #define STBTT_MACSTYLE_ITALIC       2
@@ -885,7 +885,7 @@ STBTT_DEF int stbtt_CompareUTF8toUTF16_bigendian(const char *s1, int len1, const
 // the second string interpreted as big-endian utf16... useful for strings from next func
 
 STBTT_DEF const char *stbtt_GetFontNameString(const stbtt_fontinfo *font, int *length, int platformID, int encodingID, int languageID, int nameID);
-// returns the string (which may be big-endian double uint8_t, e.g. for unicode)
+// returns the string (which may be big-endian double byte, e.g. for unicode)
 // and puts the length in bytes in *length.
 //
 // some of the values for the IDs are below; for more see the truetype spec:
@@ -1293,14 +1293,14 @@ static int stbtt_InitFont_internal(stbtt_fontinfo *info, unsigned char *data, in
    else
       info->numGlyphs = 0xffff;
 
-   // GetOffset a cmap encoding table we understand *now* to avoid searching
+   // find a cmap encoding table we understand *now* to avoid searching
    // later. (todo: could make this installable)
    // the same regardless of glyph.
    numTables = ttUSHORT(data + cmap + 2);
    info->index_map = 0;
    for (i=0; i < numTables; ++i) {
       stbtt_uint32 encoding_record = cmap + 4 + 8 * i;
-      // GetOffset an encoding we understand:
+      // find an encoding we understand:
       switch(ttUSHORT(data+encoding_record)) {
          case STBTT_PLATFORM_ID_MICROSOFT:
             switch (ttUSHORT(data+encoding_record+2)) {
@@ -1331,7 +1331,7 @@ STBTT_DEF int stbtt_FindGlyphIndex(const stbtt_fontinfo *info, int unicode_codep
    stbtt_uint32 index_map = info->index_map;
 
    stbtt_uint16 format = ttUSHORT(data + index_map + 0);
-   if (format == 0) { // apple uint8_t encoding
+   if (format == 0) { // apple byte encoding
       stbtt_int32 bytes = ttUSHORT(data + index_map + 2);
       if (unicode_codepoint < bytes-6)
          return ttBYTE(data + index_map + 6 + unicode_codepoint);
@@ -1343,7 +1343,7 @@ STBTT_DEF int stbtt_FindGlyphIndex(const stbtt_fontinfo *info, int unicode_codep
          return ttUSHORT(data + index_map + 10 + (unicode_codepoint - first)*2);
       return 0;
    } else if (format == 2) {
-      STBTT_assert(0); // @TODO: high-uint8_t mapping for japanese/chinese/korean
+      STBTT_assert(0); // @TODO: high-byte mapping for japanese/chinese/korean
       return 0;
    } else if (format == 4) { // standard mapping for windows fonts: binary search collection of ranges
       stbtt_uint16 segcount = ttUSHORT(data+index_map+6) >> 1;
@@ -1363,7 +1363,7 @@ STBTT_DEF int stbtt_FindGlyphIndex(const stbtt_fontinfo *info, int unicode_codep
       if (unicode_codepoint >= ttUSHORT(data + search + rangeShift*2))
          search += rangeShift*2;
 
-      // now decrement to bias correctly to GetOffset smallest
+      // now decrement to bias correctly to find smallest
       search -= 2;
       while (entrySelector) {
          stbtt_uint16 end;
@@ -1602,7 +1602,7 @@ static int stbtt__GetGlyphShapeTT(const stbtt_fontinfo *info, int glyph_index, s
             // now start the new one               
             start_off = !(flags & 1);
             if (start_off) {
-               // if we start off with an off-curve point, then when we need to GetOffset a point on the curve
+               // if we start off with an off-curve point, then when we need to find a point on the curve
                // where we can start, and we need to save some state for when we wraparound.
                scx = x;
                scy = y;
@@ -1683,7 +1683,7 @@ static int stbtt__GetGlyphShapeTT(const stbtt_fontinfo *info, int glyph_index, s
             mtx[3] = ttSHORT(comp)/16384.0f; comp+=2;
          }
          
-         // GetOffset transformation scales.
+         // Find transformation scales.
          m = (float) STBTT_sqrt(mtx[0]*mtx[0] + mtx[1]*mtx[1]);
          n = (float) STBTT_sqrt(mtx[2]*mtx[2] + mtx[3]*mtx[3]);
 
@@ -1996,7 +1996,7 @@ static int stbtt__run_charstring(const stbtt_fontinfo *info, int glyph_index, st
          stbtt__csctx_close_shape(c);
          return 1;
 
-      case 0x0C: { // two-uint8_t escape
+      case 0x0C: { // two-byte escape
          float dx1, dx2, dx3, dx4, dx5, dx6, dy1, dy2, dy3, dy4, dy5, dy6;
          float dx, dy;
          int b1 = stbtt__buf_get8(&b);
@@ -2162,7 +2162,7 @@ STBTT_DEF int  stbtt_GetGlyphKernAdvance(const stbtt_fontinfo *info, int glyph1,
       return 0;
    if (ttUSHORT(data+2) < 1) // number of tables, need at least 1
       return 0;
-   if (ttUSHORT(data+8) != 1) // horizontal flag must be Set in format
+   if (ttUSHORT(data+8) != 1) // horizontal flag must be set in format
       return 0;
 
    l = 0;
@@ -2240,7 +2240,7 @@ STBTT_DEF void stbtt_GetGlyphBitmapBoxSubpixel(const stbtt_fontinfo *font, int g
       if (ix1) *ix1 = 0;
       if (iy1) *iy1 = 0;
    } else {
-      // move to integral bboxes (treating pixels as little squares, what pixels Get touched)?
+      // move to integral bboxes (treating pixels as little squares, what pixels get touched)?
       if (ix0) *ix0 = STBTT_ifloor( x0 * scale_x + shift_x);
       if (iy0) *iy0 = STBTT_ifloor(-y1 * scale_y + shift_y);
       if (ix1) *ix1 = STBTT_iceil ( x1 * scale_x + shift_x);
@@ -2453,7 +2453,7 @@ static void stbtt__rasterize_sorted_edges(stbtt__bitmap *result, stbtt__edge *e,
    while (j < result->h) {
       STBTT_memset(scanline, 0, result->w);
       for (s=0; s < vsubsample; ++s) {
-         // GetOffset center of pixel for this scanline
+         // find center of pixel for this scanline
          float scan_y = y + 0.5f;
          stbtt__active_edge **step = &active;
 
@@ -2496,7 +2496,7 @@ static void stbtt__rasterize_sorted_edges(stbtt__bitmap *result, stbtt__edge *e,
             if (e->y1 > scan_y) {
                stbtt__active_edge *z = stbtt__new_active(&hh, e, off_x, scan_y, userdata);
                if (z != NULL) {
-                  // GetOffset insertion point
+                  // find insertion point
                   if (active == NULL)
                      active = z;
                   else if (z->x < active->x) {
@@ -2504,7 +2504,7 @@ static void stbtt__rasterize_sorted_edges(stbtt__bitmap *result, stbtt__edge *e,
                      z->next = active;
                      active = z;
                   } else {
-                     // GetOffset thing to insert AFTER
+                     // find thing to insert AFTER
                      stbtt__active_edge *p = active;
                      while (p->next && p->next->x < z->x)
                         p = p->next;
@@ -2757,7 +2757,7 @@ static void stbtt__rasterize_sorted_edges(stbtt__bitmap *result, stbtt__edge *e,
    e[n].y0 = (float) (off_y + result->h) + 1;
 
    while (j < result->h) {
-      // GetOffset center of pixel for this scanline
+      // find center of pixel for this scanline
       float scan_y_top    = y + 0.0f;
       float scan_y_bottom = y + 1.0f;
       stbtt__active_edge **step = &active;
@@ -2975,7 +2975,7 @@ static void stbtt__rasterize(stbtt__bitmap *result, stbtt__point *pts, int *wcou
    //STBTT_sort(e, n, sizeof(e[0]), stbtt__edge_compare);
    stbtt__sort_edges(e, n);
 
-   // now, traverse the scanlines and GetOffset the intersections on each scanline, use xor winding rule
+   // now, traverse the scanlines and find the intersections on each scanline, use xor winding rule
    stbtt__rasterize_sorted_edges(result, e, n, vsubsample, off_x, off_y, userdata);
 
    STBTT_free(e, userdata);
@@ -3060,7 +3060,7 @@ static stbtt__point *stbtt_FlattenCurves(stbtt_vertex *vertices, int num_verts, 
    float objspace_flatness_squared = objspace_flatness * objspace_flatness;
    int i,n=0,start=0, pass;
 
-   // count how many "moves" there are to Get the contour count
+   // count how many "moves" there are to get the contour count
    for (i=0; i < num_verts; ++i)
       if (vertices[i].type == STBTT_vmove)
          ++n;
@@ -3164,7 +3164,7 @@ STBTT_DEF unsigned char *stbtt_GetGlyphBitmapSubpixel(const stbtt_fontinfo *info
 
    stbtt_GetGlyphBitmapBoxSubpixel(info, glyph, scale_x, scale_y, shift_x, shift_y, &ix0,&iy0,&ix1,&iy1);
 
-   // now we Get the size
+   // now we get the size
    gbm.w = (ix1 - ix0);
    gbm.h = (iy1 - iy0);
    gbm.pixels = NULL; // in case we error
@@ -3323,7 +3323,7 @@ typedef int stbrp_coord;
 // COMPILER WARNING ?!?!?                                                         //
 //                                                                                //
 //                                                                                //
-// if you Get a compile warning due to these symbols being defined more than      //
+// if you get a compile warning due to these symbols being defined more than      //
 // once, move #include "stb_rect_pack.h" before #include "stb_truetype.h"         //
 //                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////
@@ -3813,7 +3813,7 @@ static int stbtt_CompareUTF8toUTF16_bigendian_internal(char *s1, int len1, char 
    return len1 == stbtt__CompareUTF8toUTF16_bigendian_prefix((stbtt_uint8*) s1, len1, (stbtt_uint8*) s2, len2);
 }
 
-// returns results in whatever encoding you request... but note that 2-uint8_t encodings
+// returns results in whatever encoding you request... but note that 2-byte encodings
 // will be BIG-ENDIAN... use stbtt_CompareUTF8toUTF16_bigendian() to compare
 STBTT_DEF const char *stbtt_GetFontNameString(const stbtt_fontinfo *font, int *length, int platformID, int encodingID, int languageID, int nameID)
 {
@@ -3846,7 +3846,7 @@ static int stbtt__matchpair(stbtt_uint8 *fc, stbtt_uint32 nm, stbtt_uint8 *name,
       stbtt_uint32 loc = nm + 6 + 12 * i;
       stbtt_int32 id = ttUSHORT(fc+loc+6);
       if (id == target_id) {
-         // GetOffset the encoding
+         // find the encoding
          stbtt_int32 platform = ttUSHORT(fc+loc+0), encoding = ttUSHORT(fc+loc+2), language = ttUSHORT(fc+loc+4);
 
          // is this a Unicode encoding?
@@ -3977,7 +3977,7 @@ STBTT_DEF int stbtt_CompareUTF8toUTF16_bigendian(const char *s1, int len1, const
 //   1.09 (2016-01-16) warning fix; avoid crash on outofmem; use alloc userdata for PackFontRanges
 //   1.08 (2015-09-13) document stbtt_Rasterize(); fixes for vertical & horizontal edges
 //   1.07 (2015-08-01) allow PackFontRanges to accept arrays of sparse codepoints;
-//                     allow PackFontRanges to pack and Render in separate phases;
+//                     allow PackFontRanges to pack and render in separate phases;
 //                     fix stbtt_GetFontOFfsetForIndex (never worked for non-0 input?);
 //                     fixed an assert() bug in the new rasterizer
 //                     replace assert() with STBTT_assert() in new rasterizer

@@ -2,6 +2,8 @@
 #include "Inputs.h"
 #include "D3DHooks.h"
 #include "Options.h"
+#include "ImGui/imgui.h"
+#include "ImGui/imgui_impl_dx9.h"
 
 InputSys::InputSys()
 	: m_hTargetWindow(nullptr), m_ulOldWndProc(0)
@@ -37,6 +39,8 @@ void InputSys::Initialize()
 
 	if (!m_ulOldWndProc)
 		throw std::runtime_error("[InputSys] SetWindowLongPtr failed.");
+
+	std::cout << "[InputSys] OK \n";
 }
 
 void InputSys::Shutdown()
@@ -46,6 +50,7 @@ void InputSys::Shutdown()
 	m_ulOldWndProc = 0;
 }
 
+extern LRESULT ImGui_ImplDX9_WndProcHandler( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
 LRESULT __stdcall InputSys::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	Get().ProcessMessage(msg, wParam, lParam);
@@ -54,6 +59,7 @@ LRESULT __stdcall InputSys::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 		Sleep(50);
 		return true;
 	}
+	ImGui_ImplDX9_WndProcHandler( hWnd, msg, wParam, lParam );
 	return CallWindowProcW((WNDPROC)Get().m_ulOldWndProc, hWnd, msg, wParam, lParam);
 }
 

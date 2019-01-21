@@ -4,10 +4,10 @@
 #include "Obj_AI_Base.h"
 #include "ObjectManager.h"
 
-SpellState Spellbook::GetSpellState( ESpellSlot::ESpellSlot slot )
+ESpellState Spellbook::GetSpellState( ESpellSlot::ESpellSlot slot )
 {
 	return
-		reinterpret_cast< SpellState( __thiscall* )( void*, const ESpellSlot::ESpellSlot, const DWORD & ) >
+		reinterpret_cast< ESpellState( __thiscall* )( void*, const ESpellSlot::ESpellSlot, const DWORD & ) >
 		( Patchables::LolBase + fnGetSpellState )
 		( this, slot, NULL );
 }

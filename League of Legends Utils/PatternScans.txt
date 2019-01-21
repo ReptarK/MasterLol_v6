@@ -35,6 +35,9 @@ fnDrawCircle		: 1. Search of : 83 EC 18 53 55 56 8B F1 57 8D 7E 04
 
 fnIsTargetable		: 56 8B F1 E8 ? ? ? ? 84 C0 74 2E
 fnIsAlive			: 56 8B F1 8B 06 8B 80 ?? ?? ?? ?? FF D0 84 C0 74 19
+
+fnIsBaron			: 83 EC 10 A1 ? ? ? ? 33 C4 89 44 24 0C 56 81 C1
+fnIsDragon			: 56 81 C1 ? ? ? ? E8 ? ? ? ? 8B F0 83 7E 14 10 72 02 8B 36 68
 fnIsTurret			: 8B 4C 24 04 85 C9 74 11 68 00 20 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 fnIsMinion			: 8B 4C 24 04 85 C9 74 11 68 00 08 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 fnIsHero			: 8B 4C 24 04 85 C9 74 11 68 00 10 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3

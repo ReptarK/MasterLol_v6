@@ -27,22 +27,21 @@ std::string Obj_AI_Base::GetAIName()
 	return reinterpret_cast< char* >( this + static_cast< int >( Offsets::Obj_AI_Base::AIName ) );
 }
 
-using _fnIssueOrder = void( __thiscall* )( GameObject* Player, GameObjectOrder dwOrder, Vector3* TargetPos,
+using _fnIssueOrder = void( __thiscall* )( GameObject* Player, EGameObjectOrder dwOrder, Vector3* TargetPos,
 	GameObject* TargetPtr, DWORD attackLoc, DWORD isPassive, uint NetWorkId );
 
-bool Obj_AI_Base::IssueOrder( Vector3 position, GameObjectOrder order, GameObject* unit )
+bool Obj_AI_Base::IssueOrder( Vector3 position, EGameObjectOrder order, GameObject* unit )
 {
-	Vector3* pPosition = new Vector3( position.x, position.y, position.z );
 	_fnIssueOrder originalIssueOrder = ( _fnIssueOrder )( Patchables::LolBase + fnIssueOrder );
 
-	if ( pPosition == nullptr || this == nullptr )
+	if ( this == nullptr )
 	{
 		return false;
 	}
 
 	// Return False if trying to attack target
 	// and unit is nullptr
-	if ( order == GameObjectOrder::AttackUnit
+	if ( order == EGameObjectOrder::AttackUnit
 		&& unit == nullptr )
 	{
 		return false;
@@ -53,29 +52,29 @@ bool Obj_AI_Base::IssueOrder( Vector3 position, GameObjectOrder order, GameObjec
 
 	switch ( order )
 	{
-	case GameObjectOrder::HoldPosition:
+	case EGameObjectOrder::HoldPosition:
 		//originalIssueOrder(GameObjectOrder::Stop, position, nullptr, 0, 0, 0x0000001);
-		originalIssueOrder( this, GameObjectOrder::Stop, pPosition, nullptr, 0, 0, 0x0000001 );
+		originalIssueOrder( this, EGameObjectOrder::Stop, &position, nullptr, 0, 0, 0x0000001 );
 
 		issueOrderFlags1 = 0x0000000;
 		issueOrderFlags2 = 0x0000001;
 		break;
-	case GameObjectOrder::MoveTo:
+	case EGameObjectOrder::MoveTo:
 		break;
-	case GameObjectOrder::AttackTo:
-	case GameObjectOrder::AttackUnit:
-	case GameObjectOrder::AutoAttack:
-	case GameObjectOrder::AutoAttackPet:
+	case EGameObjectOrder::AttackTo:
+	case EGameObjectOrder::AttackUnit:
+	case EGameObjectOrder::AutoAttack:
+	case EGameObjectOrder::AutoAttackPet:
 		issueOrderFlags1 = 0xffffff00;
 		break;
-	case GameObjectOrder::Stop:
+	case EGameObjectOrder::Stop:
 		issueOrderFlags2 = 0x0000001;
 		break;
-	case GameObjectOrder::MovePet:
+	case EGameObjectOrder::MovePet:
 		break;
 	}
 
-	originalIssueOrder( this, order, pPosition, unit, issueOrderFlags1, issueOrderFlags2, unit ? *unit->GetNetworkId() : 0 );
+	originalIssueOrder( this, order, &position, unit, issueOrderFlags1, issueOrderFlags2, unit ? *unit->GetNetworkId() : 0 );
 
 	return true;
 }

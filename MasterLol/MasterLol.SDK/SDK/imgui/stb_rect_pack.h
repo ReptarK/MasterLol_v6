@@ -83,10 +83,10 @@ STBRP_DEF void stbrp_pack_rects (stbrp_context *context, stbrp_rect *rects, int 
 // are 'num_rects' many of them.
 //
 // Rectangles which are successfully packed have the 'was_packed' flag
-// Set to a non-zero value and 'x' and 'y' store the minimum location
+// set to a non-zero value and 'x' and 'y' store the minimum location
 // on each axis (i.e. bottom-left in cartesian coordinates, top-left
 // if you imagine y increasing downwards). Rectangles which do not fit
-// have the 'was_packed' flag Set to 0.
+// have the 'was_packed' flag set to 0.
 //
 // You should not try to access the 'rects' array from another thread
 // while this function is running, as the function temporarily reorders
@@ -121,7 +121,7 @@ STBRP_DEF void stbrp_init_target (stbrp_context *context, int width, int height,
 //
 // You must call this function every time you start packing into a new target.
 //
-// There is no "Shutdown" function. The 'nodes' memory must stay valid for
+// There is no "shutdown" function. The 'nodes' memory must stay valid for
 // the following stbrp_pack_rects() call (or calls), but can be freed after
 // the call (or calls) finish.
 //
@@ -229,7 +229,7 @@ STBRP_DEF void stbrp_setup_allow_out_of_mem(stbrp_context *context, int allow_ou
       // if it's ok to run out of memory, then don't bother aligning them;
       // this gives better packing, but may fail due to OOM (even though
       // the rectangles easily fit). @TODO a smarter approach would be to only
-      // quantize once we've hit OOM, then we could Get rid of this parameter.
+      // quantize once we've hit OOM, then we could get rid of this parameter.
       context->align = 1;
    else {
       // if it's not ok to run out of memory, then quantize the widths
@@ -275,7 +275,7 @@ STBRP_DEF void stbrp_init_target(stbrp_context *context, int width, int height, 
    context->extra[1].next = NULL;
 }
 
-// GetOffset minimum y position if it starts at x1
+// find minimum y position if it starts at x1
 static int stbrp__skyline_find_min_y(stbrp_context *c, stbrp_node *first, int x0, int width, int *pwaste)
 {
    stbrp_node *node = first;
@@ -392,14 +392,14 @@ static stbrp__findresult stbrp__skyline_find_best_pos(stbrp_context *c, int widt
       tail = c->active_head;
       node = c->active_head;
       prev = &c->active_head;
-      // GetOffset first node that's admissible
+      // find first node that's admissible
       while (tail->x < width)
          tail = tail->next;
       while (tail) {
          int xpos = tail->x - width;
          int y,waste;
          STBRP_ASSERT(xpos >= 0);
-         // GetOffset the left position that matches this
+         // find the left position that matches this
          while (node->next->x <= xpos) {
             prev = &node->next;
             node = node->next;
@@ -429,7 +429,7 @@ static stbrp__findresult stbrp__skyline_find_best_pos(stbrp_context *c, int widt
 
 static stbrp__findresult stbrp__skyline_pack_rectangle(stbrp_context *context, int width, int height)
 {
-   // GetOffset best position according to heuristic
+   // find best position according to heuristic
    stbrp__findresult res = stbrp__skyline_find_best_pos(context, width, height);
    stbrp_node *node, *cur;
 
@@ -463,7 +463,7 @@ static stbrp__findresult stbrp__skyline_pack_rectangle(stbrp_context *context, i
       *res.prev_link = node;
    }
 
-   // from here, traverse cur and free the nodes, until we Get to one
+   // from here, traverse cur and free the nodes, until we get to one
    // that shouldn't be freed
    while (cur->next && cur->next->x <= res.x + width) {
       stbrp_node *next = cur->next;
@@ -576,7 +576,7 @@ STBRP_DEF void stbrp_pack_rects(stbrp_context *context, stbrp_rect *rects, int n
    // unsort
    STBRP_SORT(rects, num_rects, sizeof(rects[0]), rect_original_order);
 
-   // Set was_packed flags
+   // set was_packed flags
    for (i=0; i < num_rects; ++i)
       rects[i].was_packed = !(rects[i].x == STBRP__MAXVAL && rects[i].y == STBRP__MAXVAL);
 }

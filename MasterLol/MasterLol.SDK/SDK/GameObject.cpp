@@ -66,7 +66,7 @@ bool GameObject::IsInhibitor()
 	return oIsInhibitor( this );
 }
 
-bool GameObject::IsTroyEnt()
+bool GameObject::IsTroy()
 {
 	typedef bool( __cdecl* _fnIsTroyEnt )( GameObject* pObj );
 	static _fnIsTroyEnt oIsTroyEnt = ( _fnIsTroyEnt )( Patchables::LolBase + fnIsTroy );
@@ -82,15 +82,34 @@ bool GameObject::IsNexus()
 	return oIsNexus( this );
 }
 
+bool GameObject::IsDragon()
+{
+	typedef bool( __cdecl* _fnIsDragon )( GameObject* pObj );
+	static _fnIsDragon oIsDragon = ( _fnIsDragon )( Patchables::LolBase + fnIsDragon );
+
+	return oIsDragon( this );
+}
+
+bool GameObject::IsBaron()
+{
+	typedef bool( __cdecl* _fnIsBaron )( GameObject* pObj );
+	static _fnIsBaron oIsBaron = ( _fnIsBaron )( Patchables::LolBase + fnIsBaron );
+
+	return oIsBaron( this );
+}
+
 EUnitType GameObject::GetType()
 {
-	if ( IsTroyEnt() ) return EUnitType::Troy;
+	if ( IsTroy() ) return EUnitType::Troy;
 	if ( IsMinion() ) return EUnitType::Minion;
 	if ( IsMissile() ) return EUnitType::Missile;
 	if ( IsTurret() ) return EUnitType::Turret;
 	if ( IsHero() ) return EUnitType::Hero;
 	if ( IsInhibitor() ) return EUnitType::Inhibitor;
 	if ( IsNexus() ) return EUnitType::Nexus;
+	if ( IsDragon() ) return EUnitType::Dragon;
+	if ( IsBaron() ) return EUnitType::Baron;
+
 	return EUnitType::Unknown;
 }
 
@@ -101,13 +120,13 @@ Vector3 GameObject::GetPos()
 		return Vector3( 0, 0, 0 );
 	}
 
-	auto vec = reinterpret_cast< Vector3* >( this + static_cast< int >( Offsets::GameObject::Position ) );
+	auto vec = reinterpret_cast< Vector3* >( this + ( int )( Offsets::GameObject::Position ) );
 	if ( vec == nullptr )
 	{
 		return Vector3( 0, 0, 0 );
 	}
 
-	return Vector3( vec->x, vec->y, vec->z );
+	return *vec;
 }
 
 std::string GameObject::GetName()

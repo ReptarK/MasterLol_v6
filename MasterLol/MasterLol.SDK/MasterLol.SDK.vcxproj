@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
-    <IntDir>$(SolutionDir)$(Configuration)\Build\$(ProjectName)</IntDir>
+    <IntDir>$(SolutionDir)$(Configuration)\Build\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,9 +129,12 @@
     <ClCompile Include="SDK\AttackableUnit.cpp" />
     <ClCompile Include="SDK\Draw.cpp" />
     <ClCompile Include="SDK\Game.cpp" />
-    <ClCompile Include="SDK\GameCursor.cpp" />
+    <ClCompile Include="SDK\HudManager.cpp" />
     <ClCompile Include="SDK\GameObject.cpp" />
     <ClCompile Include="SDK\D3DHooks.cpp" />
+    <ClCompile Include="SDK\imGui\imgui.cpp" />
+    <ClCompile Include="SDK\imGui\imgui_draw.cpp" />
+    <ClCompile Include="SDK\imGui\imgui_impl_dx9.cpp" />
     <ClCompile Include="SDK\Inputs.cpp" />
     <ClCompile Include="SDK\ObjectManager.cpp" />
     <ClCompile Include="SDK\Obj_AI_Base.cpp" />
@@ -152,11 +155,18 @@
     <ClInclude Include="SDK\EnumMacro.h" />
     <ClInclude Include="SDK\EventManager.h" />
     <ClInclude Include="SDK\Game.h" />
-    <ClInclude Include="SDK\GameCursor.h" />
+    <ClInclude Include="SDK\HudManager.h" />
     <ClInclude Include="SDK\Hooks.h" />
     <ClInclude Include="SDK\GameObject.h" />
     <ClInclude Include="SDK\GameObjectVTable.h" />
     <ClInclude Include="SDK\D3DHooks.h" />
+    <ClInclude Include="SDK\imGui\imconfig.h" />
+    <ClInclude Include="SDK\imGui\imgui.h" />
+    <ClInclude Include="SDK\imGui\imgui_impl_dx9.h" />
+    <ClInclude Include="SDK\imGui\imgui_internal.h" />
+    <ClInclude Include="SDK\imGui\stb_rect_pack.h" />
+    <ClInclude Include="SDK\imGui\stb_textedit.h" />
+    <ClInclude Include="SDK\imGui\stb_truetype.h" />
     <ClInclude Include="SDK\Inputs.h" />
     <ClInclude Include="SDK\LolString.h" />
     <ClInclude Include="SDK\Macros.h" />

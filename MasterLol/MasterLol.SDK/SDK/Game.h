@@ -7,20 +7,17 @@
 class Hook;
 
 class Game
-	: public Singleton<Game>
 {
-	friend class Singleton<Game>;
-
 	Game() {}
 	~Game() {}
 
 public:
-	bool Initialize();
-	void Dump() {};
+	static bool Initialize();
+	static void Dump() {};
 
-	bool IsGameFocused();
-	float GetGameTime();
-	float GetPing();
-	void PrintChat( char* Message, DWORD color );
+	static bool IsGameFocused();
+	static float GetGameTime();
+	static float GetPing();
+	static void PrintChat( const char* Message );
 };
 

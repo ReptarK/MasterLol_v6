@@ -103,6 +103,12 @@
     <Filter Include="Header Files\Names">
       <UniqueIdentifier>{54e3591c-7ea8-45b0-8e0e-c02db6bf70c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\imGui">
+      <UniqueIdentifier>{b5c22a92-722c-46bd-b1ef-6b4d37a69b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\imGui">
+      <UniqueIdentifier>{77979b09-55e0-45f3-9ca0-ac1131871f22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SDK\Game.cpp">
@@ -153,8 +159,17 @@
     <ClCompile Include="SDK\SpellInfo.cpp">
       <Filter>Source Files\Objects\Spellbook</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\GameCursor.cpp">
+    <ClCompile Include="SDK\HudManager.cpp">
       <Filter>Source Files\Misks</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\imGui\imgui.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\imGui\imgui_draw.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\imGui\imgui_impl_dx9.cpp">
+      <Filter>Source Files\imGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,9 +269,6 @@
     <ClInclude Include="SDK\Obj_AI_Turret.h">
       <Filter>Header Files\Objects\ObjectManager\GameObjects\AttackableUnit\Obj_AI_Base</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\GameCursor.h">
-      <Filter>Header Files\Misks</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\Names.h">
       <Filter>Header Files\Names</Filter>
     </ClInclude>
@@ -265,6 +277,30 @@
     </ClInclude>
     <ClInclude Include="SDK\UnitInclude.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\HudManager.h">
+      <Filter>Header Files\Misks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\imconfig.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\imgui.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\imgui_impl_dx9.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\imgui_internal.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\stb_rect_pack.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\stb_textedit.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\imGui\stb_truetype.h">
+      <Filter>Header Files\imGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,33 +4,37 @@
 #define g_Offset static DWORD
 
 //Functions
-#define fnPrintChat 0x5B2710
-#define fnGetAttackDelay 0x589BA0
-#define fnGetAttackCastDelay 0x589AC0
-#define fnDrawCircle 0x578960
-#define fnIsAlive 0x1DF120
-#define fnIsInhib 0x226A10
-#define fnIsNexus 0x226B10
-#define fnIsTroy 0x226E50
-#define fnIsTurret 0x226D60
-#define fnIsMinion 0x226BD0
-#define fnIsHero 0x226B90
-#define fnIsMissile 0x226BF0
-#define fnIsTargetable 0x220EB0
-#define fnIssueOrder 0x1BCA40
-#define fnGetSpellState 0x5760D0
-#define fnCastSpell 0x581020
+#define fnPrintChat             0x5B2710
+#define fnGetAttackDelay        0x589BA0
+#define fnGetAttackCastDelay    0x589AC0
+#define fnDrawCircle            0x578960
+#define fnIsAlive               0x1DF120
+#define fnIsTargetable          0x220EB0
+
+#define fnIsDragon				0x2143C0
+#define fnIsBaron				0x214FB0
+#define fnIsInhib               0x226A10
+#define fnIsNexus               0x226B10
+#define fnIsTroy                0x226E50
+#define fnIsTurret              0x226D60
+#define fnIsMinion              0x226BD0
+#define fnIsHero                0x226B90
+#define fnIsMissile             0x226BF0
+
+#define fnIssueOrder            0x1BCA40
+#define fnGetSpellState         0x5760D0
+#define fnCastSpell             0x581020
 #define fnUpdateChargeableSpell 0x583AC0
 
 //General offsets
 #define oChatClientPtr 0x15CC330	// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
-#define oLocalPlayer 0x2E774E8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
-#define oObjManager 0x2E76C88		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
-#define oGameTime 0x2E73400
-#define oHudInstance 0x15CE9CC		// "PerSide.ini"
-#define oGameVersion 0x2E80678
-#define oRenderer 0x2E92DD4			// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
-#define oZoomClass 0x2E73358
+#define oLocalPlayer   0x2E774E8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
+#define oObjManager    0x2E76C88		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
+#define oGameTime      0x2E73400
+#define oHudInstance   0x15CE9CC		// "PerSide.ini"
+#define oGameVersion   0x2E80678
+#define oRenderer      0x2E92DD4			// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
+#define oZoomClass     0x2E73358
 #define oUnderMouseObj 0x221F944	// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 
 

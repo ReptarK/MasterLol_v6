@@ -3,11 +3,17 @@
 class Offsets
 {
 public:
-	////////////////////--CURSOR--/////////////////////////
+	////////////////////--HudInstance--/////////////////////////
+
+	enum class HudInstance
+	{
+		GameCursor = 0x14
+	};
 
 	enum class GameCursor
 	{
-		Position = 0x9C
+		UnderMouseObjPosition = 0x10,
+		Position              = 0x1C
 	};
 
 	////////////////////--GAMEOBJECTS--/////////////////////////
@@ -79,15 +85,13 @@ public:
 
 	enum class SpellDataInst
 	{
-		// TODO
-		Level				= 0x1C,
-		CooldownExpires		= 0x24,
-		Ammo				= 0x28,
-		AmmoRechargeStart	= 0x58,
-		ToggleState			= 0x64, // Karthus
-		Cooldown			= 0x68,
-
-		SpellInfo			= 0x124
+		Level             = 0x20,
+		CooldownExpires   = 0x28,
+		Ammo              = 0x2C,
+		AmmoRechargeStart = 0x5C,
+		ToggleState       = 0x68, // Karthus
+		Cooldown          = 0x6C,
+		SpellInfo         = 0x124
 	};
 
 	enum class SpellInfo

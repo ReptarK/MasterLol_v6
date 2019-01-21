@@ -114,7 +114,7 @@ GameObject* ObjectManager::operator[](const uint index)
 	return GetUnitArray()[index];
 }
 
-AIHeroClient * ObjectManager::GetHeroFromChampionEnum(Champion::Champion championToFind, bool isAlly)
+AIHeroClient * ObjectManager::GetHeroFromChampionEnum( EChampion::EChampion championToFind, bool isAlly)
 {
 	auto player = ObjectManager::GetPlayer();
 	auto heros = ObjectManager::GetType<AIHeroClient>(EUnitType::Hero);

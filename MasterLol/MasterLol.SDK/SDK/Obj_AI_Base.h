@@ -38,7 +38,7 @@ public:
 	std::string GetAIName();
 
 	// Game Functions
-	bool IssueOrder( Vector3 pos, GameObjectOrder = GameObjectOrder::MoveTo, GameObject* = nullptr );
+	bool IssueOrder( Vector3 pos, EGameObjectOrder = EGameObjectOrder::MoveTo, GameObject* = nullptr );
 
 	float GetAttackDelay();
 	float GetAttackCastDelay();

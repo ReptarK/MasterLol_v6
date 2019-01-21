@@ -13,27 +13,34 @@ namespace MasterLol
 		float _calculatedPhysical;
 		float _calculatedMagical;
 		float _calculatedTrue;
-		SpellDamageType::SpellDamageType _autoAttackDamageType = SpellDamageType::Physical;
+		ESpellDamageType::ESpellDamageType _autoAttackDamageType = ESpellDamageType::Physical;
 	};
 
 	class Damage
 	{
 	public:
-		static float TotalAttackDamage(Obj_AI_Base* from);
-		static float TotalMagicalDamage(Obj_AI_Base* from);
-		static float GetCriticalStrikePercentMod(Obj_AI_Base* from);
+		static float TotalAttackDamage( Obj_AI_Base* from );
+		static float TotalMagicalDamage( Obj_AI_Base* from );
+		static float GetCriticalStrikePercentMod( Obj_AI_Base* from );
 
-		static PrecalculatedAutoAttackDamage GetStaticAutoAttackDamage(Obj_AI_Base* from = ObjectManager::Get().GetPlayer(), bool targetIsMinion = true);
+		static PrecalculatedAutoAttackDamage GetStaticAutoAttackDamage( Obj_AI_Base* from = ObjectManager::GetPlayer(), bool targetIsMinion = true );
 
-		static float GetAutoAttackDamage(Obj_AI_Base* target, PrecalculatedAutoAttackDamage precalculated, Obj_AI_Base* from = ObjectManager::Get().GetPlayer());
+		static float GetAutoAttackDamage( Obj_AI_Base* target, PrecalculatedAutoAttackDamage precalculated, Obj_AI_Base* from = ObjectManager::GetPlayer() );
 
 		static float CalculateDamageOnUnit(
 			Obj_AI_Base* from,
 			Obj_AI_Base* target,
-			SpellDamageType::SpellDamageType,
+			ESpellDamageType::ESpellDamageType,
 			float rawDamage,
 			bool isAbility = false,
-			bool isAutoAttackOrTargetted = false);
+			bool isAutoAttackOrTargetted = false 
+		);
+
+		static float GetDamageSpell(
+			Obj_AI_Base* source,
+			Obj_AI_Base* target,
+			ESpellSlot::ESpellSlot slot
+		);
 	};
 }
 

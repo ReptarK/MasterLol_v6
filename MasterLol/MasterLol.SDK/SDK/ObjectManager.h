@@ -41,7 +41,7 @@ public:
 
 	GameObject* operator[] (const uint index);
 
-	static AIHeroClient* GetHeroFromChampionEnum(Champion::Champion, bool isAlly = false);
+	static AIHeroClient* GetHeroFromChampionEnum( EChampion::EChampion, bool isAlly = false);
 
 #pragma region LIST HELPERS
 	template<class ToType, class AType, class BType>

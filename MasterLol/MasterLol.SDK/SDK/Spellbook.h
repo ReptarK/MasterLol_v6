@@ -16,7 +16,7 @@ public:
 	MAKE_GET( ManaCostE, float, Offsets::Spellbook::ManaCostE );
 	MAKE_GET( ManaCostR, float, Offsets::Spellbook::ManaCostR );
 
-	SpellState GetSpellState( ESpellSlot::ESpellSlot );
+	ESpellState GetSpellState( ESpellSlot::ESpellSlot );
 
 	SpellDataInst** GetSpells();
 	SpellDataInst* GetSpell( ESpellSlot::ESpellSlot slot );

@@ -10,7 +10,7 @@ public:
 	MAKE_GET(CooldownExpires, float, Offsets::SpellDataInst::CooldownExpires);
 	MAKE_GET(Ammo, int, Offsets::SpellDataInst::Ammo);
 	MAKE_GET(AmmoRechargeStart, float, Offsets::SpellDataInst::AmmoRechargeStart);
-	MAKE_GET(ToggleState, ToggleState, Offsets::SpellDataInst::ToggleState);
+	MAKE_GET(EToggleState, EToggleState, Offsets::SpellDataInst::ToggleState);
 	MAKE_GET(Cooldown, float, Offsets::SpellDataInst::Cooldown);
 
 	SpellInfo* GetSpellInfo()

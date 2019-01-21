@@ -11,30 +11,30 @@
 template <EventIndex uniqueEventNumber, typename T, typename ... TArgs>
 EventHandler<uniqueEventNumber, T, TArgs...>* EventHandler<uniqueEventNumber, T, TArgs...>::instance = nullptr;
 
-void linkEvents()
+static void linkEvents()
 {
 	//Game
-	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Remove(nullptr);
+	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Remove( nullptr );
 	//Drawing
-	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Remove(nullptr);
-	EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance()->Remove(nullptr);
-	EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>::GetInstance()->Remove(nullptr);
-	EventHandler<EventIndex::OnDrawingRangeIndicator, EventDefines::OnDrawingRangeIndicator, Vector3 *, float, int *, int, float, int, float>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnDrawingRangeIndicator, EventDefines::OnDrawingRangeIndicator, Vector3 *, float, int *, int, float, int, float>::GetInstance()->Remove(nullptr);
+	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnDrawingRangeIndicator, EventDefines::OnDrawingRangeIndicator, Vector3 *, float, int *, int, float, int, float>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnDrawingRangeIndicator, EventDefines::OnDrawingRangeIndicator, Vector3 *, float, int *, int, float, int, float>::GetInstance()->Remove( nullptr );
 	//ObjectManager
-	EventHandler<EventIndex::OnGameObjectCreate, EventDefines::OnGameObjectCreate, GameObject*>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnGameObjectCreate, EventDefines::OnGameObjectCreate, GameObject*>::GetInstance()->Remove(nullptr);
-	EventHandler<EventIndex::OnGameObjectDelete, EventDefines::OnGameObjectDelete, GameObject*>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnGameObjectDelete, EventDefines::OnGameObjectDelete, GameObject*>::GetInstance()->Remove(nullptr);
+	EventHandler<EventIndex::OnGameObjectCreate, EventDefines::OnGameObjectCreate, GameObject*>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnGameObjectCreate, EventDefines::OnGameObjectCreate, GameObject*>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnGameObjectDelete, EventDefines::OnGameObjectDelete, GameObject*>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnGameObjectDelete, EventDefines::OnGameObjectDelete, GameObject*>::GetInstance()->Remove( nullptr );
 	//Obj_AI_Base
-	EventHandler<EventIndex::OnObjAIBaseProcessSpell, EventDefines::OnObjAIBaseProcessSpell, Spellbook*, SpellCastInfo*>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnObjAIBaseProcessSpell, EventDefines::OnObjAIBaseProcessSpell, Spellbook*, SpellCastInfo*>::GetInstance()->Remove(nullptr);
-	EventHandler<EventIndex::OnObjAIBaseIssueOrder, EventDefines::OnObjAIBaseIssueOrder, GameObject*, GameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnObjAIBaseIssueOrder, EventDefines::OnObjAIBaseIssueOrder, GameObject*, GameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint>::GetInstance()->Remove(nullptr);
+	EventHandler<EventIndex::OnObjAIBaseProcessSpell, EventDefines::OnObjAIBaseProcessSpell, Spellbook*, SpellCastInfo*>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnObjAIBaseProcessSpell, EventDefines::OnObjAIBaseProcessSpell, Spellbook*, SpellCastInfo*>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnObjAIBaseIssueOrder, EventDefines::OnObjAIBaseIssueOrder, GameObject*, EGameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnObjAIBaseIssueOrder, EventDefines::OnObjAIBaseIssueOrder, GameObject*, EGameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint>::GetInstance()->Remove( nullptr );
 	//Player
 	/*
 	typedef bool(OnPlayerBuyItem)(AIHeroClient*, int, ItemNode*);	10
@@ -44,8 +44,8 @@ void linkEvents()
 	*/
 
 	//Spellbook
-	EventHandler<EventIndex::OnSpellbookCastSpell, EventDefines::OnSpellbookCastSpell, Spellbook*, SpellDataInst*, ESpellSlot::ESpellSlot, Vector3*, Vector3*, uint>::GetInstance()->Add(nullptr);
-	EventHandler<EventIndex::OnSpellbookCastSpell, EventDefines::OnSpellbookCastSpell, Spellbook*, SpellDataInst*, ESpellSlot::ESpellSlot, Vector3*, Vector3*, uint>::GetInstance()->Remove(nullptr);
+	EventHandler<EventIndex::OnSpellbookCastSpell, EventDefines::OnSpellbookCastSpell, Spellbook*, SpellDataInst*, ESpellSlot::ESpellSlot, Vector3*, Vector3*, uint>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnSpellbookCastSpell, EventDefines::OnSpellbookCastSpell, Spellbook*, SpellDataInst*, ESpellSlot::ESpellSlot, Vector3*, Vector3*, uint>::GetInstance()->Remove( nullptr );
 	//Chat
 	/*typedef bool(OnChatInput)(char**);
 	typedef bool(OnChatMessage)(AIHeroClient*, char**);
@@ -57,29 +57,19 @@ void linkEvents()
 
 MAKE_HOOK<convention_type::thiscall_r, int, void*, DWORD> MainLoop_Hook;
 
-int __fastcall OnMainLoop(void* a1, DWORD EDX, DWORD a2)
+int __fastcall OnMainLoop( void* a1, DWORD EDX, DWORD a2 )
 {
 	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Trigger();
 
-	return MainLoop_Hook.CallOriginal(a1, a2);
-}
-
-void ApplyHooks()
-{
-	//Spellbook::ApplyHooks();
-	//Obj_AI_Base::ApplyHooks();
-	//ObjectManager::ApplyHooks();
-	//MainLoop_Hook.Apply(Patchables::pMainLoop, OnMainLoop);
+	return MainLoop_Hook.CallOriginal( a1, a2 );
 }
 
 bool Game::Initialize()
 {
 	linkEvents();
 	bool status = Patchables::Initialize();
-	ApplyHooks();
 
 #ifdef _DEBUG_VERSION
-	std::cout << "Initializing MasterLol ... " << std::endl;
 	std::cout << "Status : " << std::boolalpha << status << std::endl;
 #endif
 
@@ -94,7 +84,7 @@ bool Game::IsGameFocused()
 
 float Game::GetGameTime()
 {
-	return *reinterpret_cast<float*>(Patchables::LolBase + oGameTime);
+	return *reinterpret_cast< float* >( Patchables::LolBase + oGameTime );
 }
 
 float Game::GetPing()
@@ -102,11 +92,11 @@ float Game::GetPing()
 	return 60;
 }
 
-void Game::PrintChat( char* Message, DWORD color)
+void Game::PrintChat( const char* Message )
 {
 	typedef void( __thiscall* _fnPrintChat )( DWORD ChatClient, const char* Message, int Color );
 	static _fnPrintChat oPrintChat = ( _fnPrintChat )( Patchables::LolBase + fnPrintChat );
 	static DWORD chatClient = *( DWORD* )( Patchables::LolBase + oChatClientPtr );
 
-	return oPrintChat( chatClient, Message, color );
+	return oPrintChat( chatClient, Message , 1);
 }

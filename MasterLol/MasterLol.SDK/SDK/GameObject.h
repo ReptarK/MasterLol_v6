@@ -12,7 +12,7 @@ public:
 	GameObjectVTable * GetVirtual();
 
 	MAKE_GET( Index, short, Offsets::GameObject::Index );
-	MAKE_GET( Team, GameObjectTeam, Offsets::GameObject::Team );
+	MAKE_GET( Team, EGameObjectTeam, Offsets::GameObject::Team );
 	MAKE_GET( NetworkId, uint, Offsets::GameObject::NetworkId );
 	MAKE_GET( IsVisible, bool, Offsets::GameObject::VisibleOnScreen );
 
@@ -24,8 +24,10 @@ public:
 	bool IsMinion();
 	bool IsTurret();
 	bool IsInhibitor();
-	bool IsTroyEnt();
+	bool IsTroy();
 	bool IsNexus();
+	bool IsDragon();
+	bool IsBaron();
 	EUnitType GetType();
 
 	Vector3 GetPos();

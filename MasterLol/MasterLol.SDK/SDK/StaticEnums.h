@@ -19,7 +19,7 @@ enum class ESENDPROTOCOL
 	Unsequenced
 };
 
-enum class GameObjectOrder
+enum class EGameObjectOrder
 {
 	HoldPosition = 1,
 	MoveTo,
@@ -31,7 +31,7 @@ enum class GameObjectOrder
 	Stop = 10
 };
 
-enum class GameObjectTeam
+enum class EGameObjectTeam
 {
 	Unknown = 0,
 	Order = 100,
@@ -39,7 +39,7 @@ enum class GameObjectTeam
 	Neutral = 300
 };
 
-enum class GameState
+enum class EGameState
 {
 	Connecting = 1,
 	Running = 2,
@@ -50,7 +50,7 @@ enum class GameState
 
 #pragma region SPELLS
 
-DECLARE_ENUM(SummonerSpellEnum,
+DECLARE_ENUM(ESummonerSpell,
 	SummonerHeal,
 	SummonerGhost,
 	SummonerBarrier,
@@ -64,7 +64,7 @@ DECLARE_ENUM(SummonerSpellEnum,
 	SummonerIgnite
 )
 
-DECLARE_ENUM( SpellCastType,
+DECLARE_ENUM( ESpellCastType,
 	Unknown,
 	Targeted,
 	Circle,
@@ -96,7 +96,7 @@ DECLARE_ENUM( ESpellSlot,
 	Unknown
 )
 
-enum class SpellState
+enum class ESpellState
 {
 	//Possible flags
 
@@ -109,14 +109,14 @@ enum class SpellState
 	Unknown
 };
 
-enum class ToggleState
+enum class EToggleState
 {
 	Unknown = 0,
 	NotActive,
 	Active
 };
 
-DECLARE_ENUM( SpellStage,
+DECLARE_ENUM( ESpellStage,
 	Default,
 	SecondCast,
 	Empowered,
@@ -128,18 +128,18 @@ DECLARE_ENUM( SpellStage,
 	SecondForm
 )
 
-DECLARE_ENUM( SpellDamageType,
+DECLARE_ENUM( ESpellDamageType,
 	Physical,
 	Magical,
 	True
 )
 
-DECLARE_ENUM( SpellScalingTarget,
+DECLARE_ENUM( ESpellScalingTarget,
 	Source,
 	Target
 )
 
-DECLARE_ENUM( SpellScalingType,
+DECLARE_ENUM( ESpellScalingType,
 	AbilityPoints,
 	AttackPoints,
 	BonusAttackPoints,
@@ -148,7 +148,7 @@ DECLARE_ENUM( SpellScalingType,
 )
 #pragma endregion
 
-enum class GameMode
+enum class EGameMode
 {
 	Connecting = 1,
 	Running = 2,
@@ -157,7 +157,7 @@ enum class GameMode
 	Exiting = 5
 };
 
-enum class GameMap
+enum class EGameMap
 {
 	CrystalScar = 8,
 	TwistedTreeline = 10,
@@ -165,7 +165,7 @@ enum class GameMap
 	HowlingAbyss = 12
 };
 
-enum class CollisionFlags
+enum class ECollisionFlags
 {
 	None = 0,
 	Grass = 1,
@@ -184,9 +184,12 @@ enum class EUnitType
 	Nexus,
 	Troy,
 	Missile,
+	Dragon,
+	Baron,
 	Unknown
 };
 
+/*
 enum class UnitType
 {
 	NeutralMinionCamp = 0,
@@ -220,9 +223,9 @@ enum class UnitType
 	Shop = 28,
 	obj_Turret = 29,
 	Unknown
-};
+};*/
 
-DECLARE_ENUM(Priority,
+DECLARE_ENUM(EPriority,
 	Unknown,
 	Lowest,
 	Low,
@@ -231,7 +234,7 @@ DECLARE_ENUM(Priority,
 	Highest
 )
 
-DECLARE_ENUM(Champion,
+DECLARE_ENUM(EChampion,
 
 	Aatrox,
 	Ahri,

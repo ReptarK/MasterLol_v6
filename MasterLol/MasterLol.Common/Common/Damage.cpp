@@ -40,26 +40,26 @@ namespace MasterLol
 
 		switch ( precalculated._autoAttackDamageType )
 		{
-		case SpellDamageType::Physical:
+		case ESpellDamageType::Physical:
 			rawPhysicalDamage += rawTotal;
 			break;
-		case SpellDamageType::Magical:
+		case ESpellDamageType::Magical:
 			rawMagicalDamage += rawTotal;
 			break;
-		case SpellDamageType::True:
+		case ESpellDamageType::True:
 			calculatedTrueDamage += rawTotal;
 			break;
 		}
 
 		if ( rawPhysicalDamage > 0.0f )
 		{
-			calculatedPhysicalDamage += CalculateDamageOnUnit( from, target, SpellDamageType::Physical, rawPhysicalDamage,
-				false, precalculated._autoAttackDamageType == SpellDamageType::Physical );
+			calculatedPhysicalDamage += CalculateDamageOnUnit( from, target, ESpellDamageType::Physical, rawPhysicalDamage,
+				false, precalculated._autoAttackDamageType == ESpellDamageType::Physical );
 		}
 		if ( rawMagicalDamage > 0.0f )
 		{
-			calculatedMagicalDamage += CalculateDamageOnUnit( from, target, SpellDamageType::Magical, rawMagicalDamage,
-				false, precalculated._autoAttackDamageType == SpellDamageType::Magical );
+			calculatedMagicalDamage += CalculateDamageOnUnit( from, target, ESpellDamageType::Magical, rawMagicalDamage,
+				false, precalculated._autoAttackDamageType == ESpellDamageType::Magical );
 		}
 		auto percentMod = 1.0f;
 		if ( std::abs( from->GetUnitStats()->mCrit - 1.0f ) < FLT_EPSILON || guaranteedCriticalStrike )
@@ -71,7 +71,7 @@ namespace MasterLol
 	float Damage::CalculateDamageOnUnit(
 		Obj_AI_Base * from,
 		Obj_AI_Base * target,
-		SpellDamageType::SpellDamageType damageType,
+		ESpellDamageType::ESpellDamageType damageType,
 		float rawDamage,
 		bool isAbility, bool isAutoAttackOrTargetted )
 	{
@@ -91,7 +91,7 @@ namespace MasterLol
 
 		switch ( damageType )
 		{
-		case SpellDamageType::Physical:
+		case ESpellDamageType::Physical:
 			baseResistance = target->GetUnitStats()->mArmor;
 			bonusResistance = target->GetUnitStats()->mBonusArmor;
 			if ( from->IsMinion() )
@@ -108,12 +108,12 @@ namespace MasterLol
 				bonusPenetrationPercent = 0.0f;
 			}
 			break;
-		case SpellDamageType::Magical:
+		case ESpellDamageType::Magical:
 			baseResistance = target->GetUnitStats()->mMagicResist;
 			bonusResistance = target->GetUnitStats()->mBonusMagicResist;
 			break;
 
-		case SpellDamageType::True:
+		case ESpellDamageType::True:
 			return rawDamage;
 		}
 
@@ -149,5 +149,9 @@ namespace MasterLol
 		if ( percentMod * rawDamage > 0 )
 			return percentMod * rawDamage;
 		return 0;
+	}
+	float Damage::GetDamageSpell( Obj_AI_Base * source, Obj_AI_Base * target, ESpellSlot::ESpellSlot slot )
+	{
+		return 0.0f;
 	}
 }

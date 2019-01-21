@@ -55,7 +55,7 @@ namespace EventDefines
 
 	//Obj_AI_Base
 	typedef bool( OnObjAIBaseProcessSpell )( Spellbook* spellbook, SpellCastInfo* );
-	typedef bool( OnObjAIBaseIssueOrder )( GameObject*, GameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint );
+	typedef bool( OnObjAIBaseIssueOrder )( GameObject*, EGameObjectOrder, Vector3*, GameObject*, DWORD, DWORD, uint );
 
 	//AIHeroClient
 

@@ -19,11 +19,14 @@
     <Filter Include="Source Files\Geometry">
       <UniqueIdentifier>{2c871a28-f90e-421c-9a61-906276fd3ae9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Imgui">
-      <UniqueIdentifier>{09364a40-4a4c-4040-91fa-fd2443544992}</UniqueIdentifier>
+    <Filter Include="Header Files\Misk">
+      <UniqueIdentifier>{179c71fa-b62d-4a2c-baad-cfb91d8aaaff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Imgui">
-      <UniqueIdentifier>{b9678363-cdad-42a5-aa96-51c0a926f5f2}</UniqueIdentifier>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{f9c28e4a-8e12-498e-ae84-ec1e4cb17aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{735a30b5-afcd-4288-8c43-3aafd37c8b9f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,26 +45,20 @@
     <ClInclude Include="Common\Damage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Common\Imgui\imconfig.h">
-      <Filter>Header Files\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Imgui\imgui.h">
-      <Filter>Header Files\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Imgui\imgui_internal.h">
-      <Filter>Header Files\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Imgui\imstb_rectpack.h">
-      <Filter>Header Files\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Imgui\imstb_textedit.h">
-      <Filter>Header Files\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Imgui\imstb_truetype.h">
-      <Filter>Header Files\Imgui</Filter>
-    </ClInclude>
     <ClInclude Include="Common\GameFunctions.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\SummonerSpells.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Misk\date.h">
+      <Filter>Header Files\Misk</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\MainLoop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Menu\Menu.h">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,20 +74,17 @@
     <ClCompile Include="Common\Damage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Common\Imgui\imgui.cpp">
-      <Filter>Source Files\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Common\Imgui\imgui_demo.cpp">
-      <Filter>Source Files\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Common\Imgui\imgui_draw.cpp">
-      <Filter>Source Files\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Common\Imgui\imgui_widgets.cpp">
-      <Filter>Source Files\Imgui</Filter>
-    </ClCompile>
     <ClCompile Include="Common\GameFunctions.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\SummonerSpells.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\MainLoop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Menu\Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -9,6 +9,6 @@ public:
 
 	MAKE_GET(Level, __int32, Offsets::AIHeroClient::Level);
 
-	Champion::Champion GetHero();
-	const static std::map<std::string, Champion::Champion> ChampionMap;
+	EChampion::EChampion GetHero();
+	const static std::map<std::string, EChampion::EChampion> ChampionMap;
 };
