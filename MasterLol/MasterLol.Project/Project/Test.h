@@ -6,13 +6,15 @@
 #include <Common/GameFunctions.h>
 #include <SDK/HudManager.h>
 
+#include <SDK/Hooks.h>
+
 namespace TEST
 {
 	static void test1()
 	{
 		// LocalPlayer
 		printf( "LocalPlayer : %#x \n", ObjectManager::GetPlayer() );
-		printf( "\t AI Manager : %#x \n", ObjectManager::GetPlayer()->GetAIManager() );
+		printf( "\t AI Manager : %#x \n", ObjectManager::GetPlayer()->GetNavigation() );
 		printf( "\t Name : %s \n", ObjectManager::GetPlayer()->GetName().c_str() );
 		printf( "\t Position : (%.0f, %.0f, %.0f) \n",
 			ObjectManager::GetPlayer()->GetPos().x,
@@ -40,6 +42,15 @@ namespace TEST
 
 	static void test2()
 	{
-		auto vec = Vector3( 0, 0, 0 );
+		auto player = ObjectManager::GetPlayer();
+		auto nav = player->GetNavigation();
+		printf( "GetFloat() : %.3f \n", nav->GetFloat() );
+		printf( "fn27_voidPtr() : %#x \n", (DWORD*)nav->fn27_voidPtr( false ) );
 	}
+
+	static void test3()
+	{
+		Obj_AI_Base::ApplyHooks();
+	}
+
 }

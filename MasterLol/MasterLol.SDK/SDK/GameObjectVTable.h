@@ -1,6 +1,6 @@
 #pragma once
 
-class AIManager;
+class Navigation;
 
 class GameObjectVTable
 {
@@ -151,7 +151,7 @@ public:
 	virtual void Function141(); //
 	virtual void Function142(); //
 	virtual void Function143(); //
-	virtual AIManager* GetAIManager(); //
+	virtual Navigation* GetNavigation(); //
 	virtual void Function145(); //
 	virtual void Function146(); //
 	virtual void Function147(); //

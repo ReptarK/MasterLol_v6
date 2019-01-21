@@ -4,10 +4,29 @@
 #include "SpellCastInfo.h"
 #include "EventManager.h"
 #include "Names.h"
+#include "ObjectManager.h"
+#include "Hooks.h"
 
-AIManager * Obj_AI_Base::GetAIManager()
+MAKE_HOOK<convention_type::thiscall_r, int, Navigation*, int, DWORD*> OnFunction16_Hook;
+
+int __fastcall OnFunction16( Navigation* navigation, void* edx, int a2, DWORD* a3 )
 {
-	return this->GetVirtual()->GetAIManager();
+	printf( "Navigation* = %#x, int = %i, DWORD* = %#x", navigation, a2, a3 );
+	return OnFunction16_Hook.CallOriginal( navigation, a2, a3 );
+}
+
+void Obj_AI_Base::ApplyHooks()
+{
+	auto player = ObjectManager::GetPlayer();
+	DWORD** virtualTable = *( DWORD*** )player->GetNavigation();
+	DWORD* function16 = virtualTable[16];
+	printf( "Hooked function16 at : %#x \n", ( DWORD )function16 );
+	OnFunction16_Hook.Apply( ( DWORD )function16, OnFunction16 );
+}
+
+Navigation * Obj_AI_Base::GetNavigation()
+{
+	return this->GetVirtual()->GetNavigation();
 }
 
 Spellbook * Obj_AI_Base::GetSpellbook()

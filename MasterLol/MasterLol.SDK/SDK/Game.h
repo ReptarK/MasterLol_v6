@@ -19,5 +19,6 @@ public:
 	static float GetGameTime();
 	static float GetPing();
 	static void PrintChat( const char* Message );
+	static void PrintChat( const char* Message, DWORD color );
 };
 

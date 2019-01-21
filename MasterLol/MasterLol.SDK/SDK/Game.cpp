@@ -100,3 +100,7 @@ void Game::PrintChat( const char* Message )
 
 	return oPrintChat( chatClient, Message , 1);
 }
+
+void Game::PrintChat( const char* Message, DWORD color )
+{
+}

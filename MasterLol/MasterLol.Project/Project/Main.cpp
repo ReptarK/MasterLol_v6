@@ -19,6 +19,14 @@ void InitializeHotkeys()
 	InputSys::Get().RegisterHotkey( VK_F1, []() {
 		TEST::test1();
 	} );
+
+	InputSys::Get().RegisterHotkey( VK_F2, []() {
+		TEST::test2();
+	} );
+
+	InputSys::Get().RegisterHotkey( VK_F3, []() {
+		TEST::test3();
+	} );
 }
 
 void InitializeConsole()
