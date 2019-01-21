@@ -11,26 +11,8 @@ fnCastSpell			: "ERROR: Client Tried to cast a spell fro" then UP
 						
 fnSpellState		: 83 EC 10 8B 01 8D 54 24 08 56 57 52 FF 50 1C 8D 4C 24 08 51 8B C8 E8 ? ? ? ? 8B 4C 24 14 83 CF FF 85 C9 74 0E 8B C7 F0 0F C1 41 ? 75 05 8B 01 FF 50 04 8B 4C 24 08 85 C9 74 44
 
-fnDrawCircle		: 1. Search of : 83 EC 18 53 55 56 8B F1 57 8D 7E 04
-					  2. Scroll down a lot to reach this : 
-						.text:01487EBE CC CC                             align 10h
-						.text:01487EC0 F3 0F 10 05 18 8F+dword_1487EC0   dd 5100FF3h, 1F58F18h, 4C100FF3h, 0FF30C24h, 8F1C1510h
-						.text:01487EC0 F5 01 F3 0F 10 4C+                dd 0FF301F5h, 25981D10h, 8B5601F3h, 0F182474h, 8B57C12Fh
-						.text:01487EC0 24 0C F3 0F 10 15+                dd 0C710247Ch, 0C46h, 46C70000h, 10h, 100FF33Fh, 0F208F005h
-						.text:01487EC0 1C 8F F5 01 F3 0F+                dd 110FF301h, 0F1C2444h, 2D72C128h, 0A1AF7BE8h, 244C8B00h
-						.text:01487EC0 10 1D 98 25 F3 01+                dd 0D0280F0Ch, 7100FF3h, 0F3CA280Fh, 84F590Fh, 0F3E4570Fh
-						.text:01487EC0 56 8B 74 24 18 0F+                dd 0F3C2590Fh, 849580Fh, 1580FF3h, 92E9h, 0D12F0F00h, 0FF35B72h
-						.text:01487EC0 2F C1 57 8B 7C 24+                dd 45E8C35Ch, 8B00A1AFh, 0F0C244Ch, 0FF3E028h, 0F3085F10h
-						.text:01487EC0 10 C7 46 0C 00 00+                dd 0F317100Fh, 2046100Fh, 49100FF3h, 590FF308h, 5C0FF3CCh
-						.text:01487EC0 00 00 C7 46 10 00+                dd 100FF3D9h, 590FF309h, 580FF3CCh, 0F31C2464h, 0F3D15C0Fh
-						.text:01487EC0 00 00 3F F3 0F 10+                dd 0F3C3580Fh, 25590Fh, 0F301F1DAh, 1856580Fh, 56110FF3h
-						.text:01487EC0 05 F0 08 F2 01 F3+                dd 100FF318h, 0EB1C2454h, 0AEEEE845h, 4C8B00A1h, 280F0C24h
-						.text:01487EC0 0F 11 44 24 1C 0F+                dd 15570FD0h, 1F287F0h, 7100FF3h, 0F3CA280Fh, 84F590Fh
-						.text:01487EC0 28 C1 72 2D E8 7B+                dd 64100FF3h, 0FF31C24h, 0FF3C259h, 0F308495Ch, 0F3015C0Fh
-						.text:01487EC0 AF A1 00 8B 4C 24+                dd 1846580Fh, 46110FF3h, 100FF318h, 0FF32046h, 548BC158h
-						.text:01487EC0 0C 0F 28 D0 F3 0F+                dd 2B82024h, 0F3000000h, 245C100Fh, 110FF314h, 0FF32046h
-						.text:01487EC0 10 07 0F 28 CA F3+                dd 0F3245611h, 2454100Fh, 110FF318h, 1E0h dup(0)
-						.text:01488780 00 00 00 00 00 00+dword_1488780   dd 1A8h dup(0)          ; CODE XREF: sub_14FE560+475p <---- 1488780 = drawCircle
+fnDrawCircle		: 81 EC ? ? ? ? A1 ? ? ? ? 33 C4 89 84 24 ? ? ? ? F3 0F 10 84 24 ? ? ? ? 8D 0C 24
+
 
 
 fnIsTargetable		: 56 8B F1 E8 ? ? ? ? 84 C0 74 2E

@@ -27,15 +27,13 @@
 #define fnUpdateChargeableSpell 0x583AC0
 
 //General offsets
-#define oChatClientPtr 0x15CC330	// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
+#define oChatClientPtr 0x15CC330		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
 #define oLocalPlayer   0x2E774E8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
 #define oObjManager    0x2E76C88		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
-#define oGameTime      0x2E73400
+#define oGameTime      0x2E73400		// 83 EC 10 53 8B 1D ? ? ? ? 55 -> decompile -> if ( (float)(v17 - *(float *)&dword_GameTime) < 0.0 )
 #define oHudInstance   0x15CE9CC		// "PerSide.ini"
-#define oGameVersion   0x2E80678
 #define oRenderer      0x2E92DD4			// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
-#define oZoomClass     0x2E73358
-#define oUnderMouseObj 0x221F944	// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
+#define oUnderMouseObj 0x221F944		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 
 
 
