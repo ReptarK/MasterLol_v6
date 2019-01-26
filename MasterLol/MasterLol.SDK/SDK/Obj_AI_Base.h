@@ -37,7 +37,7 @@ public:
 	virtual DWORD* unkPtr();
 	virtual void Function13();
 	virtual void Function14();
-	virtual int signed_intFunc();
+	virtual int Function15();
 	virtual void Function16();
 	virtual void Function17();
 	virtual float GetMovementSpeed();

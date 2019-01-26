@@ -51,7 +51,7 @@ public:
 
 	enum class Obj_AI_Base
 	{
-		Gold		= 0x1C88,
+		Gold        = 0x1C88,
 		AIName		= 0x2460,
 
 		SpellBook	= 0x29F8,
