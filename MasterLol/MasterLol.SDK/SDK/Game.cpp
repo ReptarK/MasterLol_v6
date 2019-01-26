@@ -98,9 +98,12 @@ void Game::PrintChat( const char* Message )
 	static _fnPrintChat oPrintChat = ( _fnPrintChat )( Patchables::LolBase + fnPrintChat );
 	static DWORD chatClient = *( DWORD* )( Patchables::LolBase + oChatClientPtr );
 
-	return oPrintChat( chatClient, Message , 1);
+	return oPrintChat( chatClient, Message, 1 );
 }
 
-void Game::PrintChat( const char* Message, DWORD color )
+void Game::PrintChat( const char* Message, D3DCOLOR color ) //0xFF0000FF -> 0x0000FF
 {
+	char messageBuffer[100];
+	int size = sprintf( messageBuffer, "<font color='%x'>%s</font>", color & 0x00FFFFFF, Message );
+	PrintChat( messageBuffer );
 }

@@ -37,7 +37,8 @@ namespace TEST
 		// Functions
 		GameFunctions::IssueOrder( HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo );
 
-		Game::PrintChat( "<font color='#FFFF00'>Test Print Chat ! </font>" );
+		//Game::PrintChat( "<font color='#FFFF00'>Test Print Chat ! </font>" );
+		Game::PrintChat( "Test", BLUE( 255 ) );
 	}
 
 	static void test2()
@@ -45,7 +46,6 @@ namespace TEST
 		auto player = ObjectManager::GetPlayer();
 		auto nav = player->GetNavigation();
 		printf( "GetFloat() : %.3f \n", nav->GetFloat() );
-		printf( "fn27_voidPtr() : %#x \n", (DWORD*)nav->fn27_voidPtr( false ) );
 	}
 
 	static void test3()
