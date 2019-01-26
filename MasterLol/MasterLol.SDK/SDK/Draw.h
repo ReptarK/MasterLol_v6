@@ -27,7 +27,7 @@ public:
 	int32_t screenResolutionX; //0x0018
 	int32_t screenResolutionY; //0x001C
 	char pad_0020[68]; //0x0020
-	D3DMATRIX viewMatrix; //0x0064
+	D3DMATRIX viewMatrix; //0x0064 Starts with 1.0000 and is before a position vector3
 	D3DMATRIX projMatrix; //0x00A4
 }; //Size=0x010C
 

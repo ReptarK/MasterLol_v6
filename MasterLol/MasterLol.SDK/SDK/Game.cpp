@@ -92,15 +92,19 @@ float Game::GetPing()
 	return 60;
 }
 
-void Game::PrintChat( const char* Message )
+void Game::PrintChat( const char* message )
 {
 	typedef void( __thiscall* _fnPrintChat )( DWORD ChatClient, const char* Message, int Color );
 	static _fnPrintChat oPrintChat = ( _fnPrintChat )( Patchables::LolBase + fnPrintChat );
 	static DWORD chatClient = *( DWORD* )( Patchables::LolBase + oChatClientPtr );
 
-	return oPrintChat( chatClient, Message , 1);
+	return oPrintChat( chatClient, message, 1);
 }
 
-void Game::PrintChat( const char* Message, DWORD color )
+void Game::PrintChat( const char* message, DWORD color )
 {
+	char buffer[100];
+	sprintf( buffer, "<font color='#%x'>%s</font>", color, message );
+
+	Game::PrintChat( buffer );
 }

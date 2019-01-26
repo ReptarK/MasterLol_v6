@@ -21,11 +21,21 @@ namespace TEST
 			ObjectManager::GetPlayer()->GetPos().y,
 			ObjectManager::GetPlayer()->GetPos().z );
 		printf( "\t BoundingRadius : %.0f \n", ObjectManager::GetPlayer()->GetBoundingRadius() );
-		printf( "IsHero : %s\n", ObjectManager::GetPlayer()->IsHero() ? "true" : "false" );
-		printf( "IsDragon : %s\n", ObjectManager::GetPlayer()->IsDragon() ? "true" : "false" );
-		printf( "IsTroy : %s\n", ObjectManager::GetPlayer()->IsTroy() ? "true" : "false" );
+
 		printf( "IsAlive : %s\n", ObjectManager::GetPlayer()->IsAlive() ? "true" : "false" );
 		printf( "IsTargetable : %s\n", ObjectManager::GetPlayer()->IsTargetable() ? "true" : "false" );
+
+
+		printf( "IsHero : %s\n", ObjectManager::GetPlayer()->IsHero() ? "true" : "false" );
+		printf( "IsTroy : %s\n", ObjectManager::GetPlayer()->IsTroy() ? "true" : "false" );
+		printf( "IsMinion : %s\n", ObjectManager::GetPlayer()->IsMinion() ? "true" : "false" );
+		printf( "IsNexus : %s\n", ObjectManager::GetPlayer()->IsNexus() ? "true" : "false" );
+		printf( "IsInhibitor : %s\n", ObjectManager::GetPlayer()->IsInhibitor() ? "true" : "false" );
+		printf( "IsMissile : %s\n", ObjectManager::GetPlayer()->IsMissile() ? "true" : "false" );
+		printf( "IsTurret : %s\n", ObjectManager::GetPlayer()->IsTurret() ? "true" : "false" );
+		printf( "IsDragon : %s\n", ObjectManager::GetPlayer()->IsDragon() ? "true" : "false" );
+
+
 
 		// HudManager
 		printf( "\nGameCursor : %#x \n", HudManager::GetGameCursor() );
@@ -37,20 +47,22 @@ namespace TEST
 		// Functions
 		GameFunctions::IssueOrder( HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo );
 
-		Game::PrintChat( "<font color='#FFFF00'>Test Print Chat ! </font>" );
+		//Game::PrintChat( "<font color='#FFFF00'>Test Print Chat ! </font>" );
+		Game::PrintChat( "Test 1", BLUE( 255 ) );
 	}
+
 
 	static void test2()
 	{
-		auto player = ObjectManager::GetPlayer();
-		auto nav = player->GetNavigation();
-		printf( "GetFloat() : %.3f \n", nav->GetFloat() );
-		printf( "fn27_voidPtr() : %#x \n", (DWORD*)nav->fn27_voidPtr( false ) );
+		GameObject* currentObject = HudManager::GetUnderMouseObject();
+		if ( currentObject )
+			printf( "Object ID : %x \n", currentObject->GetUnitId() );
 	}
 
 	static void test3()
 	{
 		Obj_AI_Base::ApplyHooks();
 	}
+
 
 }

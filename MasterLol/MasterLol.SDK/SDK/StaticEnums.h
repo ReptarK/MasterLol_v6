@@ -177,16 +177,30 @@ enum class ECollisionFlags
 
 enum class EUnitType
 {
-	Hero,
-	Minion,
-	Turret,
-	Inhibitor,
-	Nexus,
-	Troy,
-	Missile,
-	Dragon,
-	Baron,
-	Unknown
+	Unknown   = 0,
+	Minion    = 0x800,
+	Troy      = 0x801,
+	Dragon    = 0x802,
+	Baron     = 0x803,
+	Hero      = 0x1000,
+	Turret    = 0x2000,
+	Missile   = 0x8000,
+	Inhibitor = 0x20000,
+	Nexus     = 0x20001,
+};
+
+enum class EUnitId
+{
+	Unknown = 0,
+	Minion = 0x800,
+	Troy = 0x801,
+	Dragon = 0x802,
+	Baron = 0x803,
+	Hero = 0x1000,
+	Turret = 0x2000,
+	Missile = 0x8000,
+	Inhibitor = 0x20000,
+	Nexus = 0x20001,
 };
 
 /*

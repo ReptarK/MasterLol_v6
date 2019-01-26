@@ -3,37 +3,40 @@
 
 #define g_Offset static DWORD
 
+#define XOR_KEY 0xEFEE81C4
+
 //Functions
-#define fnPrintChat             0x5B2710
-#define fnGetAttackDelay        0x589BA0
+#define fnPrintChat             0x5C9570
+#define fnGetAttackDelay        0x597D10
 #define fnGetAttackCastDelay    0x589AC0
-#define fnDrawCircle            0x578960
-#define fnIsAlive               0x1DF120
-#define fnIsTargetable          0x220EB0
+#define fnDrawCircle            0x587920
 
-#define fnIsDragon				0x2143C0
-#define fnIsBaron				0x214FB0
-#define fnIsInhib               0x226A10
-#define fnIsNexus               0x226B10
-#define fnIsTroy                0x226E50
-#define fnIsTurret              0x226D60
-#define fnIsMinion              0x226BD0
-#define fnIsHero                0x226B90
-#define fnIsMissile             0x226BF0
+#define fnIsAlive               0x1DFA40
+#define fnIsTargetable          0x221CE0
 
-#define fnIssueOrder            0x1BCA40
+#define fnIsDragon				0x215090
+#define fnIsBaron				0x215CE0
+#define fnIsInhib               0x227830
+#define fnIsNexus               0x227930 //id = 0x400 -> not good
+#define fnIsTroy                0x227C70 //id = 0x1000
+#define fnIsTurret              0x227B80 //id = 0x2000
+#define fnIsMinion              0x2279F0 //id = 0x800
+#define fnIsHero                0x2279B0 //id = 0x1000
+#define fnIsMissile             0x227A10 //id = 0x8000
+
+#define fnIssueOrder            0x1BCEE0
 #define fnGetSpellState         0x5760D0
-#define fnCastSpell             0x581020
+#define fnCastSpell             0x590D20
 #define fnUpdateChargeableSpell 0x583AC0
 
 //General offsets
-#define oChatClientPtr 0x15CC330		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
-#define oLocalPlayer   0x2E774E8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
-#define oObjManager    0x2E76C88		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
-#define oGameTime      0x2E73400		// 83 EC 10 53 8B 1D ? ? ? ? 55 -> decompile -> if ( (float)(v17 - *(float *)&dword_GameTime) < 0.0 )
-#define oHudInstance   0x15CE9CC		// "PerSide.ini"
-#define oRenderer      0x2E92DD4			// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
-#define oUnderMouseObj 0x221F944		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
+#define oChatClientPtr 0x15EE7B0		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
+#define oLocalPlayer   0x2E996BC		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
+#define oObjManager    0x2E99120		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
+#define oGameTime      0x2E957C8		// 83 EC 10 53 8B 1D ? ? ? ? 55 -> decompile -> if ( (float)(v17 - *(float *)&dword_GameTime) < 0.0 )
+#define oHudInstance   0x15F0E48		// "PerSide.ini"
+#define oRenderer      0x2EB51D4		// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
+#define oUnderMouseObj 0x2241DBC		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 
 
 

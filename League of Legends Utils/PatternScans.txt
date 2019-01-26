@@ -1,15 +1,24 @@
 League of Legends PatternScans
 
-fnIssueOrder		: 81 EC 10 01 00 00 56 57 8B F9 C7 84 24 10 01 00
+xorKey				: 35 ? ? ? ? 89 44 8C 14 41 3B CB 72 E9 -> xor eax, XOR_KEY
+
+fnPrintChat			: 83 EC 38 A1 ? ? ? ? 33 C4 89 44 24 34 53 8B 5C 24 44 56
+					  OR "SetIsChatExpanded" -> function under it directly
+
+fnIssueOrder		: 	   81 EC ? ? ? ? 56 57 8B F9 C7 84 24
+					 OLD : 81 EC ? ? ? ? 56 57 8B F9 C7 84 24
+
+fnWorldToScreen		: 83 EC 10 56 E8 ? ? ? ? 8B 08
 
 fnAttackDelay		: 8B 44 24 04 51 F3 0F 10 80
 
-fnAttackCastDelay	: 83 EC 0C 53 8B 5C 24 14 8B CB 57
+fnAttackCastDelay	: 83 EC 0C 56 57 8B 7C 24 18 8B CF [old : 83 EC 0C 53 8B 5C 24 14 8B CB 57]
 
 fnCastSpell			: "ERROR: Client Tried to cast a spell fro" then UP
 						83 EC 2C 53 55 56 8B 74 24 3C
 						
-fnSpellState		: 83 EC 10 8B 01 8D 54 24 08 56 57 52 FF 50 1C 8D 4C 24 08 51 8B C8 E8 ? ? ? ? 8B 4C 24 14 83 CF FF 85 C9 74 0E 8B C7 F0 0F C1 41 ? 75 05 8B 01 FF 50 04 8B 4C 24 08 85 C9 74 44
+fnSpellState		: 83 EC 14 8B 44 24 1C 55
+					  OR -> 83 EC 10 8B 01 8D 54 24 08 56 57 52 FF 50 1C 8D 4C 24 08 51 8B C8 E8 ? ? ? ? 8B 4C 24 14 83 CF FF 85 C9 74 0E 8B C7 F0 0F C1 41 ? 75 05 8B 01 FF 50 04 8B 4C 24 08 85 C9 74 44
 
 fnDrawCircle		: 81 EC ? ? ? ? A1 ? ? ? ? 33 C4 89 84 24 ? ? ? ? F3 0F 10 84 24 ? ? ? ? 8D 0C 24
 
@@ -23,6 +32,8 @@ fnIsDragon			: 56 81 C1 ? ? ? ? E8 ? ? ? ? 8B F0 83 7E 14 10 72 02 8B 36 68
 fnIsTurret			: 8B 4C 24 04 85 C9 74 11 68 00 20 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 fnIsMinion			: 8B 4C 24 04 85 C9 74 11 68 00 08 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 fnIsHero			: 8B 4C 24 04 85 C9 74 11 68 00 10 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
+fnIsInhib			: 57 8B 7C 24 08 85 FF 74 6B 0F B6 47 05 33 C9 56 0F B6 77 1C
+					
 
 fnMainLoop			: 83 EC 08 8D 04 24 0F 57 C0 //TEST
 					__int64 fnMainLoop()
@@ -42,6 +53,14 @@ void SetSkin(Object * pEntity, int SkinID)
 	pEntity->pCharacterInfo = GetCharacterInfo(reinterpret_cast<int>(pEntity->ChampionName), SkinID, 0);
 	FuncSetModel(reinterpret_cast<char*>(pEntity), reinterpret_cast<int>(pEntity->ChampionName), SkinID, 0);
 }
+
+#define oChatClientPtr 0x15CC330		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
+#define oLocalPlayer   0x2E774E8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
+#define oObjManager    0x2E76C88		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
+#define oGameTime      0x2E73400		// 83 EC 10 53 8B 1D ? ? ? ? 55 -> decompile -> if ( (float)(v17 - *(float *)&dword_GameTime) < 0.0 )
+#define oHudInstance   0x15CE9CC		// "PerSide.ini"
+#define oRenderer      0x2E92DD4			// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
+#define oUnderMouseObj 0x221F944		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 
 ///////////////////////
 ///////////////////////

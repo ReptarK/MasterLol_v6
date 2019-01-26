@@ -10,7 +10,6 @@ GameCursor * HudManager::GetGameCursor()
 
 GameObject * HudManager::GetUnderMouseObject()
 {
-	return nullptr;
 	__try
 	{
 		return *reinterpret_cast< GameObject** >( Patchables::LolBase + oUnderMouseObj );

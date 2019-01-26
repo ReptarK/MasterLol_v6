@@ -25,7 +25,7 @@ public:
 		Name			=	0x88,
 		NetworkId		=	0x110,
 		Position		=	0x260,
-		VisibleOnScreen =	0x420
+		IsVisible       =	0x420
 	};
 
 	enum class AttackableUnit
@@ -54,12 +54,12 @@ public:
 		Gold		= 0x1C88,
 		AIName		= 0x2460,
 
-		SpellBook	= 0x29F0,
+		SpellBook	= 0x29F8,
 	};
 
 	enum class AIHeroClient
 	{
-		Level = 0x4B2C
+		Level = 0x4B94
 	};
 
 	enum class MissileClient

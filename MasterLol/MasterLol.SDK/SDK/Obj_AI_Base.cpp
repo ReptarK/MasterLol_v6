@@ -26,7 +26,11 @@ void Obj_AI_Base::ApplyHooks()
 
 Navigation * Obj_AI_Base::GetNavigation()
 {
+	__try {
 	return this->GetVirtual()->GetNavigation();
+
+	}
+	__except ( 1 ) { return 0; }
 }
 
 Spellbook * Obj_AI_Base::GetSpellbook()

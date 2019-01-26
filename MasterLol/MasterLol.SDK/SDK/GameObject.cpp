@@ -26,6 +26,99 @@ float GameObject::GetBoundingRadius()
 	__except ( 1 ) { return 0; }
 }
 
+ObjectType * GameObject::GetObjectTypeName()
+{
+	int v1; // edi@1
+	unsigned int v2; // ecx@2
+	unsigned int EncryptedId; // esi@2
+	int v4; // edx@3
+	unsigned __int8 v5; // al@5
+	unsigned int i; // eax@6
+	bool result; // al@8
+
+	int gameObjectCopy = ( int )this;
+	v1 = gameObjectCopy;
+	if ( gameObjectCopy )
+	{
+		v2 = 0;
+		EncryptedId = *( BYTE * )( gameObjectCopy + 28 );
+		gameObjectCopy = *( DWORD * )( gameObjectCopy + 4 * *( BYTE * )( gameObjectCopy + 5 ) + 8 );
+		if ( EncryptedId )
+		{
+			v4 = v1 + 24;
+			do
+			{
+				v4 += 4;
+				*( &gameObjectCopy + v2 ) ^= *( DWORD * )( v4 - 4 ) ^ XOR_KEY;
+				++v2;
+			} while ( v2 < EncryptedId );
+		}
+		v5 = *( BYTE * )( v1 + 29 );
+		if ( v5 )
+		{
+			for ( i = 4 - v5; i < 4; ++i )
+				*( ( BYTE * )&gameObjectCopy + i ) ^= *( BYTE * )( v1 + i + 24 ) ^ 0xC4;
+		}
+	}
+	else
+	{
+		result = 0;
+	}
+	return ( ObjectType* )gameObjectCopy;
+}
+
+EUnitId GameObject::GetUnitId()
+{
+	int v2; // eax@1
+	int v3; // esi@1
+	unsigned int v4; // ecx@1
+	unsigned int v5; // edi@1
+	int *v6; // edx@2
+	int v7; // eax@3
+	unsigned __int8 v8; // al@4
+	unsigned int i; // eax@5
+	int objectId; // [sp+8h] [bp-4h]@1
+
+	int objectCpy = ( int )this;
+
+
+	v2 = *( BYTE * )( objectCpy + 81 );
+	v3 = objectCpy + 80;
+	v4 = 0;
+	v5 = *( BYTE * )( v3 + 24 );
+	objectId = *( DWORD * )( v3 + 4 * v2 + 4 );
+	if ( v5 )
+	{
+		v6 = ( int * )( v3 + 20 );
+		do
+		{
+			v7 = *v6;
+			++v6;
+			*( &objectId + v4 ) ^= v7 ^ XOR_KEY;
+			++v4;
+		} while ( v4 < v5 );
+	}
+	v8 = *( BYTE * )( v3 + 25 );
+	if ( v8 )
+	{
+		for ( i = 4 - v8; i < 4; ++i )
+			*( ( BYTE * )&objectId + i ) ^= *( BYTE * )( v3 + i + 20 ) ^ 0xC4;
+	}
+	objectId |= objectId >> 1;
+	objectId |= objectId >> 2;
+	objectId |= objectId >> 4;
+	objectId |= objectId >> 8;
+	objectId |= objectId >> 16;
+
+	objectId = objectId + 1;
+	return ( EUnitId )( objectId >> 1 );
+}
+
+bool GameObject::IsUnitId( EUnitId id )
+{
+	return ( id == this->GetUnitId() );
+}
+
 bool GameObject::IsHero()
 {
 	typedef bool( __cdecl* _fnIsHero )( GameObject* pObj );
@@ -84,31 +177,33 @@ bool GameObject::IsNexus()
 
 bool GameObject::IsDragon()
 {
-	typedef bool( __cdecl* _fnIsDragon )( GameObject* pObj );
+	typedef bool( __thiscall* _fnIsDragon )( GameObject* pObj );
 	static _fnIsDragon oIsDragon = ( _fnIsDragon )( Patchables::LolBase + fnIsDragon );
 
-	return oIsDragon( this );
+	return this->IsMinion() && oIsDragon( this );
 }
 
 bool GameObject::IsBaron()
 {
-	typedef bool( __cdecl* _fnIsBaron )( GameObject* pObj );
+	typedef bool( __thiscall* _fnIsBaron )( GameObject* pObj );
 	static _fnIsBaron oIsBaron = ( _fnIsBaron )( Patchables::LolBase + fnIsBaron );
 
-	return oIsBaron( this );
+	return this->IsMinion() && oIsBaron( this );
 }
 
 EUnitType GameObject::GetType()
 {
 	if ( IsTroy() ) return EUnitType::Troy;
-	if ( IsMinion() ) return EUnitType::Minion;
+	if ( IsMinion() )
+	{
+		if ( IsDragon() ) return EUnitType::Dragon;
+		if ( IsBaron() ) return EUnitType::Baron;
+	}
 	if ( IsMissile() ) return EUnitType::Missile;
 	if ( IsTurret() ) return EUnitType::Turret;
 	if ( IsHero() ) return EUnitType::Hero;
 	if ( IsInhibitor() ) return EUnitType::Inhibitor;
 	if ( IsNexus() ) return EUnitType::Nexus;
-	if ( IsDragon() ) return EUnitType::Dragon;
-	if ( IsBaron() ) return EUnitType::Baron;
 
 	return EUnitType::Unknown;
 }

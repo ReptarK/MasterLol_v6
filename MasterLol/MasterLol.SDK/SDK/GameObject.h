@@ -6,6 +6,13 @@
 #include "Macros.h"
 #include "GameObjectVTable.h"
 
+class ObjectType
+{
+public:
+	char pad_0000[0x1C]; //0x0000
+	LolString Name; //0x001C
+};
+
 class GameObject
 {
 public:
@@ -14,11 +21,15 @@ public:
 	MAKE_GET( Index, short, Offsets::GameObject::Index );
 	MAKE_GET( Team, EGameObjectTeam, Offsets::GameObject::Team );
 	MAKE_GET( NetworkId, uint, Offsets::GameObject::NetworkId );
-	MAKE_GET( IsVisible, bool, Offsets::GameObject::VisibleOnScreen );
+	MAKE_GET( IsVisible, bool, Offsets::GameObject::IsVisible );
 
 	float GetBoundingRadius();
 
 	// Types
+	ObjectType * GetObjectTypeName();
+	EUnitId GetUnitId();
+	bool IsUnitId( EUnitId id );
+
 	bool IsHero();
 	bool IsMissile();
 	bool IsMinion();
@@ -28,6 +39,7 @@ public:
 	bool IsNexus();
 	bool IsDragon();
 	bool IsBaron();
+
 	EUnitType GetType();
 
 	Vector3 GetPos();
