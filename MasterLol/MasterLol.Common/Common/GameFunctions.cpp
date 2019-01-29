@@ -62,7 +62,7 @@ bool GameFunctions::IssueOrder( Vector3 position, EGameObjectOrder order, GameOb
 	return true;
 }
 
-// CastSpell
+// SPELLS
 bool GameFunctions::CastSpell( ESpellSlot::ESpellSlot slot, Vector3 dstPosition, Vector3 srcPosition, uint targetNetworkID )
 {
 	auto localPlayer = ObjectManager::GetPlayer();
@@ -75,4 +75,21 @@ bool GameFunctions::CastSpell( ESpellSlot::ESpellSlot slot, Vector3 dstPosition,
 bool GameFunctions::CastSpell( ESpellSlot::ESpellSlot slot, GameObject * targetObject )
 {
 	return GameFunctions::CastSpell(slot, targetObject->GetPos(), Vector3(0,0,0), *targetObject->GetNetworkId());
+}
+
+bool GameFunctions::UpdateChargeableSpell( ESpellSlot::ESpellSlot slot, Vector3 position, bool releaseCast )
+{
+	auto localPlayer = ObjectManager::GetPlayer();
+	if ( !localPlayer ) return false;
+
+	localPlayer->GetSpellbook()->UpdateChargeableSpell( slot, position, releaseCast );
+	return true;
+}
+
+ESpellState GameFunctions::GetSpellState( ESpellSlot::ESpellSlot slot )
+{
+	auto localPlayer = ObjectManager::GetPlayer();
+	if ( !localPlayer ) return ESpellState::NotAvailable;
+
+	return localPlayer->GetSpellbook()->GetSpellState( slot );
 }

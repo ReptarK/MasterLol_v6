@@ -59,8 +59,11 @@ LRESULT __stdcall InputSys::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 		Sleep(50);
 		return true;
 	}
-	ImGui_ImplDX9_WndProcHandler( hWnd, msg, wParam, lParam );
-	return CallWindowProcW((WNDPROC)Get().m_ulOldWndProc, hWnd, msg, wParam, lParam);
+
+	if ( ImGui_ImplDX9_WndProcHandler( hWnd, msg, wParam, lParam ) )
+		return true;
+
+	return CallWindowProcW( ( WNDPROC )Get().m_ulOldWndProc, hWnd, msg, wParam, lParam );
 }
 
 

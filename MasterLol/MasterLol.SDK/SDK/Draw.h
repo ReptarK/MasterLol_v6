@@ -52,7 +52,9 @@ public:
 	ID3DXFont *pFont[MAX_FONTS];
 
 	// GAME FUNCTION
-	void RangeCircle(Vector3 position, float range, D3DCOLOR color, int a4 = 0, float a5 = 0, int a6 = 0, float alpha = 1);
+	void RangeCircle(Vector3 position, float range, D3DCOLOR color, int a4, float a5, int a6, float alpha);
+	void RangeCircle( Vector3 position, float range, D3DCOLOR color, float alpha );
+
 	bool WorldToScreen(Vector3 world, Vector3* screen);
 
 	void Sprite(LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, float scale, float rotation);

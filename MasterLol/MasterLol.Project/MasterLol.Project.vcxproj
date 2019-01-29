@@ -125,9 +125,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Project\Component\BasicVisuals.cpp" />
     <ClCompile Include="Project\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Project\Component\BasicVisuals.h" />
+    <ClInclude Include="Project\Component\Components.h" />
     <ClInclude Include="Project\Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

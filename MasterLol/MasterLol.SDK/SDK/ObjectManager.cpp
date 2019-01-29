@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ObjectManager.h"
 #include "AIHeroClient.h"
+#include "Obj_AI_Turret.h"
 #include "Hooks.h"
 #include "EventManager.h"
 

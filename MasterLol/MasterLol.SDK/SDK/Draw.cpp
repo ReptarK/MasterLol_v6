@@ -21,6 +21,11 @@ void CDraw::RangeCircle(Vector3 position, float range, D3DCOLOR color, int a4, f
 	return originalDrawCircle(&position, range, (int*)&color, a4, a5, a6, alpha);
 }
 
+void CDraw::RangeCircle( Vector3 position, float range, D3DCOLOR color, float alpha )
+{
+	return RangeCircle( position, range, color, 0, 0, 0, alpha );
+}
+
 bool CDraw::WorldToScreen(Vector3 world, Vector3 * screen)
 {
 	screen->x = 0; screen->y = 0; screen->z = 0;
@@ -360,28 +365,28 @@ void CDraw::Message(char *text, float x, float y, int font, int orientation)
 	switch (orientation)
 	{
 	case lefted:
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_LEFT, BLACK(255));
+		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_LEFT, BLACK_A(255));
 
-		BoxRounded(x - 5, rect.top - 5, rect.right - x + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY(150), SKYBLUE(255));
+		BoxRounded(x - 5, rect.top - 5, rect.right - x + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
 
 		SetRect(&rect, x, y, x, y);
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_LEFT | DT_NOCLIP, ORANGE(255));
+		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_LEFT | DT_NOCLIP, ORANGE_A(255));
 		break;
 	case centered:
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_CENTER, BLACK(255));
+		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_CENTER, BLACK_A(255));
 
-		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY(150), SKYBLUE(255));
+		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
 
 		SetRect(&rect, x, y, x, y);
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CENTER | DT_NOCLIP, ORANGE(255));
+		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CENTER | DT_NOCLIP, ORANGE_A(255));
 		break;
 	case righted:
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_RIGHT, BLACK(255));
+		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_RIGHT, BLACK_A(255));
 
-		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY(150), SKYBLUE(255));
+		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
 
 		SetRect(&rect, x, y, x, y);
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_RIGHT | DT_NOCLIP, ORANGE(255));
+		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_RIGHT | DT_NOCLIP, ORANGE_A(255));
 		break;
 	}
 }

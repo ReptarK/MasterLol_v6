@@ -18,11 +18,15 @@ public:
 #pragma endregion
 
 
-#pragma region CAST_SPELL
+#pragma region SPELLS
 
 	static bool CastSpell( ESpellSlot::ESpellSlot slot, Vector3 dstPosition, Vector3 srcPosition, uint targetNetworkID );
 
 	static bool CastSpell( ESpellSlot::ESpellSlot slot, GameObject* targetObject );
+
+	static bool UpdateChargeableSpell( ESpellSlot::ESpellSlot slot, Vector3 position, bool releaseCast );
+
+	static ESpellState GetSpellState( ESpellSlot::ESpellSlot slot );
 
 #pragma endregion
 

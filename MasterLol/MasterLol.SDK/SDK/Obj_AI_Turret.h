@@ -6,5 +6,5 @@ class Obj_AI_Turret
 	: public Obj_AI_Base
 {
 public:
-	float GetAttackRange() { return 830.0f; }
+	float GetAttackRange() { return 830.0f + this->GetBoundingRadius(); }
 };

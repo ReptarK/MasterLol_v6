@@ -1,4 +1,6 @@
 #include "Menu.h"
+#include "MenuTabs.h"
+
 #include <SDK/imGui/imgui_impl_dx9.h>
 #include <SDK/ImGui/imgui.h>
 #include <SDK/ImGui/imgui_internal.h>
@@ -16,9 +18,8 @@ bool p_open = true;
 
 static int active_sidebar_tab = 0;
 static const char* sidebar_tabs[] = {
-	"AIMBOT",
+	"COMMON",
 	"VISUALS",
-	"NO CLIP",
 	"MISC",
 };
 
@@ -50,44 +51,6 @@ void render_tabs( const char* ( &names )[N], int& activetab, float w, float h, b
 	}
 }
 
-void RenderAimbotTab()
-{
-	bool placeholder_true = true;
-
-	auto& style = ImGui::GetStyle();
-	float group_w = ImGui::GetCurrentWindow()->Size.x - style.WindowPadding.x * 2;
-	ImGui::PushStyleVar( ImGuiStyleVar_ItemSpacing, ImVec2 { style.WindowPadding.x, style.ItemSpacing.y } );
-
-	// Render
-	ImGui::Columns( 2, nullptr, false );
-	ImGui::SetColumnOffset( 1, group_w / 2.0f );
-	ImGui::SetColumnOffset( 2, group_w );
-
-	ImGui::NextColumn();
-
-	ImGui::PopStyleVar();
-}
-
-void RenderVisualTab()
-{
-	bool placeholder_true = true;
-
-	auto& style = ImGui::GetStyle();
-	float group_w = ImGui::GetCurrentWindow()->Size.x - style.WindowPadding.x * 2;
-	ImGui::PushStyleVar( ImGuiStyleVar_ItemSpacing, ImVec2 { style.WindowPadding.x, style.ItemSpacing.y } );
-
-	// Render
-	ImGui::Columns( 2, nullptr, false );
-	ImGui::SetColumnOffset( 1, group_w / 3.0f );
-	ImGui::SetColumnOffset( 2, 2 * group_w / 3.0f );
-
-	ImGui::Text( "Filter :" );
-
-	ImGui::NextColumn();
-
-	ImGui::PopStyleVar();
-}
-
 void RenderMiscTab()
 {
 	bool placeholder_true = true;
@@ -106,25 +69,11 @@ void RenderMiscTab()
 	ImGui::PopStyleVar();
 }
 
-const char* NoClipSpeedItems[] = { "Slow", "Normal", "Fast", "VeryFast", "Insane" };
-void RenderNoClipTab()
-{
-	bool placeholder_true = true;
-	auto& style = ImGui::GetStyle();
-	float group_w = ImGui::GetCurrentWindow()->Size.x - style.WindowPadding.x * 2;
-	ImGui::PushStyleVar( ImGuiStyleVar_ItemSpacing, ImVec2 { style.WindowPadding.x, style.ItemSpacing.y } );
-
-	// Render
-	ImGui::Columns( 2, nullptr, false );
-	ImGui::SetColumnOffset( 1, group_w / 2.0f );
-	ImGui::SetColumnOffset( 2, 2 * group_w / 2.0f );
-
-	ImGui::PopStyleVar();
-}
-
 void Menu::OnEndScene( LPDIRECT3DDEVICE9 device )
 {
-	if ( !Menu::IsVisible() )
+	//if ( !Menu::IsVisible() )
+	//	return;
+	if ( !GetAsyncKeyState(VK_LSHIFT) )
 		return;
 
 	ImGui_ImplDX9_NewFrame();
@@ -136,7 +85,7 @@ void Menu::OnEndScene( LPDIRECT3DDEVICE9 device )
 	const auto sidebar_size = get_sidebar_size();
 	static int active_sidebar_tab = 0;
 
-	ImGui::Begin( "MasterPS2", &Menu::_isVisible,
+	ImGui::Begin( "MasterLol", &Menu::_isVisible,
 		ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_ShowBorders | ImGuiWindowFlags_NoResize );
 
 	ImGui::PushStyleVar( ImGuiStyleVar_ItemSpacing, ImVec2( 0, 0 ) );
@@ -154,18 +103,17 @@ void Menu::OnEndScene( LPDIRECT3DDEVICE9 device )
 
 	auto size = ImVec2 { 0.0f, sidebar_size.y };
 	ImGui::BeginGroupBox( "##body", size );
+
 	if ( active_sidebar_tab == 0 ) {
-		RenderAimbotTab();
+		MenuTabs::RenderCommonTab();
 	}
 	else if ( active_sidebar_tab == 1 ) {
-		RenderVisualTab();
+		MenuTabs::RenderVisualsTab();
 	}
 	else if ( active_sidebar_tab == 2 ) {
-		RenderNoClipTab();
+		MenuTabs::RenderMickTab();
 	}
-	else if ( active_sidebar_tab == 3 ) {
-		RenderMiscTab();
-	}
+
 	ImGui::EndGroupBox();
 	ImGui::End();
 	ImGui::Render();

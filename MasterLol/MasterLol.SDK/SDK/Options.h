@@ -8,7 +8,12 @@ extern bool g_Unload;
 class Config
 {
 public:
-	OPTION(bool, show_AA_range, true);
+	// VISUALS
+	OPTION( bool, show_AA_range, true );
+	OPTION( bool, show_Q_range, false );
+	OPTION( bool, show_W_range, false );
+	OPTION( bool, show_E_range, false );
+	OPTION( bool, show_R_range, false );
 };
 
 extern Config g_Options;

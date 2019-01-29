@@ -130,6 +130,7 @@
     <ClInclude Include="Common\Geometry\LineCollision.h" />
     <ClInclude Include="Common\MainLoop.h" />
     <ClInclude Include="Common\Menu\Menu.h" />
+    <ClInclude Include="Common\Menu\MenuTabs.h" />
     <ClInclude Include="Common\Misk\date.h" />
     <ClInclude Include="Common\SummonerSpells.h" />
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include <SDK/colors_define.h>
 #include <SDK/ObjectManager.h>
 #include <SDK/AIHeroClient.h>
+#include <SDK/colors_define.h>
 #include <Common/GameFunctions.h>
 #include <SDK/HudManager.h>
 
@@ -47,8 +48,7 @@ namespace TEST
 		// Functions
 		GameFunctions::IssueOrder( HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo );
 
-		//Game::PrintChat( "<font color='#FFFF00'>Test Print Chat ! </font>" );
-		Game::PrintChat( "Test 1", BLUE( 255 ) );
+		Game::PrintChat( "Test 1", BLUE() );
 	}
 
 

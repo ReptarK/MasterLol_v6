@@ -60,6 +60,9 @@
     <ClInclude Include="Common\Menu\Menu.h">
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="Common\Menu\MenuTabs.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Geometry\Circle3D.cpp">

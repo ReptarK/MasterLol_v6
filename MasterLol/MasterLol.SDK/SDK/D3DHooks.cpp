@@ -122,16 +122,16 @@ namespace D3D
 	void D3DHooks::Shutdown()
 	{
 		if (originalReset)
-			(Functions::Reset)DetourRemove((PBYTE)originalReset, (PBYTE)(PBYTE)Functions::hkReset);
+			(Functions::Reset)DetourRemove((PBYTE)originalReset, (PBYTE)Functions::hkReset);
 
 		if (originalPresent)
 		{
-			(Functions::Present)DetourRemove((PBYTE)originalPresent, (PBYTE)(PBYTE)Functions::hkPresent);
+			(Functions::Present)DetourRemove((PBYTE)originalPresent, (PBYTE)Functions::hkPresent);
 		}
 
 		if (originalEndScene)
 		{
-			(Functions::EndScene)DetourRemove((PBYTE)originalEndScene, (PBYTE)(PBYTE)Functions::hkEndScene);
+			(Functions::EndScene)DetourRemove((PBYTE)originalEndScene, (PBYTE)Functions::hkEndScene);
 			Draw.FontRelease();
 		}
 	}

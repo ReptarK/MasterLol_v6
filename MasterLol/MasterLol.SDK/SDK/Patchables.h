@@ -16,8 +16,8 @@
 
 #define fnIsDragon				0x215090
 #define fnIsBaron				0x215CE0
-#define fnIsInhib               0x227830
-#define fnIsNexus               0x227930 //id = 0x400 -> not good
+#define fnIsInhib               0x227830 //id = 0x20000
+#define fnIsNexus               0x227930 //id = 0x20000
 #define fnIsTroy                0x227C70 //id = 0x1000
 #define fnIsTurret              0x227B80 //id = 0x2000
 #define fnIsMinion              0x2279F0 //id = 0x800

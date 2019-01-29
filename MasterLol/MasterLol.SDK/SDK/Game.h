@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "singleton.hpp"
+#include "colors_define.h"
 
 #define PROCESS_NAME "League of Legends.exe"
 
@@ -19,6 +20,6 @@ public:
 	static float GetGameTime();
 	static float GetPing();
 	static void PrintChat( const char* Message );
-	static void PrintChat( const char* Message, D3DCOLOR color );
+	static void PrintChat( const char* Message, DWORD color );
 };
 

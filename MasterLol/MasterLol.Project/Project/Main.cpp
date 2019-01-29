@@ -7,6 +7,7 @@
 
 #include <Common/MainLoop.h>
 #include <Common/Menu/Menu.h>
+#include "Component/Components.h"
 
 #include "Test.h"
 
@@ -35,10 +36,15 @@ void InitializeConsole()
 	freopen( "CONOUT$", "w", stdout );
 }
 
-void InitializeProject()
+void InitializeSDK()
 {
 	D3D::D3DHooks::Get().Initialize();
 	Game::Initialize();
+}
+
+void InitializeProject()
+{
+	Components::Initialize();
 }
 
 DWORD WINAPI MainThread( LPVOID base )
@@ -46,27 +52,34 @@ DWORD WINAPI MainThread( LPVOID base )
 	InitializeConsole();
 	std::cout << "[ MasterLol Version 6.0 ] \n\n";
 
-	InitializeProject();
+	InitializeSDK();
 
 	InputSys::Get().Initialize();
 	InitializeHotkeys();
 
 	Menu::Initialize();
+	InitializeProject();
 
 	while ( !GetAsyncKeyState( VK_END ) ) {
-		MainLoop::Run( 33 );
+		MainLoop::Run( 1000 / 30 );
 	}
 
 	Beep( 523, 250 );
+
 	FreeConsole();
 	Sleep( 250 );
+
+	InputSys::Get().Shutdown();
+	D3D::D3DHooks::Get().Shutdown();
+
 	FreeLibraryAndExitThread( static_cast< HMODULE >( base ), 1 );
 	return false;
 }
 
 BOOL WINAPI OnDllDetach()
 {
-	D3D::D3DHooks::Get().Shutdown();
+	//InputSys::Get().Shutdown();
+	//D3D::D3DHooks::Get().Shutdown();
 	return TRUE;
 }
 
