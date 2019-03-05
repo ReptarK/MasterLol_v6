@@ -109,6 +109,12 @@
     <Filter Include="Source Files\imGui">
       <UniqueIdentifier>{77979b09-55e0-45f3-9ca0-ac1131871f22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\BuffManager">
+      <UniqueIdentifier>{085dc2ff-be86-4164-b621-72d8eaf5b7db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\CampManager">
+      <UniqueIdentifier>{18af2c60-1679-4593-a05e-b4fe2f98d12e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SDK\Game.cpp">
@@ -301,6 +307,12 @@
     </ClInclude>
     <ClInclude Include="SDK\imGui\stb_truetype.h">
       <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BuffManager.h">
+      <Filter>Header Files\Objects\BuffManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\CampManager.h">
+      <Filter>Header Files\Objects\CampManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

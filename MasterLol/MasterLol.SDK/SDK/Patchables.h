@@ -3,40 +3,50 @@
 
 #define g_Offset static DWORD
 
-#define XOR_KEY 0xEFEE81C4
+#define XOR_KEY 0x3EF4E7C5
 
 //Functions
-#define fnPrintChat             0x5C9570
-#define fnGetAttackDelay        0x597D10
-#define fnGetAttackCastDelay    0x589AC0
-#define fnDrawCircle            0x587920
+#define fnPrintChat             0x5DA690
+#define fnGetAttackDelay        0x5A8CD0  
+#define fnGetAttackCastDelay    0x5A8BF0
+#define fnGetBasicAttack		0x1B1D30 // 53 8B D9 B8 ? ? ? ? 8B 93
+#define fnDrawCircle            0x598C00
+#define fnGetBoundingRadius		0x1EFC00 // 83 EC 08 56 8B F1 83 BE ? ? ? ? ? 74 69
 
-#define fnIsAlive               0x1DFA40
-#define fnIsTargetable          0x221CE0
+#define fnWorldToScreen			0x7D3E20
 
-#define fnIsDragon				0x215090
-#define fnIsBaron				0x215CE0
-#define fnIsInhib               0x227830 //id = 0x20000
-#define fnIsNexus               0x227930 //id = 0x20000
-#define fnIsTroy                0x227C70 //id = 0x1000
-#define fnIsTurret              0x227B80 //id = 0x2000
-#define fnIsMinion              0x2279F0 //id = 0x800
-#define fnIsHero                0x2279B0 //id = 0x1000
-#define fnIsMissile             0x227A10 //id = 0x8000
+#define fnIsAlive               0x1E08C0
+#define fnIsTargetable          0x21DB90
 
-#define fnIssueOrder            0x1BCEE0
-#define fnGetSpellState         0x5760D0
-#define fnCastSpell             0x590D20
-#define fnUpdateChargeableSpell 0x583AC0
+#define fnIsDragon				0x213900
+#define fnIsBaron				0x214630
+#define fnIsInhib               0x224B50 // id = 0x20000
+#define fnIsNexus               0x224C50 // id = 0x20000
+#define fnIsTroy                0x224F90 // id = 0x1000
+#define fnIsTurret              0x224EA0 // id = 0x2000
+#define fnIsMinion              0x224D10 // id = 0x800
+#define fnIsHero                0x224CD0 // id = 0x1000
+#define fnIsMissile             0x224D30 // id = 0x8000
+
+#define fnIssueOrder            0x1BC3D0 
+#define fnGetSpellState         0x596370
+#define fnCastSpell             0x5A1DC0 
+#define fnUpdateChargeableSpell 0x5A47A0
+
+// CampManager
+#define fnGetTimerExpiry	0x1B8750
+#define fnFindCamp			0x1B0790
 
 //General offsets
-#define oChatClientPtr 0x15EE7B0		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
-#define oLocalPlayer   0x2E996BC		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
-#define oObjManager    0x2E99120		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
-#define oGameTime      0x2E957C8		// 83 EC 10 53 8B 1D ? ? ? ? 55 -> decompile -> if ( (float)(v17 - *(float *)&dword_GameTime) < 0.0 )
-#define oHudInstance   0x15F0E48		// "PerSide.ini"
-#define oRenderer      0x2EB51D4		// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
-#define oUnderMouseObj 0x2241DBC		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
+#define oChatClientPtr		0x1681D6C		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
+#define oLocalPlayer		0x2F2F4F8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
+#define oObjManager			0x2F2EF60		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88
+#define oGameTime			0x2F2B5F0		// 83 EC 10 53 8B 1D ? ? ? ? 55 -> decompile -> if ( (float)(v17 - *(float *)&dword_GameTime) < 0.0 )
+#define oHudInstance		0x16843C8		// "PerSide.ini"
+#define oRenderer			0x2F4BFB4		// "UI_LoadScreen_Frame_01.dds" -> cmp dword_oRenderer, 0
+#define oUnderMouseObj		0x22D4B84		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
+#define oCampManagerClient	0x16843D4		// "game_ping_[Jungle]_Alive" -> above : mov     ecx, dword_19543D4
+
 
 
 

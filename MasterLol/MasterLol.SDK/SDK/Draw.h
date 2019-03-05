@@ -52,41 +52,41 @@ public:
 	ID3DXFont *pFont[MAX_FONTS];
 
 	// GAME FUNCTION
-	void RangeCircle(Vector3 position, float range, D3DCOLOR color, int a4, float a5, int a6, float alpha);
+	void RangeCircle( Vector3 position, float range, D3DCOLOR color, int a4, float a5, int a6, float alpha );
 	void RangeCircle( Vector3 position, float range, D3DCOLOR color, float alpha );
 
-	bool WorldToScreen(Vector3 world, Vector3* screen);
+	bool WorldToScreen( Vector3 world, Vector3* screen );
 
-	void Sprite(LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, float scale, float rotation);
+	void Sprite( LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, float scale, float rotation );
 
 	//=============================================================================================
-	void Line(float x1, float y1, float x2, float y2, float width, bool antialias, DWORD color);
-	void Line(Vector3 source, Vector3 dest, float gameWidth, DWORD color);
+	void Line( float x1, float y1, float x2, float y2, float width, bool antialias, DWORD color );
+	void Line( Vector3 source, Vector3 dest, float gameWidth, DWORD color );
 
-	void Box(float x, float y, float w, float h, float linewidth, DWORD color);
-	void BoxFilled(float x, float y, float w, float h, DWORD color);
-	void BoxBordered(float x, float y, float w, float h, float border_width, DWORD color, DWORD color_border);
-	void BoxRounded(float x, float y, float w, float h, float radius, bool smoothing, DWORD color, DWORD bcolor);
+	void Box( float x, float y, float w, float h, float linewidth, DWORD color );
+	void BoxFilled( float x, float y, float w, float h, DWORD color );
+	void BoxBordered( float x, float y, float w, float h, float border_width, DWORD color, DWORD color_border );
+	void BoxRounded( float x, float y, float w, float h, float radius, bool smoothing, DWORD color, DWORD bcolor );
 
-	void Circle(float x, float y, float radius, int rotate, int type, bool smoothing, int resolution, DWORD color);
-	void Circle(Vector3 pos, float gameRadius, D3DCOLOR);
-	void CircleFilled(float x, float y, float rad, float rotate, int type, int resolution, DWORD color);
-	void CircleFilled(Vector3 pos, float gameRadius, D3DCOLOR);
+	void Circle( float x, float y, float radius, int rotate, int type, bool smoothing, int resolution, DWORD color );
+	void Circle( Vector3 pos, float gameRadius, D3DCOLOR );
+	void CircleFilled( float x, float y, float rad, float rotate, int type, int resolution, DWORD color );
+	void CircleFilled( Vector3 pos, float gameRadius, D3DCOLOR );
 
-	void Text(char *text, float x, float y, int orientation, int font, bool bordered, DWORD color, DWORD bcolor);
-	void Message(char *text, float x, float y, int font, int orientation);
-	void Message(int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message);
+	void Text( char *text, float x, float y, int orientation, int font, bool bordered, DWORD color, DWORD bcolor );
+	void Message( char *text, float x, float y, int font, int orientation );
+	void Message( int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message );
 	//=============================================================================================
 
 	//=============================================================================================
 	bool Font();
-	void AddFont(char* Caption, float size, bool bold, bool italic);
+	void AddFont( char* Caption, float size, bool bold, bool italic );
 	void FontReset();
 	void FontRelease();
 	void OnLostDevice();
 	//=============================================================================================
 
-	void setDevice(LPDIRECT3DDEVICE9 pDev) { pDevice = pDev; }
+	void setDevice( LPDIRECT3DDEVICE9 pDev ) { pDevice = pDev; }
 	LPDIRECT3DDEVICE9 getDevice() { return pDevice; }
 
 	void Reset();

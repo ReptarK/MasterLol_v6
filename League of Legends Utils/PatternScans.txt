@@ -7,8 +7,15 @@ fnPrintChat			: 83 EC 38 A1 ? ? ? ? 33 C4 89 44 24 34 53 8B 5C 24 44 56
 
 fnIssueOrder		: 	   81 EC ? ? ? ? 56 57 8B F9 C7 84 24
 					 OLD : 81 EC ? ? ? ? 56 57 8B F9 C7 84 24
+					 
+fnGetTimerExpiry	: 83 EC 08 53 8B D9 83 BB
+fnFindCamp			: 51 56 8D 44 24 0C 50 8D 71 04 8D 44 24 08 8B CE 50 E8 ? ? ? ? 8B 44 24 04 3B 06 5E 74 07
+					  OR : "Crit%1" - >function directly under it
 
 fnWorldToScreen		: 83 EC 10 56 E8 ? ? ? ? 8B 08
+
+fnAiManager			: 8B 01 FF 90 ? ? ? ? 50 E8 -> function under directly (aimanager signature : int __thiscall sub_4BDB60(int this))
+					51 0F B6 81 ? ? ? ? 56 8D B1 ? ? ? ? 33 C9 57 0F B6 7E 18 8B 54 86 04 89 54 24 08 85 FF 74 1F 8D 56 14 8B 44 8C 08 8D 52 04 33 42 FC 35 ? ? ? ? 89 44 8C 08 41 3B CF 72 E8 8B 54 24 08 8A 46 19 84 C0 74 38
 
 fnAttackDelay		: 8B 44 24 04 51 F3 0F 10 80
 
@@ -21,6 +28,7 @@ fnSpellState		: 83 EC 14 8B 44 24 1C 55
 					  OR -> 83 EC 10 8B 01 8D 54 24 08 56 57 52 FF 50 1C 8D 4C 24 08 51 8B C8 E8 ? ? ? ? 8B 4C 24 14 83 CF FF 85 C9 74 0E 8B C7 F0 0F C1 41 ? 75 05 8B 01 FF 50 04 8B 4C 24 08 85 C9 74 44
 
 fnDrawCircle		: 81 EC ? ? ? ? A1 ? ? ? ? 33 C4 89 84 24 ? ? ? ? F3 0F 10 84 24 ? ? ? ? 8D 0C 24
+					  NEW -> 81 EC ? ? ? ? A1 ? ? ? ? 33 C4 89 44 24 7C F3 0F 10 84 24 -> scroll down -> second dword_XXXXXX
 
 
 
@@ -33,6 +41,7 @@ fnIsTurret			: 8B 4C 24 04 85 C9 74 11 68 00 20 00 00 E8 ? ? ? ? 84 C0 74 03 B0 
 fnIsMinion			: 8B 4C 24 04 85 C9 74 11 68 00 08 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 fnIsHero			: 8B 4C 24 04 85 C9 74 11 68 00 10 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 fnIsInhib			: 57 8B 7C 24 08 85 FF 74 6B 0F B6 47 05 33 C9 56 0F B6 77 1C
+fnIsMissile			: 8B 4C 24 04 85 C9 74 11 68 00 80 00 00 E8 ? ? ? ? 84 C0 74 03 B0 01 C3 32 C0 C3
 					
 
 fnMainLoop			: 83 EC 08 8D 04 24 0F 57 C0 //TEST
@@ -53,7 +62,7 @@ void SetSkin(Object * pEntity, int SkinID)
 	pEntity->pCharacterInfo = GetCharacterInfo(reinterpret_cast<int>(pEntity->ChampionName), SkinID, 0);
 	FuncSetModel(reinterpret_cast<char*>(pEntity), reinterpret_cast<int>(pEntity->ChampionName), SkinID, 0);
 }
-
+#define oCampManagerClient				// "game_ping_[Jungle]_Alive" -> above : mov     ecx, dword_19543D4
 #define oChatClientPtr 0x15CC330		// "Chat_Box_Open"				-> previous function -> first instruction -> mov ecx, dword_oChatClientPtr
 #define oLocalPlayer   0x2E774E8		// "PostGameSetup"				-> mov eax, dword_oLocalPlayer
 #define oObjManager    0x2E76C88		// "Reconnect being processed"	-> mov ecx, offset byte_37F6C88

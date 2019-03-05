@@ -124,15 +124,15 @@ public:
 	virtual void Function112();
 	virtual void Function113();
 
-	virtual void IsVisible();
+	virtual bool IsVisible();
 
 	virtual void Function115();
 	virtual void Function116();
 	virtual void Function117();
-	virtual void Function118();
-	virtual void Function119();
-	virtual void Function120();
-	virtual void Function121();
+	virtual Navigation* Function118();
+	virtual Navigation* Function119();
+	virtual Navigation* Function120();
+	virtual Navigation* Function121();
 	virtual void Function122();
 	virtual void Function123();
 	virtual void Function124();
@@ -149,16 +149,16 @@ public:
 	virtual void Function135();
 	virtual void Function136();
 	virtual void Function137();
-	virtual Navigation* GetNavigation();
+	virtual void Function138();
 	virtual void Function139();
 	virtual void Function140();
 	virtual void Function141();
-	virtual void Function142();
+	virtual void Function142(); // WRONG
 	virtual void Function143();
-	virtual void Function144();
+	virtual void Function144(); // WRONG
 	virtual void Function145();
 	virtual void Function146();
-	virtual void Function147();
+	virtual Navigation* GetNavigation();
 	virtual void Function148();
 	virtual void Function149();
 	virtual void Function150();

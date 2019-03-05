@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClInclude Include="SDK\AIHeroClient.h" />
     <ClInclude Include="SDK\AttackableUnit.h" />
+    <ClInclude Include="SDK\BuffManager.h" />
+    <ClInclude Include="SDK\CampManager.h" />
     <ClInclude Include="SDK\colors_define.h" />
     <ClInclude Include="SDK\detours\detours.h" />
     <ClInclude Include="SDK\Draw.h" />

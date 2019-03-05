@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "GameObject.h"
+#include "BuffManager.h"
 
 //namespace Enums
 //{
@@ -45,7 +46,7 @@ public:
 	float mPercentBaseAttackDamageMod; //0x0140
 	char pad_0144[12]; //0x0144
 	float mBaseAbilityDamage; //0x0150
-	char pad_0154[44]; //0x0154
+	char pad_0154[60]; //0x0154
 	float mScaleSkinCoef; //0x0180
 	char pad_0184[12]; //0x0184
 	float mDodge; //0x0190
@@ -132,6 +133,7 @@ public:
 	MAKE_GET(UnitStats, UnitStats, Offsets::AttackableUnit::UnitStats);
 	MAKE_GET(CombatType, CombatType, Offsets::AttackableUnit::CombatType);
 
+	MAKE_GET(BuffManager, BuffManager, Offsets::AttackableUnit::BuffManager);
 
 	// Methods
 	bool IsCaracterState(CaracterState);

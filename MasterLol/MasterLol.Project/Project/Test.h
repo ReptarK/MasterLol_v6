@@ -14,55 +14,94 @@ namespace TEST
 	static void test1()
 	{
 		// LocalPlayer
-		printf( "LocalPlayer : %#x \n", ObjectManager::GetPlayer() );
-		printf( "\t AI Manager : %#x \n", ObjectManager::GetPlayer()->GetNavigation() );
-		printf( "\t Name : %s \n", ObjectManager::GetPlayer()->GetName().c_str() );
-		printf( "\t Position : (%.0f, %.0f, %.0f) \n",
+		printf("LocalPlayer : %#x \n", ObjectManager::GetPlayer());
+		printf("\t AI Manager : %#x \n", ObjectManager::GetPlayer()->GetNavigation());
+		printf("\t Name : %s \n", ObjectManager::GetPlayer()->GetName().c_str());
+		printf("\t Position : (%.0f, %.0f, %.0f) \n",
 			ObjectManager::GetPlayer()->GetPos().x,
 			ObjectManager::GetPlayer()->GetPos().y,
-			ObjectManager::GetPlayer()->GetPos().z );
-		printf( "\t BoundingRadius : %.0f \n", ObjectManager::GetPlayer()->GetBoundingRadius() );
+			ObjectManager::GetPlayer()->GetPos().z);
+		printf("\t BoundingRadius : %.0f \n", ObjectManager::GetPlayer()->GetBoundingRadius());
 
-		printf( "IsAlive : %s\n", ObjectManager::GetPlayer()->IsAlive() ? "true" : "false" );
-		printf( "IsTargetable : %s\n", ObjectManager::GetPlayer()->IsTargetable() ? "true" : "false" );
+		printf("IsAlive : %s\n", ObjectManager::GetPlayer()->IsAlive() ? "true" : "false");
+		printf("IsTargetable : %s\n", ObjectManager::GetPlayer()->IsTargetable() ? "true" : "false");
 
 
-		printf( "IsHero : %s\n", ObjectManager::GetPlayer()->IsHero() ? "true" : "false" );
-		printf( "IsTroy : %s\n", ObjectManager::GetPlayer()->IsTroy() ? "true" : "false" );
-		printf( "IsMinion : %s\n", ObjectManager::GetPlayer()->IsMinion() ? "true" : "false" );
-		printf( "IsNexus : %s\n", ObjectManager::GetPlayer()->IsNexus() ? "true" : "false" );
-		printf( "IsInhibitor : %s\n", ObjectManager::GetPlayer()->IsInhibitor() ? "true" : "false" );
-		printf( "IsMissile : %s\n", ObjectManager::GetPlayer()->IsMissile() ? "true" : "false" );
-		printf( "IsTurret : %s\n", ObjectManager::GetPlayer()->IsTurret() ? "true" : "false" );
-		printf( "IsDragon : %s\n", ObjectManager::GetPlayer()->IsDragon() ? "true" : "false" );
+		printf("IsHero : %s\n", ObjectManager::GetPlayer()->IsHero() ? "true" : "false");
+		printf("IsTroy : %s\n", ObjectManager::GetPlayer()->IsTroy() ? "true" : "false");
+		printf("IsMinion : %s\n", ObjectManager::GetPlayer()->IsMinion() ? "true" : "false");
+		printf("IsNexus : %s\n", ObjectManager::GetPlayer()->IsNexus() ? "true" : "false");
+		printf("IsInhibitor : %s\n", ObjectManager::GetPlayer()->IsInhibitor() ? "true" : "false");
+		printf("IsMissile : %s\n", ObjectManager::GetPlayer()->IsMissile() ? "true" : "false");
+		printf("IsTurret : %s\n", ObjectManager::GetPlayer()->IsTurret() ? "true" : "false");
+		printf("IsDragon : %s\n", ObjectManager::GetPlayer()->IsDragon() ? "true" : "false");
 
 
 
 		// HudManager
-		printf( "\nGameCursor : %#x \n", HudManager::GetGameCursor() );
-		printf( "Position : (%.0f, %.0f, %.0f) \n",
+		printf("\nGameCursor : %#x \n", HudManager::GetGameCursor());
+		printf("Position : (%.0f, %.0f, %.0f) \n",
 			HudManager::GetGameCursor()->Position.x,
 			HudManager::GetGameCursor()->Position.y,
-			HudManager::GetGameCursor()->Position.z );
+			HudManager::GetGameCursor()->Position.z);
 
 		// Functions
-		GameFunctions::IssueOrder( HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo );
+		GameFunctions::IssueOrder(HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo);
 
-		Game::PrintChat( "Test 1", BLUE() );
+		Game::PrintChat("Test 1", BLUE());
 	}
 
 
 	static void test2()
 	{
 		GameObject* currentObject = HudManager::GetUnderMouseObject();
-		if ( currentObject )
-			printf( "Object ID : %x \n", currentObject->GetUnitId() );
+		if (currentObject)
+			printf("Object ID : %x \n", currentObject->GetUnitId());
 	}
 
 	static void test3()
 	{
-		Obj_AI_Base::ApplyHooks();
+		auto localPlayer = ObjectManager::GetPlayer();
+		if (!localPlayer) return;
+
+		auto buffManager = *localPlayer->GetBuffManager();
+		// LIST ALL BUFF
+		int size = ((DWORD)buffManager.mEnd - (DWORD)buffManager.mBuffArray) / 0x4;
+		printf("mBuffArray : %#x \n", buffManager.mBuffArray);
+		printf("mEnd : %#x \n", buffManager.mEnd);
+		printf("size : %d \n", size);
+		for (int i = 0; i < size; ++i)
+		{
+			BuffNode* currBuff = buffManager.mBuffArray[i];
+			BuffInstance* currBuffInstance = currBuff->mBuffInstance;
+			if ((DWORD)currBuffInstance < 0x10000000)
+				continue;
+
+			printf("currBuff : %#x \n", currBuff);
+			printf("currBuffInstance : %#x \n", currBuffInstance);
+			printf("\t Name : %s \n", currBuffInstance->mName);
+			printf("\t Active Time : %.0f \n", currBuff->mEndTime - currBuff->mStartTime);
+		}
 	}
 
+	static void test4() {
+		std::string buffName;
+		std::cin >> buffName;
 
+		auto buffManager = *ObjectManager::GetPlayer()->GetBuffManager();
+		auto buff = buffManager.GetBuffFromName(buffName.c_str());
+		printf("currBuff : %#x \n", buff);
+		printf("currBuffInstance : %#x \n", buff);
+		try {
+			printf("\t Name : %s \n", buff->mBuffInstance->mName);
+			printf("\t Active Time : %.0f \n", buff->mEndTime - buff->mStartTime);
+			printf("\t\t boolFn1 : %s \n", buff->mBuffInstance->GetVirtual()->boolFn1() ? "true" : "false");
+			printf("\t\t boolFn2 : %s \n", buff->mBuffInstance->GetVirtual()->boolFn2() ? "true" : "false");
+			printf("\t\t charFn1 : %s \n", buff->mBuffInstance->GetVirtual()->charFn1() ? "true" : "false");
+			printf("\t\t intFn1 : %#x \n", buff->mBuffInstance->GetVirtual()->intFn1());
+			printf("\t\t intFn3 : %#x \n", buff->mBuffInstance->GetVirtual()->intFn3());
+			printf("\t\t sigIntFn1 : %#x \n", buff->mBuffInstance->GetVirtual()->sigIntFn1());
+		}
+		catch (const std::exception& e) { printf(e.what()); }
+	}
 }

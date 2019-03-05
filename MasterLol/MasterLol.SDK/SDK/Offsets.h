@@ -46,7 +46,9 @@ public:
 
 		CaracterState	= 0x804,
 		UnitStats		= 0x1818,
-		CombatType		= 0x1DC8,
+		CombatType		= 0x1CC8,
+
+		BuffManager		= 0x2290
 	};
 
 	enum class Obj_AI_Base
@@ -54,12 +56,12 @@ public:
 		Gold        = 0x1C88,
 		AIName		= 0x2460,
 
-		SpellBook	= 0x29F8,
+		SpellBook	= 0x2A88,
 	};
 
 	enum class AIHeroClient
 	{
-		Level = 0x4B94
+		Level = 0x4BCC
 	};
 
 	enum class MissileClient
@@ -80,7 +82,7 @@ public:
 		ManaCostE = ManaCostQ + ( 0x10 * 2 ),
 		ManaCostR = ManaCostQ + ( 0x10 * 3 ),
 
-		GetSpells = 0x530
+		GetSpells = 0x508
 	};
 
 	enum class SpellDataInst
@@ -133,5 +135,13 @@ public:
 		WindupTime			= 0x46C,
 		AttackDelay			= 0x47C,
 		Slot				= 0x494
+	};
+
+	////////////////////--BUFF_MANAGER--/////////////////////////
+
+	enum class BuffManager
+	{
+		Begin	= 0x10,
+		End		= Begin + 0x4,
 	};
 };

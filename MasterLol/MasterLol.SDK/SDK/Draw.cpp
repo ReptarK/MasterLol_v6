@@ -26,6 +26,7 @@ void CDraw::RangeCircle( Vector3 position, float range, D3DCOLOR color, float al
 	return RangeCircle( position, range, color, 0, 0, 0, alpha );
 }
 
+//int __cdecl sub_AA3E20(int a1, int a2)
 bool CDraw::WorldToScreen(Vector3 world, Vector3 * screen)
 {
 	screen->x = 0; screen->y = 0; screen->z = 0;
