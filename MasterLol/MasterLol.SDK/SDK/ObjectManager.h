@@ -52,4 +52,26 @@ public:
 #pragma endregion
 };
 
+class ObjectIterator {
+private:
+	int mCurrIndex;
+	GameObject** mUnits;
+
+public:
+	ObjectIterator() {
+		mUnits = ObjectManager::GetUnitArray();
+		mCurrIndex = -1;
+	}
+
+	bool End()
+	{
+		return mCurrIndex + 1 > ObjectManager::GetHighestObjectId();
+	}
+
+	GameObject* Next()
+	{
+		return mUnits[++mCurrIndex];
+	}
+};
+
 

@@ -22,12 +22,6 @@
     <Filter Include="Header Files\Misk">
       <UniqueIdentifier>{179c71fa-b62d-4a2c-baad-cfb91d8aaaff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Menu">
-      <UniqueIdentifier>{f9c28e4a-8e12-498e-ae84-ec1e4cb17aaa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Menu">
-      <UniqueIdentifier>{735a30b5-afcd-4288-8c43-3aafd37c8b9f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\Geometry\Circle3D.h">
@@ -57,11 +51,8 @@
     <ClInclude Include="Common\MainLoop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Common\Menu\Menu.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Menu\MenuTabs.h">
-      <Filter>Header Files\Menu</Filter>
+    <ClInclude Include="Common\ObjectHelper.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,8 +77,8 @@
     <ClCompile Include="Common\MainLoop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Common\Menu\Menu.cpp">
-      <Filter>Source Files\Menu</Filter>
+    <ClCompile Include="Common\ObjectHelper.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@
 #include <SDK/SpellInclude.h>
 #include <SDK/singleton.hpp>
 
-namespace MasterLol
+namespace Common
 {
 	class BaseSummonerSpell
 	{

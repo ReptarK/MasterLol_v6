@@ -19,7 +19,17 @@ public:
 	static bool IsGameFocused();
 	static float GetGameTime();
 	static float GetPing();
-	static void PrintChat( const char* Message );
-	static void PrintChat( const char* Message, DWORD color );
+	static void PrintChat(const char* n);
+	static void PrintChat(const char* Message, DWORD color);
+
+	template<typename... Args>
+	static void PrintChat(const char* Message, DWORD color, Args...);
 };
 
+template<typename ...Args>
+inline void Game::PrintChat(const char * message, DWORD color, Args ... args)
+{
+	char messageBuffer[100];
+	sprintf(messageBuffer, message, args...);
+	Game::PrintChat(messageBuffer, color);
+}

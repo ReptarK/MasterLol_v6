@@ -4,10 +4,10 @@
 #include <SDK/ObjectManager.h>
 #include <SDK/AIHeroClient.h>
 #include <SDK/colors_define.h>
-#include <Common/GameFunctions.h>
 #include <SDK/HudManager.h>
-
 #include <SDK/Hooks.h>
+
+#include <Common/GameFunctions.h>
 
 namespace TEST
 {
@@ -29,8 +29,8 @@ namespace TEST
 
 		printf("IsHero : %s\n", ObjectManager::GetPlayer()->IsHero() ? "true" : "false");
 		printf("IsTroy : %s\n", ObjectManager::GetPlayer()->IsTroy() ? "true" : "false");
-		printf("IsMinion : %s\n", ObjectManager::GetPlayer()->IsMinion() ? "true" : "false");
 		printf("IsNexus : %s\n", ObjectManager::GetPlayer()->IsNexus() ? "true" : "false");
+		printf("IsMinion : %s\n", ObjectManager::GetPlayer()->IsMinion() ? "true" : "false");
 		printf("IsInhibitor : %s\n", ObjectManager::GetPlayer()->IsInhibitor() ? "true" : "false");
 		printf("IsMissile : %s\n", ObjectManager::GetPlayer()->IsMissile() ? "true" : "false");
 		printf("IsTurret : %s\n", ObjectManager::GetPlayer()->IsTurret() ? "true" : "false");
@@ -48,7 +48,13 @@ namespace TEST
 		// Functions
 		GameFunctions::IssueOrder(HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo);
 
-		Game::PrintChat("Test 1", BLUE());
+		Game::PrintChat("mAllHeros COUNT : %d", BLUE(), Common::ObjectList::mAllHeros.size());
+		Game::PrintChat("mAllMinions COUNT : %d", BLUE(), Common::ObjectList::mAllMinions.size());
+		Game::PrintChat("mAllTroy COUNT : %d", BLUE(), Common::ObjectList::mAllTroy.size());
+		Game::PrintChat("mAllTurrets COUNT : %d", BLUE(), Common::ObjectList::mAllTurrets.size());
+		Game::PrintChat("mAllMissiles COUNT : %d", BLUE(), Common::ObjectList::mAllMissiles.size());
+		Game::PrintChat("mAllInhibitors COUNT : %d", BLUE(), Common::ObjectList::mAllInhibitors.size());
+		Game::PrintChat("mAllNexus COUNT : %d", BLUE(), Common::ObjectList::mAllNexus.size());
 	}
 
 
@@ -84,7 +90,9 @@ namespace TEST
 		}
 	}
 
-	static void test4() {
+	static void test4() 
+	{
+		std::cout << "Enter Buff Name : ";
 		std::string buffName;
 		std::cin >> buffName;
 
@@ -103,5 +111,9 @@ namespace TEST
 			printf("\t\t sigIntFn1 : %#x \n", buff->mBuffInstance->GetVirtual()->sigIntFn1());
 		}
 		catch (const std::exception& e) { printf(e.what()); }
+	}
+
+	static void test5()
+	{
 	}
 }

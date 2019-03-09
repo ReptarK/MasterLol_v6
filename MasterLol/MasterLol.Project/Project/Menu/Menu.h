@@ -11,6 +11,7 @@
 
 #include <SDK/EventManager.h>
 #include <SDK/imGui/imgui.h>
+#include "MenuTab.h"
 
 class Menu
 {
@@ -27,9 +28,23 @@ public:
 	static bool IsVisible() { return _isVisible; }
 	static void Toggle() { _isVisible = !_isVisible; }
 
-private:
-	static void CreateStyle();
+	template<typename T>
+	static void AddTab();
 
-	static ImGuiStyle		_style;
-	static bool				_isVisible;
+private:
+	static void InitializeTabs();
+
+	static ImVec2 GetSidebarSize();
+	static void CreateStyle();
+	static void RenderTabs(int& activetab, float w, float h, bool sameline);
+
+	static ImGuiStyle _style;
+	static bool _isVisible;
+	static std::vector<std::unique_ptr<MenuTab>> _menuList;
 };
+
+template<typename T>
+inline void Menu::AddTab()
+{
+	_menuList.push_back(std::make_unique<T>());
+}

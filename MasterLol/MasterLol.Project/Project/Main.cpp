@@ -6,17 +6,16 @@
 #include <SDK/Inputs.h>
 
 #include <Common/MainLoop.h>
-#include <Common/Menu/Menu.h>
+#include <Common/ObjectHelper.h>
+
 #include "Component/Components.h"
+#include "Menu/Menu.h"
+#include "Menu/MenuTab.h"
 
 #include "Test.h"
 
 void InitializeHotkeys()
 {
-	InputSys::Get().RegisterHotkey(VK_HOME, []() {
-		Menu::Toggle();
-	});
-
 	InputSys::Get().RegisterHotkey(VK_F1, []() {
 		TEST::test1();
 	});
@@ -55,6 +54,7 @@ void InitializeSDK()
 
 void InitializeProject()
 {
+	Common::ObjectList::Initialize();
 	Components::Initialize();
 }
 
@@ -69,7 +69,10 @@ DWORD WINAPI MainThread(LPVOID base)
 	InitializeHotkeys();
 
 	Menu::Initialize();
+
 	InitializeProject();
+
+	Game::PrintChat("[ MasterLol Version 6.0 ]", BLUE());
 
 	while (!GetAsyncKeyState(VK_END)) {
 		MainLoop::Run(1000 / 30);

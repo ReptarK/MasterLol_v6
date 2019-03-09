@@ -1,6 +1,6 @@
 #include "SummonerSpells.h"
 
-ESpellSlot::ESpellSlot MasterLol::ActiveSummonerSpell::FindSummonerSpellSlotFromEnum( ESummonerSpell::ESummonerSpell summonerSpellToFind, AIHeroClient * player )
+ESpellSlot::ESpellSlot Common::ActiveSummonerSpell::FindSummonerSpellSlotFromEnum( ESummonerSpell::ESummonerSpell summonerSpellToFind, AIHeroClient * player )
 {
 	SpellData* summoner1 = player->GetSpellbook()->GetSpell( ESpellSlot::Summoner1 )->GetSpellInfo()->GetSpellData();
 	SpellData* summoner2 = player->GetSpellbook()->GetSpell( ESpellSlot::Summoner2 )->GetSpellInfo()->GetSpellData();
@@ -15,7 +15,7 @@ ESpellSlot::ESpellSlot MasterLol::ActiveSummonerSpell::FindSummonerSpellSlotFrom
 	return ESpellSlot::Unknown;
 }
 
-void MasterLol::ActiveSummonerSpell::Initialize()
+void Common::ActiveSummonerSpell::Initialize()
 {
 	Smite.Slot = FindSummonerSpellSlotFromEnum( ESummonerSpell::SummonerSmite );
 	Heal.Slot = FindSummonerSpellSlotFromEnum( ESummonerSpell::SummonerHeal );

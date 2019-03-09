@@ -1,6 +1,6 @@
 #include "Damage.h"
 
-namespace MasterLol
+namespace Common
 {
 	float Damage::TotalAttackDamage( Obj_AI_Base * from )
 	{

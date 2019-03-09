@@ -41,10 +41,10 @@ public:
 	virtual void Function33();
 	virtual void Function34();
 	virtual void Function35();
+	virtual void Function36();
 
-	virtual float BoundingRadius(); //0x90
+	virtual float BoundingRadius(); //0x94
 
-	virtual void Function37();
 	virtual void Function38();
 	virtual void Function39();
 	virtual void Function40();

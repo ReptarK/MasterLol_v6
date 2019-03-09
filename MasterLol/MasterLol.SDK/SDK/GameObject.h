@@ -27,8 +27,8 @@ public:
 
 	// Types
 	ObjectType * GetObjectTypeName();
-	EUnitId GetUnitId();
-	bool IsUnitId( EUnitId id );
+	EUnitType GetUnitId();
+	bool IsUnitId(EUnitType id );
 
 	bool IsHero();
 	bool IsMissile();

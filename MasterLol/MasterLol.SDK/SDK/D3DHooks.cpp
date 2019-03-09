@@ -32,6 +32,8 @@ namespace D3D
 			{
 				if (!D3DHooks::Get().GetDevice())
 					D3DHooks::Get().SetDevice(pDevice);
+
+				Draw.setDevice(pDevice);
 			}
 
 			EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>

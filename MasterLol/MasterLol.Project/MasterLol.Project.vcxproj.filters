@@ -19,23 +19,83 @@
     <Filter Include="Source Files\Component">
       <UniqueIdentifier>{415aa743-fbd5-42ed-8e21-f49db99908f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{f0c7d911-e326-4e27-9417-2a24812979a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{40028ad6-45d7-4449-97a1-72a207cc480a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component\Visual-Component">
+      <UniqueIdentifier>{e29284d6-0f66-4d8e-bc1e-ed190e14c553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\Visual-Component">
+      <UniqueIdentifier>{7a95912c-d30a-4258-a26e-ed04dcf809f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component\SummonerSpell-Component">
+      <UniqueIdentifier>{b27af894-7418-4c64-bba9-53cafaf0b70d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\SummonerSpell-Component">
+      <UniqueIdentifier>{6bd8c65e-f819-4355-914c-e680c779d012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component\Debug.component">
+      <UniqueIdentifier>{d2ff41dd-ec2b-48dc-a841-d9f4ff42bf33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\Debug.component">
+      <UniqueIdentifier>{88dd7df4-cb4a-4f7c-91b0-d8c76add802d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Project\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Project\Component\BasicVisuals.cpp">
-      <Filter>Source Files\Component</Filter>
+    <ClCompile Include="Project\Menu\Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Menu\MenuTab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\VisualComponent.cpp">
+      <Filter>Source Files\Component\Visual-Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\SummonerSpell-Component\AutoSmite.cpp">
+      <Filter>Source Files\Component\SummonerSpell-Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\SummonerSpell-Component\SummonerSpellComponent.cpp">
+      <Filter>Source Files\Component\SummonerSpell-Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\Debug.component\DebugComponent.cpp">
+      <Filter>Source Files\Component\Debug.component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\Test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Project\Component\BasicVisuals.h">
+    <ClInclude Include="Project\Component\Components.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Project\Component\Components.h">
+    <ClInclude Include="Project\Menu\Menu.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Menu\MenuTab.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\VisualComponent.h">
+      <Filter>Header Files\Component\Visual-Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\SummonerSpell-Component\AutoSmite.h">
+      <Filter>Header Files\Component\SummonerSpell-Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\SummonerSpell-Component\SummonerSpell.component.h">
+      <Filter>Header Files\Component\SummonerSpell-Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Debug.component\DebugComponent.h">
+      <Filter>Header Files\Component\Debug.component</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\IComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\IGameService.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>

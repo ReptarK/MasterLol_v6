@@ -101,9 +101,11 @@ void Game::PrintChat( const char* message )
 	return oPrintChat( chatClient, message, 1);
 }
 
-void Game::PrintChat( const char* Message, DWORD color ) //0xFF0000FF -> 0x0000FF
+void Game::PrintChat( const char* message, DWORD color ) //0xFF0000FF -> 0x0000FF
 {
 	char messageBuffer[100];
-	int size = sprintf( messageBuffer, "<font color='#%06X'>%s</font>", color & 0x00FFFFFF, Message );
+	int size = sprintf( messageBuffer, "<font color='#%06X'>%s</font>", color & 0x00FFFFFF, message);
 	Game::PrintChat( messageBuffer );
 }
+
+

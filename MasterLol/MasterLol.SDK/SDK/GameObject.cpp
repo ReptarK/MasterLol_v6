@@ -67,7 +67,7 @@ ObjectType * GameObject::GetObjectTypeName()
 	return ( ObjectType* )gameObjectCopy;
 }
 
-EUnitId GameObject::GetUnitId()
+EUnitType GameObject::GetUnitId()
 {
 	int v2; // eax@1
 	int v3; // esi@1
@@ -111,10 +111,10 @@ EUnitId GameObject::GetUnitId()
 	objectId |= objectId >> 16;
 
 	objectId = objectId + 1;
-	return ( EUnitId )( objectId >> 1 );
+	return (EUnitType)( objectId >> 1 );
 }
 
-bool GameObject::IsUnitId( EUnitId id )
+bool GameObject::IsUnitId(EUnitType id )
 {
 	return ( id == this->GetUnitId() );
 }
@@ -198,6 +198,7 @@ EUnitType GameObject::GetType()
 	{
 		if ( IsDragon() ) return EUnitType::Dragon;
 		if ( IsBaron() ) return EUnitType::Baron;
+		return EUnitType::Minion;
 	}
 	if ( IsMissile() ) return EUnitType::Missile;
 	if ( IsTurret() ) return EUnitType::Turret;
@@ -212,13 +213,13 @@ Vector3 GameObject::GetPos()
 {
 	if ( this == nullptr )
 	{
-		return Vector3( 0, 0, 0 );
+		return Vector3();
 	}
 
 	auto vec = reinterpret_cast< Vector3* >( this + ( int )( Offsets::GameObject::Position ) );
 	if ( vec == nullptr )
 	{
-		return Vector3( 0, 0, 0 );
+		return Vector3();
 	}
 
 	return *vec;

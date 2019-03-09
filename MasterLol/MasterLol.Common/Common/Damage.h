@@ -3,7 +3,7 @@
 #include <SDK/ObjectManager.h>
 #include <SDK/AIHeroClient.h>
 
-namespace MasterLol
+namespace Common
 {
 	struct PrecalculatedAutoAttackDamage
 	{
