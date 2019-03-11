@@ -15,6 +15,8 @@ public:
 	OPTION(bool, show_E_range, false);
 	OPTION(bool, show_R_range, false);
 
+	OPTION(bool, show_turrets_AA_range, true);
+
 	// SUMMONER SPELLS
 	OPTION(bool, enable_auto_smite, false);
 	OPTION(bool, smite_blue, false);

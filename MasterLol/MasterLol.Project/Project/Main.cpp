@@ -8,7 +8,10 @@
 #include <Common/MainLoop.h>
 #include <Common/ObjectHelper.h>
 
-#include "Component/Components.h"
+#include "Component/ComponentsManager.h"
+#include "Component/Visual.component/Visual.component.h"
+#include "Component/Debug.component/Debug.component.h"
+#include "Component/Debug.component/DebugCollision.service.h"
 #include "Menu/Menu.h"
 #include "Menu/MenuTab.h"
 
@@ -55,7 +58,10 @@ void InitializeSDK()
 void InitializeProject()
 {
 	Common::ObjectList::Initialize();
-	Components::Initialize();
+
+	ComponentsManager::Initialize();
+	ComponentsManager::AddComponent<VisualComponent>();
+	ComponentsManager::AddComponent<DebugComponent>();
 }
 
 DWORD WINAPI MainThread(LPVOID base)
@@ -81,6 +87,7 @@ DWORD WINAPI MainThread(LPVOID base)
 	Beep(523, 250);
 
 	FreeConsole();
+	ComponentsManager::Shutdown();
 	InputSys::Get().Shutdown();
 	D3D::D3DHooks::Get().Shutdown();
 	Sleep(250);

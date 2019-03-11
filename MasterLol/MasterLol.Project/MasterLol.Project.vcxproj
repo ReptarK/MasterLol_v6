@@ -125,25 +125,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Project\Component\Debug.component\DebugComponent.cpp" />
-    <ClCompile Include="Project\Component\SummonerSpell-Component\AutoSmite.cpp" />
-    <ClCompile Include="Project\Component\SummonerSpell-Component\SummonerSpellComponent.cpp" />
-    <ClCompile Include="Project\Component\VisualComponent.cpp" />
+    <ClCompile Include="Project\Component\ComponentsManager.cpp" />
+    <ClCompile Include="Project\Component\Debug.component\DebugCollision.service.cpp" />
+    <ClCompile Include="Project\Component\Visual.component\PlayerVisual.service.cpp" />
+    <ClCompile Include="Project\Component\Visual.component\TurretRange.service.cpp" />
     <ClCompile Include="Project\Main.cpp" />
     <ClCompile Include="Project\Menu\Menu.cpp" />
-    <ClCompile Include="Project\Menu\MenuTab.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Project\Component\Debug.component\DebugComponent.h" />
+    <ClInclude Include="Project\Bootstarp.h" />
+    <ClInclude Include="Project\Component\Debug.component\Debug.component.h" />
+    <ClInclude Include="Project\Component\Debug.component\DebugCollision.service.h" />
     <ClInclude Include="Project\Component\IComponent.h" />
     <ClInclude Include="Project\Component\IGameService.h" />
-    <ClInclude Include="Project\Component\SummonerSpell-Component\AutoSmite.h" />
-    <ClInclude Include="Project\Component\SummonerSpell-Component\SummonerSpell.component.h" />
-    <ClInclude Include="Project\Component\VisualComponent.h" />
-    <ClInclude Include="Project\Component\Components.h" />
+    <ClInclude Include="Project\Component\ComponentsManager.h" />
+    <ClInclude Include="Project\Component\Visual.component\PlayerVisual.service.h" />
+    <ClInclude Include="Project\Component\Visual.component\Visual.component.h" />
     <ClInclude Include="Project\Menu\Menu.h" />
-    <ClInclude Include="Project\Menu\MenuTab.h" />
     <ClInclude Include="Project\Test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Component\Visual.component\TurretRange.service.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

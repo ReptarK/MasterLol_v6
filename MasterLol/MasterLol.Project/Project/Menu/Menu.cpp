@@ -1,5 +1,4 @@
 #include "Menu.h"
-#include "MenuTab.h"
 
 #include <SDK/imGui/imgui_impl_dx9.h>
 #include <SDK/ImGui/imgui.h>
@@ -12,7 +11,6 @@
 
 bool Menu::_isVisible = false;
 ImGuiStyle Menu::_style;
-std::vector<std::unique_ptr<MenuTab>> Menu::_menuList;
 
 // ImGui
 bool p_open = true;
@@ -22,15 +20,9 @@ static int active_sidebar_tab = 0;
 static float get_sidebar_item_width() { return 150.0f; }
 static float get_sidebar_item_height() { return  50.0f; }
 
-void Menu::InitializeTabs()
-{
-	Menu::AddTab<VisualsTab>();
-	Menu::AddTab<DebugTab>();
-}
-
 ImVec2 Menu::GetSidebarSize()
 {
-	int menuSize = Menu::_menuList.size();
+	int menuSize = ComponentsManager::mComponents.size();
 	if (menuSize < 1)
 		menuSize = 1;
 
@@ -43,13 +35,13 @@ ImVec2 Menu::GetSidebarSize()
 
 void Menu::RenderTabs(int& activetab, float w, float h, bool sameline)
 {
-	Menu::_menuList.at(activetab)->mIsActive = true;
+	ComponentsManager::mComponents.at(activetab)->mIsActive = true;
 
-	for (auto i = 0u; i < Menu::_menuList.size(); ++i) {
-		if (ImGui::ToggleButton(Menu::_menuList.at(i)->mName, &Menu::_menuList.at(i)->mIsActive, ImVec2 { w, h })) {
+	for (auto i = 0u; i < ComponentsManager::mComponents.size(); ++i) {
+		if (ImGui::ToggleButton(ComponentsManager::mComponents.at(i)->mTabName, &ComponentsManager::mComponents.at(i)->mIsActive, ImVec2 { w, h })) {
 			activetab = i;
 		}
-		if (sameline && i < Menu::_menuList.size() - 1)
+		if (sameline && i < ComponentsManager::mComponents.size() - 1)
 			ImGui::SameLine();
 	}
 }
@@ -86,7 +78,7 @@ void Menu::OnEndScene(LPDIRECT3DDEVICE9 device)
 
 	auto size = ImVec2{ 0.0f, sidebar_size.y };
 	ImGui::BeginGroupBox("##body", size);
-	Menu::_menuList.at(active_sidebar_tab)->Render();
+	ComponentsManager::mComponents.at(active_sidebar_tab)->RenderMenu();
 
 	ImGui::EndGroupBox();
 	ImGui::End();
@@ -105,7 +97,6 @@ void Menu::OnReset(IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* params)
 
 void Menu::Initialize()
 {
-	_menuList = std::vector<std::unique_ptr<MenuTab>>();
 	_isVisible = true;
 
 	ImGuiIO& io = ImGui::GetIO();
@@ -117,8 +108,6 @@ void Menu::Initialize()
 
 	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Add(Menu::OnEndScene);
 	EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance()->Add(Menu::OnReset);
-
-	Menu::InitializeTabs();
 }
 
 void Menu::Shutdown()
