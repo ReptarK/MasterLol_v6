@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="Project\Component\ComponentsManager.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugCollision.service.cpp" />
+    <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp" />
     <ClCompile Include="Project\Component\SummonerSpell.component\AutoSmite.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\PlayerVisual.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\TurretRange.service.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Project\Component\IComponent.h" />
     <ClInclude Include="Project\Component\IGameService.h" />
     <ClInclude Include="Project\Component\ComponentsManager.h" />
+    <ClInclude Include="Project\Component\Orbwalker.component\FleeLogic.service.h" />
     <ClInclude Include="Project\Component\Orbwalker.component\Orbwalker.component.h" />
     <ClInclude Include="Project\Component\SummonerSpell.component\SummonerSpell.component.h" />
     <ClInclude Include="Project\Component\Visual.component\PlayerVisual.service.h" />

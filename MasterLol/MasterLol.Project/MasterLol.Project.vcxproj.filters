@@ -66,6 +66,9 @@
     <ClCompile Include="Project\Component\SummonerSpell.component\AutoSmite.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\Test.h">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Project\Component\Orbwalker.component\Orbwalker.component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Orbwalker.component\FleeLogic.service.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
