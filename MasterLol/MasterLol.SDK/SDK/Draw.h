@@ -6,7 +6,9 @@
 
 #include <d3d9.h>
 #include <d3dx9.h>
+
 #include "colors_define.h"
+#include "imGui/imgui.h"
 #include "math/Vector.hpp"
 
 enum circle_type { full, half, quarter };
@@ -54,6 +56,7 @@ public:
 	// GAME FUNCTION
 	void RangeCircle( Vector3 position, float range, D3DCOLOR color, int a4, float a5, int a6, float alpha );
 	void RangeCircle( Vector3 position, float range, D3DCOLOR color, float alpha );
+	void RangeCircle(Vector3 position, float range, ImColor color, float alpha);
 
 	bool WorldToScreen( Vector3 world, Vector3* screen );
 

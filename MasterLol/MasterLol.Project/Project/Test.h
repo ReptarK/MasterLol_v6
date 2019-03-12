@@ -113,7 +113,15 @@ namespace TEST
 		catch (const std::exception& e) { printf(e.what()); }
 	}
 
+	//MAKE_HOOK<convention_type::thiscall_r, void, void*, int> IssueOrderHook;
+	//void __fastcall OnIssueOrder(void* unk_ptr, void *EDX, int unk_int)
+	//{
+	//	std::printf("OnIssueOrder(%#x, %d)", unk_ptr, unk_int);
+	//	IssueOrderHook.CallOriginal(unk_ptr, unk_int);
+	//}
+
 	static void test5()
 	{
+		//IssueOrderHook.Apply(Patchables::LolBase + 0x208A10, OnIssueOrder);
 	}
 }

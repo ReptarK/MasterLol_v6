@@ -138,7 +138,7 @@
     <ClCompile Include="SDK\Inputs.cpp" />
     <ClCompile Include="SDK\ObjectManager.cpp" />
     <ClCompile Include="SDK\Obj_AI_Base.cpp" />
-    <ClCompile Include="SDK\Options.cpp" />
+    <ClCompile Include="SDK\Config.cpp" />
     <ClCompile Include="SDK\Patchables.cpp" />
     <ClCompile Include="SDK\Spellbook.cpp" />
     <ClCompile Include="SDK\SpellDataInst.cpp" />
@@ -179,7 +179,7 @@
     <ClInclude Include="SDK\Obj_AI_Base.h" />
     <ClInclude Include="SDK\Obj_AI_Turret.h" />
     <ClInclude Include="SDK\Offsets.h" />
-    <ClInclude Include="SDK\Options.h" />
+    <ClInclude Include="SDK\Config.h" />
     <ClInclude Include="SDK\Patchables.h" />
     <ClInclude Include="SDK\Spellbook.h" />
     <ClInclude Include="SDK\SpellCastInfo.h" />
@@ -189,7 +189,6 @@
     <ClInclude Include="SDK\SpellInfo.h" />
     <ClInclude Include="SDK\StaticEnums.h" />
     <ClInclude Include="SDK\stdafx.h" />
-    <ClInclude Include="SDK\TestComponents.h" />
     <ClInclude Include="SDK\UnitInclude.h" />
     <ClInclude Include="SDK\Utilities.h" />
   </ItemGroup>

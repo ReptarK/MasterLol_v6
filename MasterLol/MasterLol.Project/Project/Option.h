@@ -1,12 +1,17 @@
 #pragma once
 #include <d3d9.h>
+#include <SDK/singleton.hpp>
+#include <SDK/Draw.h>
 
 #define OPTION(type, var, val) type var = val
 
-extern bool g_Unload;
-
-class Config
+class Option : public Singleton<Option>
 {
+	friend class Singleton<Option>;
+
+	Option() {}
+	~Option() {}
+
 public:
 	// VISUALS
 	OPTION(bool, show_AA_range, true);
@@ -19,6 +24,7 @@ public:
 
 	// SUMMONER SPELLS
 	OPTION(bool, enable_auto_smite, false);
+	OPTION(ImColor, smite_range_color, ImColor(90, 190, 60));
 	OPTION(bool, smite_blue, false);
 	OPTION(bool, smite_red, false);
 	OPTION(bool, smite_dragon, false);
@@ -29,5 +35,3 @@ public:
 	OPTION(bool, enable_debug_collision, false);
 	OPTION(bool, show_lasthit_targets, false);
 };
-
-extern Config g_Options;

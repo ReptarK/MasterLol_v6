@@ -24,7 +24,7 @@ namespace Names
 		Crab,
 		Murkwolf, MurkwolfMini,
 		Razorbeak, RazorbeakMini,
-		Red, Blue,
+		SRU_Red, SRU_Blue,
 		Baron,
 		Dragon
 	)
@@ -45,6 +45,17 @@ namespace Names
 		std::transform( objectLowerName.begin(), objectLowerName.end(), objectLowerName.begin(), ::tolower );
 
 		return objectLowerName.find( name ) != std::string::npos;
+	}
+
+	static bool NameBeginWith(GameObject* object, std::string name)
+	{
+		std::string objectName = object->GetName();
+		for (int i = 0; i < name.length(); ++i) {
+			if (objectName.at(i) != name.at(i))
+				return false;
+		}
+
+		return true;
 	}
 }
 

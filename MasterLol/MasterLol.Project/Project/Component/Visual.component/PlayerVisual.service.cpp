@@ -1,8 +1,5 @@
 #include "PlayerVisual.service.h"
 
-#include <SDK/Draw.h>
-#include <SDK/Options.h>
-
 #include <Common/ObjectHelper.h>
 
 void PlayerVisualService::OnEndScene()
@@ -14,6 +11,6 @@ void PlayerVisualService::OnEndScene()
 
 	auto addRadius = player->GetBoundingRadius();
 
-	if (g_Options.show_AA_range)
+	if (Option::Get().show_AA_range)
 		Draw.RangeCircle(player->GetPos(), player->GetUnitStats()->mAttackRange + addRadius, YELLOW(), 0.1f);
 }

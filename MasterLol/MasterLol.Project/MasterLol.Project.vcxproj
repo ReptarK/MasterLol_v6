@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="Project\Component\ComponentsManager.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugCollision.service.cpp" />
+    <ClCompile Include="Project\Component\SummonerSpell.component\AutoSmite.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\PlayerVisual.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\TurretRange.service.cpp" />
     <ClCompile Include="Project\Main.cpp" />
@@ -139,12 +140,16 @@
     <ClInclude Include="Project\Component\IComponent.h" />
     <ClInclude Include="Project\Component\IGameService.h" />
     <ClInclude Include="Project\Component\ComponentsManager.h" />
+    <ClInclude Include="Project\Component\Orbwalker.component\Orbwalker.component.h" />
+    <ClInclude Include="Project\Component\SummonerSpell.component\SummonerSpell.component.h" />
     <ClInclude Include="Project\Component\Visual.component\PlayerVisual.service.h" />
     <ClInclude Include="Project\Component\Visual.component\Visual.component.h" />
     <ClInclude Include="Project\Menu\Menu.h" />
+    <ClInclude Include="Project\Option.h" />
     <ClInclude Include="Project\Test.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Project\Component\SummonerSpell.component\AutoSmite.service.h" />
     <None Include="Project\Component\Visual.component\TurretRange.service.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

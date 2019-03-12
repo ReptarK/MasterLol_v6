@@ -3,7 +3,6 @@
 #include <SDK/HudManager.h>
 #include <SDK/Game.h>
 #include <SDK/Obj_AI_Base.h>
-#include <SDK/Draw.h>
 
 #include <Common/Geometry/LineCollision.h>
 #include <Common/Geometry/CircleCollision.h>
@@ -12,7 +11,7 @@
 
 void DebugCollisionService::OnUpdate()
 {
-	if (g_Options.enable_debug_collision)
+	if (Option::Get().enable_debug_collision)
 	{
 		// Left click to select a Target
 		if (GetAsyncKeyState(VK_LBUTTON) & 1)
@@ -26,7 +25,7 @@ void DebugCollisionService::OnUpdate()
 
 void DebugCollisionService::OnEndScene()
 {
-	if (g_Options.enable_debug_collision)
+	if (Option::Get().enable_debug_collision)
 	{
 		AIHeroClient* player = ObjectManager::GetPlayer();
 		Vector3 sourcePos = player->GetPos();

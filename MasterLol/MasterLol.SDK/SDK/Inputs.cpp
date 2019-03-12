@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Inputs.h"
 #include "D3DHooks.h"
-#include "Options.h"
+#include "Config.h"
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx9.h"
 

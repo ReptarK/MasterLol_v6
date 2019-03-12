@@ -19,8 +19,8 @@ namespace Common
 		static std::vector<GameObject*> mAllMissiles;
 		static std::vector<AttackableUnit*> mAllInhibitors;
 		static std::vector<AttackableUnit*> mAllNexus;
-		static AttackableUnit* mDragon;
-		static AttackableUnit* mBaron;
+		static Obj_AI_Base* mDragon;
+		static Obj_AI_Base* mBaron;
 
 		static void Initialize()
 		{

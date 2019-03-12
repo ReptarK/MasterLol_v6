@@ -1,13 +1,10 @@
 #include "TurretRange.service.h"
 
-#include <SDK/Draw.h>
-#include <SDK/Options.h>
-
 #include <Common/ObjectHelper.h>
 
 void TurretRangeService::OnEndScene()
 {
-	if (!g_Options.show_turrets_AA_range)
+	if (!Option::Get().show_turrets_AA_range)
 		return;
 
 	auto player = ObjectManager::GetPlayer();

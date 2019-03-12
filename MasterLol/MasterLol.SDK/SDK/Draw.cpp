@@ -26,6 +26,17 @@ void CDraw::RangeCircle( Vector3 position, float range, D3DCOLOR color, float al
 	return RangeCircle( position, range, color, 0, 0, 0, alpha );
 }
 
+void CDraw::RangeCircle(Vector3 position, float range, ImColor color, float alpha)
+{
+	D3DCOLOR d3dColor = D3DCOLOR_RGBA(
+		(UINT8)(color.Value.x * 255),
+		(UINT8)(color.Value.y * 255),
+		(UINT8)(color.Value.z * 255),
+		255);
+
+	Draw.RangeCircle(position, range, d3dColor, alpha);
+}
+
 //int __cdecl sub_AA3E20(int a1, int a2)
 bool CDraw::WorldToScreen(Vector3 world, Vector3 * screen)
 {

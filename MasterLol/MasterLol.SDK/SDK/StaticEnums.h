@@ -60,6 +60,8 @@ DECLARE_ENUM(ESummonerSpell,
 	SummonerFlash,
 	SummonerTeleport,
 	SummonerSmite,
+	S5_SummonerSmiteDuel,
+	S5_SummonerSmitePlayerGanker,
 	SummonerCleanse,
 	SummonerIgnite
 )

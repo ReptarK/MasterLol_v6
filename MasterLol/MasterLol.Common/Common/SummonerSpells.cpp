@@ -17,7 +17,15 @@ ESpellSlot::ESpellSlot Common::ActiveSummonerSpell::FindSummonerSpellSlotFromEnu
 
 void Common::ActiveSummonerSpell::Initialize()
 {
-	Smite.Slot = FindSummonerSpellSlotFromEnum( ESummonerSpell::SummonerSmite );
+	ESummonerSpell::ESummonerSpell smiteEnums[] = {
+		ESummonerSpell::SummonerSmite,
+		ESummonerSpell::S5_SummonerSmiteDuel,
+		ESummonerSpell::S5_SummonerSmitePlayerGanker
+	};
+
+	for (int i = 0; i < 3 && Smite.Slot == ESpellSlot::Unknown; ++i)
+		Smite.Slot = FindSummonerSpellSlotFromEnum(smiteEnums[i]);
+
 	Heal.Slot = FindSummonerSpellSlotFromEnum( ESummonerSpell::SummonerHeal );
 	Flash.Slot = FindSummonerSpellSlotFromEnum( ESummonerSpell::SummonerFlash );
 	Barrier.Slot = FindSummonerSpellSlotFromEnum( ESummonerSpell::SummonerBarrier );

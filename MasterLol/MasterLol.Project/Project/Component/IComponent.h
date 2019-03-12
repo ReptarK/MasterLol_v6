@@ -1,12 +1,13 @@
 #pragma once
+#include "IGameService.h"
 #include <vector>
 #include <memory>
-#include "IGameService.h"
 
-#include <SDK/Options.h>
 #include <SDK/imGui/imgui_impl_dx9.h>
 #include <SDK/ImGui/imgui.h>
 #include <SDK/ImGui/imgui_internal.h>
+
+#include "../Option.h"
 
 class IComponent {
 
@@ -32,6 +33,7 @@ public:
 			(*it)->OnUpdate();
 		}
 	}
+
 	virtual void OnEndScene() {
 		for (auto it = this->mServices.begin(); it != this->mServices.end(); it++) {
 			(*it)->OnEndScene();

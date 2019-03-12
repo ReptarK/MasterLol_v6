@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "Options.h"
+#include "Config.h"
 
 bool g_Unload = false;
-Config g_Options;

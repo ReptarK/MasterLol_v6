@@ -1,13 +1,12 @@
 #pragma once
-#include <SDK/imGui/imgui_impl_dx9.h>
-#include <SDK/ImGui/imgui.h>
-#include <SDK/ImGui/imgui_internal.h>
-#include <SDK/Options.h>
+#include "../Option.h"
+
+#include <SDK/Inputs.h>
+#include <SDK/Draw.h>
 
 class IGameService {
-public:
-	virtual void RenderMenu() {}
 
+public:
 	virtual void OnUpdate() {}
 	virtual void OnEndScene() {}
 };

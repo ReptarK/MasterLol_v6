@@ -66,8 +66,8 @@ namespace Common
 	std::vector<GameObject*> ObjectList::mAllMissiles;
 	std::vector<AttackableUnit*> ObjectList::mAllInhibitors;
 	std::vector<AttackableUnit*> ObjectList::mAllNexus;
-	AttackableUnit* ObjectList::mDragon;
-	AttackableUnit* ObjectList::mBaron;
+	Obj_AI_Base* ObjectList::mDragon;
+	Obj_AI_Base* ObjectList::mBaron;
 
 	void ObjectList::OnUpdate()
 	{
@@ -97,8 +97,8 @@ namespace Common
 			case EUnitType::Inhibitor: tmpAllInhibitors.push_back((AttackableUnit*)currObject); break;
 			case EUnitType::Nexus    : tmpAllNexus.push_back((AttackableUnit*)currObject);		break;
 
-			case EUnitType::Dragon	 : ObjectList::mDragon = (AttackableUnit*)currObject;
-			case EUnitType::Baron	 : ObjectList::mBaron = (AttackableUnit*)currObject;
+			case EUnitType::Dragon	 : ObjectList::mDragon = (Obj_AI_Base*)currObject;
+			case EUnitType::Baron	 : ObjectList::mBaron = (Obj_AI_Base*)currObject;
 
 			default: continue;
 			}

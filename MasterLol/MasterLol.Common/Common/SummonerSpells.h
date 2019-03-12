@@ -85,7 +85,7 @@ namespace Common
 		: public Singleton<ActiveSummonerSpell>
 	{
 		friend class Singleton<ActiveSummonerSpell>;
-		ActiveSummonerSpell() {}
+		ActiveSummonerSpell() { this->Initialize(); }
 		~ActiveSummonerSpell() {}
 
 	public:

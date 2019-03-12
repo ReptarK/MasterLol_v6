@@ -12,8 +12,8 @@ public:
 	virtual void RenderMenu() {
 		Start(2);
 
-		ImGui::Checkbox("Debug Collision", &g_Options.enable_debug_collision);
-		ImGui::Checkbox("Show LastHit Targets", &g_Options.show_lasthit_targets);
+		ImGui::Checkbox("Debug Collision", &Option::Get().enable_debug_collision);
+		ImGui::Checkbox("Show LastHit Targets", &Option::Get().show_lasthit_targets);
 
 		ImGui::NextColumn();
 

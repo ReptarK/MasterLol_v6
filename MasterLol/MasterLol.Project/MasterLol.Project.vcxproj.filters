@@ -63,6 +63,9 @@
     <ClCompile Include="Project\Component\Visual.component\PlayerVisual.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Project\Component\SummonerSpell.component\AutoSmite.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\Test.h">
@@ -95,8 +98,18 @@
     <ClInclude Include="Project\Component\Visual.component\PlayerVisual.service.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Project\Option.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\SummonerSpell.component\SummonerSpell.component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Orbwalker.component\Orbwalker.component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Project\Component\Visual.component\TurretRange.service.h" />
+    <None Include="Project\Component\SummonerSpell.component\AutoSmite.service.h" />
   </ItemGroup>
 </Project>

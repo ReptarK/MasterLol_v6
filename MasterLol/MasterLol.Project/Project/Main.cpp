@@ -8,12 +8,13 @@
 #include <Common/MainLoop.h>
 #include <Common/ObjectHelper.h>
 
+#include "Menu/Menu.h"
+
 #include "Component/ComponentsManager.h"
 #include "Component/Visual.component/Visual.component.h"
 #include "Component/Debug.component/Debug.component.h"
-#include "Component/Debug.component/DebugCollision.service.h"
-#include "Menu/Menu.h"
-#include "Menu/MenuTab.h"
+#include "Component/SummonerSpell.component/SummonerSpell.component.h"
+#include "Component/Orbwalker.component/Orbwalker.component.h"
 
 #include "Test.h"
 
@@ -40,6 +41,13 @@ void InitializeHotkeys()
 		}
 		__except (1) { printf("Error in TEST4()"); }
 	});
+
+	InputSys::Get().RegisterHotkey(VK_F5, []() {
+		__try {
+			TEST::test5();
+		}
+		__except (1) { printf("Error in TEST5()"); }
+	});
 }
 
 void InitializeConsole()
@@ -62,6 +70,8 @@ void InitializeProject()
 	ComponentsManager::Initialize();
 	ComponentsManager::AddComponent<VisualComponent>();
 	ComponentsManager::AddComponent<DebugComponent>();
+	ComponentsManager::AddComponent<SummonerSpellComponent>();
+	ComponentsManager::AddComponent<OrbwalkerComponent>();
 }
 
 DWORD WINAPI MainThread(LPVOID base)

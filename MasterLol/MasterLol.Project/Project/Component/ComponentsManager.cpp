@@ -1,6 +1,9 @@
 #include "ComponentsManager.h"
 #include <SDK/EventManager.h>
 
+#include <windows.h> // for EXCEPTION_ACCESS_VIOLATION
+#include <excpt.h>
+
 std::vector<std::unique_ptr<IComponent>> ComponentsManager::mComponents;
 
 void ComponentsManager::Initialize()

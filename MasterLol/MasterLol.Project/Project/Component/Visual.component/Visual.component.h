@@ -17,13 +17,17 @@ public:
 		Start(2);
 
 		ImGui::Text("PLAYER :");
-		ImGui::Checkbox("AA Range", &g_Options.show_AA_range);
-		ImGui::Checkbox("Q Range", &g_Options.show_Q_range);
-		ImGui::Checkbox("W Range", &g_Options.show_W_range);
-		ImGui::Checkbox("E Range", &g_Options.show_E_range);
-		ImGui::Checkbox("R Range", &g_Options.show_R_range);
+		ImGui::Checkbox("AA Range", &Option::Get().show_AA_range);
+		ImGui::Checkbox("Q Range", &Option::Get().show_Q_range);
+		ImGui::Checkbox("W Range", &Option::Get().show_W_range);
+		ImGui::Checkbox("E Range", &Option::Get().show_E_range);
+		ImGui::Checkbox("R Range", &Option::Get().show_R_range);
+
 
 		ImGui::NextColumn();
+
+		ImGui::Text("MISK :");
+		ImGui::Checkbox("Turrets AA Range", &Option::Get().show_turrets_AA_range);
 
 		End();
 	}
