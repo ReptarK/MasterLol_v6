@@ -5,7 +5,7 @@
 #include <SDK/D3DHooks.h>
 #include <SDK/Inputs.h>
 
-#include <Common/MainLoop.h>
+#include <Common/GameEvent.h>
 #include <Common/ObjectHelper.h>
 
 #include "Menu/Menu.h"
@@ -90,8 +90,9 @@ DWORD WINAPI MainThread(LPVOID base)
 
 	Game::PrintChat("[ MasterLol Version 6.0 ]", BLUE());
 
+	Common::OnMissileProcessSpell::Initialize();
 	while (!GetAsyncKeyState(VK_END)) {
-		MainLoop::Run(1000 / 30);
+		Common::OnUpdate::Run(1000 / 30);
 	}
 
 	Beep(523, 250);

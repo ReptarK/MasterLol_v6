@@ -40,6 +40,12 @@ public:
 		}
 	}
 
+	virtual void OnMissileProcessSpell(MissileClient* missile, Obj_AI_Base* caster) {
+		for (auto it = this->mServices.begin(); it != this->mServices.end(); it++) {
+			(*it)->OnMissileProcessSpell(missile, caster);
+		}
+	}
+
 #pragma region MENU
 	virtual void RenderMenu() {}
 
@@ -51,7 +57,7 @@ public:
 
 		ImGui::Columns(nbColumns, nullptr, true);
 		for (int i = 1; i <= nbColumns; ++i)
-			ImGui::SetColumnOffset(i, group_w / (float)nbColumns);
+			ImGui::SetColumnOffset(i, i * group_w / (float)nbColumns);
 	}
 
 	void End() { ImGui::PopStyleVar(); }

@@ -20,7 +20,7 @@
 
 enum class EventIndex
 {
-	OnMainLoop = 1,
+	OnUpdate = 1,
 	OnDrawingEndScene = 2,
 	OnReset = 3,
 	OnDrawingPresent = 4,
@@ -33,7 +33,9 @@ enum class EventIndex
 	OnPlayerSellItem = 11,
 	OnPlayerSwapItem = 12,
 	OnPlayerDoEmote = 13,
-	OnSpellbookCastSpell = 14
+	OnSpellbookCastSpell = 14,
+
+	OnMissileProcessSpell = 15
 };
 
 namespace EventDefines
@@ -42,6 +44,7 @@ namespace EventDefines
 
 	//Game
 	typedef void( OnMainLoop )();
+	typedef void (OnMissileProcessSpell)(MissileClient*, GameObject*);
 
 	//Drawing
 	typedef void( OnDrawingEndScene )( IDirect3DDevice9* );

@@ -48,10 +48,10 @@
     <ClInclude Include="Common\Misk\date.h">
       <Filter>Header Files\Misk</Filter>
     </ClInclude>
-    <ClInclude Include="Common\MainLoop.h">
+    <ClInclude Include="Common\ObjectHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Common\ObjectHelper.h">
+    <ClInclude Include="Common\GameEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,10 +74,10 @@
     <ClCompile Include="Common\SummonerSpells.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Common\MainLoop.cpp">
+    <ClCompile Include="Common\ObjectHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Common\ObjectHelper.cpp">
+    <ClCompile Include="Common\GameEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

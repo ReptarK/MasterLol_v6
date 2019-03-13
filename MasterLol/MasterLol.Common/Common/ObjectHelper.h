@@ -24,7 +24,7 @@ namespace Common
 
 		static void Initialize()
 		{
-			EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Add(ObjectList::OnUpdate);
+			EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(ObjectList::OnUpdate);
 		}
 	};
 

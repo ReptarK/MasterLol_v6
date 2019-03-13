@@ -14,8 +14,10 @@ EventHandler<uniqueEventNumber, T, TArgs...>* EventHandler<uniqueEventNumber, T,
 static void linkEvents()
 {
 	//Game
-	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Add( nullptr );
-	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add( nullptr );
+	EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Remove( nullptr );
+	EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell, MissileClient*, GameObject*>::GetInstance()->Add(nullptr);
+	EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell, MissileClient*, GameObject*>::GetInstance()->Remove(nullptr);
 	//Drawing
 	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Add( nullptr );
 	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Remove( nullptr );
@@ -59,7 +61,7 @@ MAKE_HOOK<convention_type::thiscall_r, int, void*, DWORD> MainLoop_Hook;
 
 int __fastcall OnMainLoop( void* a1, DWORD EDX, DWORD a2 )
 {
-	EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance()->Trigger();
+	EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Trigger();
 
 	return MainLoop_Hook.CallOriginal( a1, a2 );
 }

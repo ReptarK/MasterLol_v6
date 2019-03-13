@@ -24,6 +24,11 @@ public:
 	MAKE_GET(LaunchPos, Vector3, Offsets::MissileClient::LaunchPos);
 	MAKE_GET(DestPos, Vector3, Offsets::MissileClient::DestPos);
 
+	int GetCreatedTimeMs()
+	{
+		return (int)(1000 * (*reinterpret_cast<float*>(this + static_cast<int>(Offsets::MissileClient::CreatedTime))));
+	}
+
 	uint* GetSpellCasterId()
 	{
 		return reinterpret_cast<uint*>(this + static_cast<int>(Offsets::MissileClient::CasterId));

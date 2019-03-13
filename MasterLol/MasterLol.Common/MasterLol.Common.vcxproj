@@ -129,7 +129,7 @@
     <ClInclude Include="Common\Geometry\CircleCollision.h" />
     <ClInclude Include="Common\Geometry\Line3D.h" />
     <ClInclude Include="Common\Geometry\LineCollision.h" />
-    <ClInclude Include="Common\MainLoop.h" />
+    <ClInclude Include="Common\GameEvent.h" />
     <ClInclude Include="Common\Misk\date.h" />
     <ClInclude Include="Common\ObjectHelper.h" />
     <ClInclude Include="Common\SummonerSpells.h" />
@@ -140,7 +140,7 @@
     <ClCompile Include="Common\Geometry\Circle3D.cpp" />
     <ClCompile Include="Common\Geometry\CircleCollision.cpp" />
     <ClCompile Include="Common\Geometry\LineCollision.cpp" />
-    <ClCompile Include="Common\MainLoop.cpp" />
+    <ClCompile Include="Common\GameEvent.cpp" />
     <ClCompile Include="Common\ObjectHelper.cpp" />
     <ClCompile Include="Common\SummonerSpells.cpp" />
   </ItemGroup>

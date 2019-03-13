@@ -4,6 +4,9 @@
 #include <memory>
 
 #include <SDK/singleton.hpp>
+#include <SDK/MissileClient.h>
+#include <SDK/Obj_AI_Base.h>
+
 #include "IComponent.h"
 
 class ComponentsManager {
@@ -14,8 +17,10 @@ public:
 	static void Initialize();
 	static void Shutdown();
 
+	// GameEvents
 	static void OnUpdate();
 	static void OnEndScene(IDirect3DDevice9*);
+	static void OnMissileProcessSpell(MissileClient* missile, Obj_AI_Base* caster);
 
 	template<typename T>
 	static void AddComponent();

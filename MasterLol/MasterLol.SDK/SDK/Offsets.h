@@ -68,6 +68,7 @@ public:
 	enum class MissileClient
 	{
 		MissileSpellInfo	= 0x278,
+		CreatedTime			= 0x280,
 		CasterId			= 0x2D4,
 		LaunchPos			= 0x2EC,
 		DestPos				= 0x2F8,

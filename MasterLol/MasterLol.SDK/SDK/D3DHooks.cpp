@@ -50,30 +50,15 @@ namespace D3D
 
 	LRESULT CALLBACK D3D9MsgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) { return DefWindowProc(hwnd, uMsg, wParam, lParam); }
 
-	std::string random_string(size_t length)
-	{
-		auto randchar = []() -> char
-		{
-			const char charset[] =
-				"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-				"abcdefghijklmnopqrstuvwxyz";
-			const size_t max_index = (sizeof(charset) - 1);
-			return charset[rand() % max_index];
-		};
-		std::string str(length, 0);
-		std::generate_n(str.begin(), length, randchar);
-		return str;
-	}
-
 	void D3DHooks::Initialize()
 	{
-		//HMODULE dDll_ = NULL;
-		//while (!dDll_)
-		//{
-		//	dDll_ = GetModuleHandleA("d3d9.dll");
-		//	Sleep(100);
-		//}
-		//CloseHandle(dDll_);
+		HMODULE dDll_ = NULL;
+		while (!dDll_)
+		{
+			dDll_ = GetModuleHandleA("d3d9.dll");
+			Sleep(100);
+		}
+		CloseHandle(dDll_);
 
 		printf("D3DDevice : 0X%#x \n", D3DHooks::Get().GetDevice());
 		D3DVTable = *(DWORD**)D3DHooks::Get().GetDevice();
@@ -165,7 +150,7 @@ namespace D3D
 		delete EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance();
 		delete EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>
 			::GetInstance();
-		delete EventHandler<EventIndex::OnMainLoop, EventDefines::OnMainLoop>::GetInstance();
+		delete EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance();
 
 		if (originalReset)
 			(Functions::Reset)DetourRemove((PBYTE)originalReset, (PBYTE)Functions::hkReset);
