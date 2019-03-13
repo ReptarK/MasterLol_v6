@@ -57,13 +57,22 @@ namespace Common
 		return IsSpecificAiMinion(unit, Names::AIMinionTypes::Jungle);
 	}
 
+	GameObject * ObjectHelper::GetSourceObject(GameObject * childObject)
+	{
+		short sourceIndex = *childObject->GetSourceIndex();
+		if (sourceIndex > ObjectManager::GetHighestObjectId())
+			return nullptr;
+
+		return ObjectManager::GetUnitArray()[sourceIndex];
+	}
+
 #pragma endregion
 
 	std::vector<Obj_AI_Base*> ObjectList::mAllMinions;
 	std::vector<Obj_AI_Base*> ObjectList::mAllTroy;
 	std::vector<Obj_AI_Turret*> ObjectList::mAllTurrets;
 	std::vector<AIHeroClient*> ObjectList::mAllHeros;
-	std::vector<GameObject*> ObjectList::mAllMissiles;
+	std::vector<MissileClient*> ObjectList::mAllMissiles;
 	std::vector<AttackableUnit*> ObjectList::mAllInhibitors;
 	std::vector<AttackableUnit*> ObjectList::mAllNexus;
 	Obj_AI_Base* ObjectList::mDragon;
@@ -75,7 +84,7 @@ namespace Common
 		std::vector<Obj_AI_Base*> tmpAllTroy = std::vector<Obj_AI_Base*>();
 		std::vector<Obj_AI_Turret*> tmpAllTurrets = std::vector<Obj_AI_Turret*>();
 		std::vector<AIHeroClient*> tmpAllHeros = std::vector<AIHeroClient*>();
-		std::vector<GameObject*> tmpAllMissiles = std::vector<GameObject*>();
+		std::vector<MissileClient*> tmpAllMissiles = std::vector<MissileClient*>();
 		std::vector<AttackableUnit*> tmpAllInhibitors = std::vector<AttackableUnit*>();
 		std::vector<AttackableUnit*> tmpAllNexus = std::vector<AttackableUnit*>();
 
@@ -91,7 +100,7 @@ namespace Common
 
 			case EUnitType::Minion   : tmpAllMinions.push_back((Obj_AI_Base*)currObject);		break;
 			case EUnitType::Hero     : tmpAllHeros.push_back((AIHeroClient*)currObject);		break;
-			case EUnitType::Missile  : tmpAllMissiles.push_back(currObject);					break;
+			case EUnitType::Missile  : tmpAllMissiles.push_back((MissileClient*)currObject);	break;
 			case EUnitType::Troy     : tmpAllTroy.push_back((Obj_AI_Base*)currObject);			break;
 			case EUnitType::Turret   : tmpAllTurrets.push_back((Obj_AI_Turret*)currObject);		break;
 			case EUnitType::Inhibitor: tmpAllInhibitors.push_back((AttackableUnit*)currObject); break;
@@ -108,7 +117,7 @@ namespace Common
 		ObjectList::mAllHeros = tmpAllHeros;
 		ObjectList::mAllTroy = tmpAllTroy;
 		ObjectList::mAllMissiles = tmpAllMissiles;
-		ObjectList::mAllTurrets = mAllTurrets;
+		ObjectList::mAllTurrets = tmpAllTurrets;
 		ObjectList::mAllInhibitors = mAllInhibitors;
 		ObjectList::mAllNexus = tmpAllNexus;
 

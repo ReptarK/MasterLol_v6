@@ -22,6 +22,7 @@ public:
 	MAKE_GET( Team, EGameObjectTeam, Offsets::GameObject::Team );
 	MAKE_GET( NetworkId, uint, Offsets::GameObject::NetworkId );
 	MAKE_GET( IsVisible, bool, Offsets::GameObject::IsVisible );
+	MAKE_GET(SourceIndex, short, Offsets::GameObject::SourceIndex);
 
 	float GetBoundingRadius();
 

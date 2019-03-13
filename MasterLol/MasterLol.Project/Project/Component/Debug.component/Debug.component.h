@@ -1,12 +1,14 @@
 #pragma once
 #include "../IComponent.h"
 #include "DebugCollision.service.h"
+#include "DebugMissile.service.h"
 
 class DebugComponent : public IComponent
 {
 public:
 	DebugComponent() : IComponent("DEBUG") {
 		this->AddGameService<DebugCollisionService>();
+		this->AddGameService<DebugMissileService>();
 	}
 
 	virtual void RenderMenu() {

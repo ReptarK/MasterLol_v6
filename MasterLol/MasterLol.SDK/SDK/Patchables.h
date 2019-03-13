@@ -52,6 +52,10 @@
 #define oUnderMouseObj		0x22E5C2C		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 #define oCampManagerClient	0x16843D4		// "game_ping_[Jungle]_Alive" -> above : mov     ecx, dword_19543D4
 
+#define oD3DInstance		0x2F6392C		// 8B 11 85 D2 74 0F -> mov  ecx, dword_30B392C 
+											// OR
+											// "Failed to create DX9Query" -> first instruction -> mov eax, dword_30B392C
+
 
 
 

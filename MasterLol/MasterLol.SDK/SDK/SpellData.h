@@ -84,31 +84,30 @@ public:
 	INT MaxAmmo[7]; //0x031C
 	INT AmmoUsed[7]; //0x0338
 	FLOAT AmmoRechargeTime[7]; //0x0354
-
 	SpellBooleans spellBooleans; //0x0370
-
 	FLOAT CastRange[7]; //0x03B4
 	char pad_03D0[28]; //0x03D0
 	FLOAT CastRadius[7]; //0x03EC
-	FLOAT CastRadiusSecondary[1]; //0x0408
-	float CastConeAngle; //0x040C
-	float CastConeDistance; //0x0410
-	float CastTargetAdditionalUnitsRadius; //0x0414
-	float BounceRadius; //0x0418
-	float MissileGravity; //0x041C
-	float MissileTargetHeightAugment; //0x0420
-	float LineMissileTargetHeightAugment; //0x0424
-	float LineMissileDelayDestroyAtEndSeconds; //0x0428
-	float LineMissileTimePulseBetweenCollisionSpellHits; //0x042C
-	float LuaOnMissileUpdateDistanceInterval; //0x0430
-	char pad_0434[28]; //0x0434
+	FLOAT CastRadiusSecondary[7]; //0x0408
+	float CastConeAngle; //0x0424
+	float CastConeDistance; //0x0428
+	float CastTargetAdditionalUnitsRadius; //0x042C
+	float BounceRadius; //0x0430
+	float MissileGravity; //0x0434
+	float MissileTargetHeightAugment; //0x0438
+	float LineMissileTargetHeightAugment; //0x043C
+	float LineMissileDelayDestroyAtEndSeconds; //0x0440
+	float LineMissileTimePulseBetweenCollisionSpellHits; //0x0444
+	float LuaOnMissileUpdateDistanceInterval; //0x0448
+	char pad_044C[4]; //0x044C
 	float MissileSpeed; //0x0450
 	float MissileAccel; //0x0454
 	float MissileMaxSpeed; //0x0458
 	float MissileMinSpeed; //0x045C
-	char pad_0460[192]; //0x0460
+	char pad_0460[36]; //0x0460
+	float MissileWidth; //0x0484
+	char pad_0488[152]; //0x0488
 	FLOAT ManaCost[7]; //0x0520
 	char pad_053C[296]; //0x053C
 	int32_t CastType; //0x0664
-	char pad_0668[84]; //0x0668
 }; //Size: 0x06BC

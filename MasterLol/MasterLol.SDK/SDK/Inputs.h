@@ -15,8 +15,11 @@ enum class KeyState
 	Up,
 	Pressed /*Down and then up*/
 };
-
 DEFINE_ENUM_FLAG_OPERATORS(KeyState);
+
+class KeyMap {
+	static std::map<char, int> keyMap;
+};
 
 class InputSys
 	: public Singleton<InputSys>

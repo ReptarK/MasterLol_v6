@@ -69,6 +69,15 @@
     <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\Orbwalker.component\ClearLogic.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\Orbwalker.component\Timer.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\Test.h">
@@ -111,6 +120,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Project\Component\Orbwalker.component\FleeLogic.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Debug.component\DebugMissile.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Orbwalker.component\ClearLogic.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Orbwalker.component\Timer.service.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

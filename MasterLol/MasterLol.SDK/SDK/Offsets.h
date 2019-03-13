@@ -24,6 +24,7 @@ public:
 		Team			=	0x4C,
 		Name			=	0x88,
 		NetworkId		=	0x110,
+		SourceIndex		=	0x2D4,
 		Position		=	0x264,
 		IsVisible       =	0x428
 	};
@@ -66,11 +67,11 @@ public:
 
 	enum class MissileClient
 	{
-		LaunchPos			= 0x13C,
-		DestPos				= 0x148,
-		MissileSpellInfo	= 0x104,
-		CasterId			= 0x124,
-		TargetId			= 0x16C
+		MissileSpellInfo	= 0x278,
+		CasterId			= 0x2D4,
+		LaunchPos			= 0x2EC,
+		DestPos				= 0x2F8,
+		TargetId			= 0x31C
 	};
 
 	////////////////////--SPELLBOOK--/////////////////////////

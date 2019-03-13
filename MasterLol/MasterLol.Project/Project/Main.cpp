@@ -59,8 +59,8 @@ void InitializeConsole()
 
 void InitializeSDK()
 {
-	D3D::D3DHooks::Get().Initialize();
 	Game::Initialize();
+	D3D::D3DHooks::Get().Initialize();
 }
 
 void InitializeProject()

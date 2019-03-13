@@ -16,7 +16,7 @@ namespace Common
 		static std::vector<Obj_AI_Base*> mAllTroy;
 		static std::vector<Obj_AI_Turret*> mAllTurrets;
 		static std::vector<AIHeroClient*> mAllHeros;
-		static std::vector<GameObject*> mAllMissiles;
+		static std::vector<MissileClient*> mAllMissiles;
 		static std::vector<AttackableUnit*> mAllInhibitors;
 		static std::vector<AttackableUnit*> mAllNexus;
 		static Obj_AI_Base* mDragon;
@@ -43,24 +43,6 @@ namespace Common
 		static bool IsMinion(Obj_AI_Base* unit);
 		static bool IsJungleMob(Obj_AI_Base* unit);
 
-
-		//template <typename Type>
-		//static std::vector<Type*> GetAllObjectType(EUnitType type);
-		//static std::vector<Obj_AI_Base*> GetAllMinions();
-		//static std::vector<Obj_AI_Base*> GetAllMinions(float range, Obj_AI_Base* source);
-
+		static GameObject* GetSourceObject(GameObject* childObject);
 	};
-
-	//template<typename Type>
-	//inline std::vector<Type*> ObjectHelper::GetAllObjectType(EUnitType type)
-	//{
-	//	GameObject** unitArray = ObjectManager::GetUnitArray()
-	//	std::vector<Type*> ret;
-	//	for (size_t i = 0; i < ObjectManager::GetHighestObjectId(); ++i)
-	//	{
-	//		if (unitArray[i]->GetType() == type)
-	//			ret.push_back((Type*)unitArray[i]);
-	//	}
-	//	return ret;
-	//}
 }

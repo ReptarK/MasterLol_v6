@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)$(Configuration)\Build\$(ProjectName)\</IntDir>
-    <IncludePath>$(SolutionDir)\MasterLol.Common;$(SolutionDir)\MasterLol.SDK;$(IncludePath)</IncludePath>
+    <IncludePath>$(DXSDK_DIR)Include;$(SolutionDir)\MasterLol.Common;$(SolutionDir)\MasterLol.SDK;$(IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)Lib\x86;$(SolutionDir)\MasterLol.SDK\SDK\detours;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -127,7 +127,10 @@
   <ItemGroup>
     <ClCompile Include="Project\Component\ComponentsManager.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugCollision.service.cpp" />
+    <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp" />
+    <ClCompile Include="Project\Component\Orbwalker.component\ClearLogic.service.cpp" />
     <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp" />
+    <ClCompile Include="Project\Component\Orbwalker.component\Timer.service.cpp" />
     <ClCompile Include="Project\Component\SummonerSpell.component\AutoSmite.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\PlayerVisual.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\TurretRange.service.cpp" />
@@ -138,11 +141,14 @@
     <ClInclude Include="Project\Bootstarp.h" />
     <ClInclude Include="Project\Component\Debug.component\Debug.component.h" />
     <ClInclude Include="Project\Component\Debug.component\DebugCollision.service.h" />
+    <ClInclude Include="Project\Component\Debug.component\DebugMissile.service.h" />
     <ClInclude Include="Project\Component\IComponent.h" />
     <ClInclude Include="Project\Component\IGameService.h" />
     <ClInclude Include="Project\Component\ComponentsManager.h" />
+    <ClInclude Include="Project\Component\Orbwalker.component\ClearLogic.service.h" />
     <ClInclude Include="Project\Component\Orbwalker.component\FleeLogic.service.h" />
     <ClInclude Include="Project\Component\Orbwalker.component\Orbwalker.component.h" />
+    <ClInclude Include="Project\Component\Orbwalker.component\Timer.service.h" />
     <ClInclude Include="Project\Component\SummonerSpell.component\SummonerSpell.component.h" />
     <ClInclude Include="Project\Component\Visual.component\PlayerVisual.service.h" />
     <ClInclude Include="Project\Component\Visual.component\Visual.component.h" />
