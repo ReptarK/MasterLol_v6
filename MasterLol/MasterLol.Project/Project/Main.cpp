@@ -96,13 +96,13 @@ DWORD WINAPI MainThread(LPVOID base)
 	}
 
 	Beep(523, 250);
-
 	FreeConsole();
 	ComponentsManager::Shutdown();
+	Sleep(250);
 	InputSys::Get().Shutdown();
 	D3D::D3DHooks::Get().Shutdown();
 	Sleep(250);
-
+	Draw.FontRelease();
 
 	FreeLibraryAndExitThread(static_cast<HMODULE>(base), 1);
 	return false;

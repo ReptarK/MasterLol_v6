@@ -21,9 +21,9 @@ void CDraw::RangeCircle(Vector3 position, float range, D3DCOLOR color, int a4, f
 	return originalDrawCircle(&position, range, (int*)&color, a4, a5, a6, alpha);
 }
 
-void CDraw::RangeCircle( Vector3 position, float range, D3DCOLOR color, float alpha )
+void CDraw::RangeCircle(Vector3 position, float range, D3DCOLOR color, float alpha)
 {
-	return RangeCircle( position, range, color, 0, 0, 0, alpha );
+	return RangeCircle(position, range, color, 0, 0, 0, alpha);
 }
 
 void CDraw::RangeCircle(Vector3 position, float range, ImColor color, float alpha)
@@ -84,15 +84,12 @@ void CDraw::Line(Vector3 source, Vector3 dest, float gameWidth, DWORD color)
 		Draw.Line(sourceScreen.x, sourceScreen.y, destScreen.x, destScreen.y, gameWidth, true, color);
 }
 
-void CDraw::Circle(float x, float y, float radius, int rotate, int type, bool smoothing, int resolution, DWORD color)
+
+void CDraw::Circle(float x, float y, float radius, int rotate, float circumferenceRatio, bool smoothing, int resolution, DWORD color)
 {
 	std::vector<vertex> circle(resolution + 2);
 	float angle = rotate * D3DX_PI / 180;
-	float pi;
-
-	if (type == full) pi = D3DX_PI;        // Full circle
-	if (type == half) pi = D3DX_PI / 2;      // 1/2 circle
-	if (type == quarter) pi = D3DX_PI / 4;   // 1/4 circle
+	float pi = D3DX_PI * circumferenceRatio;
 
 	for (int i = 0; i < resolution + 2; i++)
 	{
@@ -137,6 +134,16 @@ void CDraw::Circle(float x, float y, float radius, int rotate, int type, bool sm
 	if (g_pVB != NULL) g_pVB->Release();
 }
 
+void CDraw::Circle(float x, float y, float radius, int rotate, int type, bool smoothing, int resolution, DWORD color)
+{
+	float circumferenceRatio;
+	if (type == full) circumferenceRatio = 1.0f;			// Full circle
+	if (type == half) circumferenceRatio = 1 / 2.0f;		// 1/2 circle
+	if (type == quarter) circumferenceRatio = 1 / 4.0f;		// 1/4 circle
+
+	this->Circle(x, y, radius, rotate, circumferenceRatio, smoothing, resolution, color);
+}
+
 void CDraw::Circle(Vector3 pos, float gameRadius, D3DCOLOR color)
 {
 	Vector3 u, v;
@@ -147,15 +154,11 @@ void CDraw::Circle(Vector3 pos, float gameRadius, D3DCOLOR color)
 		Circle(u.x, u.y, screenRadius, 0, full, 1, 32, color);
 }
 
-void CDraw::CircleFilled(float x, float y, float rad, float rotate, int type, int resolution, DWORD color)
+void CDraw::CircleFilled(float x, float y, float rad, float rotate, float circumferenceRatio, int resolution, DWORD color)
 {
 	std::vector<vertex> circle(resolution + 2);
 	float angle = rotate * D3DX_PI / 180;
-	float pi;
-
-	if (type == full) pi = D3DX_PI;        // Full circle
-	if (type == half) pi = D3DX_PI / 2;      // 1/2 circle
-	if (type == quarter) pi = D3DX_PI / 4;   // 1/4 circle
+	float pi = D3DX_PI * circumferenceRatio;
 
 	circle[0].x = x;
 	circle[0].y = y;
@@ -199,6 +202,16 @@ void CDraw::CircleFilled(float x, float y, float rad, float rotate, int type, in
 	if (g_pVB != NULL) g_pVB->Release();
 }
 
+void CDraw::CircleFilled(float x, float y, float rad, float rotate, int type, int resolution, DWORD color)
+{
+	float circumferenceRatio;
+	if (type == full) circumferenceRatio = 1.0f;			// Full circle
+	if (type == half) circumferenceRatio = 1 / 2.0f;		// 1/2 circle
+	if (type == quarter) circumferenceRatio = 1 / 4.0f;		// 1/4 circle
+
+	this->CircleFilled(x, y, rad, rotate, circumferenceRatio, resolution, color);
+}
+
 void CDraw::CircleFilled(Vector3 pos, float gameRadius, D3DCOLOR color)
 {
 	Vector3 u, v;
@@ -206,7 +219,7 @@ void CDraw::CircleFilled(Vector3 pos, float gameRadius, D3DCOLOR color)
 	bool cond2 = WorldToScreen(pos + Vector3(0, 0, gameRadius), &v);
 	float screenRadius = u.DistTo(v);
 	if (cond1 || cond2)
-		CircleFilled(u.x, u.y, screenRadius, 0, full, 32, color);
+		CircleFilled(u.x, u.y, screenRadius, 0, full, 20, color);
 }
 
 void CDraw::Box(float x, float y, float w, float h, float linewidth, DWORD color)
@@ -317,8 +330,11 @@ void CDraw::BoxRounded(float x, float y, float w, float h, float radius, bool sm
 	}
 }
 
-void CDraw::Text(char *text, float x, float y, int orientation, int font, bool bordered, DWORD color, DWORD bcolor)
+void CDraw::Text(const char *text, float x, float y, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor)
 {
+	if (!Draw.mFontSize) {
+		this->AddFont("Arial Black", 16, true, false);
+	}
 	RECT rect;
 
 	switch (orientation)
@@ -371,48 +387,55 @@ void CDraw::Text(char *text, float x, float y, int orientation, int font, bool b
 	}
 }
 
-void CDraw::Message(char *text, float x, float y, int font, int orientation)
+void CDraw::Text(const char * text, Vector3 worldPosition, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor)
 {
-	RECT rect = { x, y, x, y };
-	switch (orientation)
-	{
-	case lefted:
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_LEFT, BLACK_A(255));
-
-		BoxRounded(x - 5, rect.top - 5, rect.right - x + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
-
-		SetRect(&rect, x, y, x, y);
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_LEFT | DT_NOCLIP, ORANGE_A(255));
-		break;
-	case centered:
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_CENTER, BLACK_A(255));
-
-		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
-
-		SetRect(&rect, x, y, x, y);
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CENTER | DT_NOCLIP, ORANGE_A(255));
-		break;
-	case righted:
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_RIGHT, BLACK_A(255));
-
-		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
-
-		SetRect(&rect, x, y, x, y);
-		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_RIGHT | DT_NOCLIP, ORANGE_A(255));
-		break;
-	}
+	Vector3 screenPos;
+	if (this->WorldToScreen(worldPosition, &screenPos))
+		Draw.Text(text, screenPos.x, screenPos.y, orientation, font, bordered, color, bcolor);
 }
 
-void CDraw::Message(int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message)
-{	// Create a colour for the text
-	D3DCOLOR fontColor = color;
-	RECT rct; //Font
-	rct.left = x;
-	rct.right = 1680;
-	rct.top = y;
-	rct.bottom = rct.top + 200;
-	pFont[fontId]->DrawTextA(NULL, Message, -1, &rct, 0, fontColor);
-}
+//void CDraw::Message(char *text, float x, float y, int font, int orientation)
+//{
+//	RECT rect = { x, y, x, y };
+//	switch (orientation)
+//	{
+//	case lefted:
+//		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_LEFT, BLACK_A(255));
+//
+//		BoxRounded(x - 5, rect.top - 5, rect.right - x + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
+//
+//		SetRect(&rect, x, y, x, y);
+//		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_LEFT | DT_NOCLIP, ORANGE_A(255));
+//		break;
+//	case centered:
+//		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_CENTER, BLACK_A(255));
+//
+//		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
+//
+//		SetRect(&rect, x, y, x, y);
+//		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CENTER | DT_NOCLIP, ORANGE_A(255));
+//		break;
+//	case righted:
+//		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_CALCRECT | DT_RIGHT, BLACK_A(255));
+//
+//		BoxRounded(rect.left - 5, rect.top - 5, rect.right - rect.left + 10, rect.bottom - rect.top + 10, 5, true, DARKGRAY_A(150), SKYBLUE_A(255));
+//
+//		SetRect(&rect, x, y, x, y);
+//		pFont[font]->DrawTextA(NULL, text, -1, &rect, DT_RIGHT | DT_NOCLIP, ORANGE_A(255));
+//		break;
+//	}
+//}
+//
+//void CDraw::Message(int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message)
+//{	// Create a colour for the text
+//	D3DCOLOR fontColor = color;
+//	RECT rct; //Font
+//	rct.left = x;
+//	rct.right = 1680;
+//	rct.top = y;
+//	rct.bottom = rct.top + 200;
+//	pFont[fontId]->DrawTextA(NULL, Message, -1, &rct, 0, fontColor);
+//}
 
 void CDraw::Sprite(LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, float scale, float rotation)
 {
@@ -448,36 +471,55 @@ void CDraw::Sprite(LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, f
 	sSprite->End();
 }
 
-bool CDraw::Font()
+int CDraw::FirstFontIndex()
 {
 	//return FontNr;
-	bool foundFont = false;
-	for (int i = 0; i < FontNr; i++)
-		if (pFont[i]) foundFont = true;
-	return foundFont;
-}
-
-void CDraw::AddFont(char* Caption, float size, bool bold, bool italic)
-{
-	D3DXCreateFont(pDevice, size, 0, (bold) ? FW_BOLD : FW_NORMAL, 1, (italic) ? 1 : 0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH, (LPCWSTR)Caption, &pFont[++FontNr]);
-}
-
-void CDraw::FontReset()
-{
-	for (int i = 0; i < FontNr; i++) pFont[i]->OnLostDevice();
-	for (int i = 0; i < FontNr; i++) pFont[i]->OnResetDevice();
-}
-
-void CDraw::FontRelease()
-{
-	for (int i = 0; i < FontNr; ++i)
+	for (int i = 0; i < mFontSize; i++)
 	{
-		pFont[i + 1]->Release();
-		pFont[i + 1] = NULL;
+		if (pFont[i])
+			return i;
+	}
+	return -1;
+}
+
+void CDraw::AddFont(const char* caption, float size, bool bold, bool italic)
+{
+	if (mFontSize < MAX_FONTS) {
+
+		D3DXCreateFont(this->GetDevice(),
+			size, 0, (bold) ? FW_BOLD : FW_NORMAL, 1, (italic) ? 1 : 0,
+			DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH,
+			(LPCWSTR)caption, &pFont[mFontSize]);
+
+		++mFontSize;
 	}
 }
 
 void CDraw::OnLostDevice()
 {
-	for (int i = 0; i < FontNr; i++) pFont[i]->OnLostDevice();
+	for (int i = 0; i < mFontSize; i++)
+	{
+		if (pFont[i])
+			pFont[i]->OnLostDevice();
+	}
+}
+
+void CDraw::OnResetDevice()
+{
+	for (int i = 0; i < mFontSize; i++)
+	{
+		if (pFont[i])
+			pFont[i]->OnResetDevice();
+	}
+}
+
+void CDraw::FontRelease()
+{
+	for (int i = 0; i < mFontSize; ++i)
+	{
+		if (pFont[i]) {
+			pFont[i]->Release();
+			pFont[i] = NULL;
+		}
+	}
 }

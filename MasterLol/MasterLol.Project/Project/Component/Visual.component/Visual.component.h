@@ -3,6 +3,7 @@
 
 #include "TurretRange.service.h"
 #include "PlayerVisual.service.h"
+#include "CooldownTracker.service.h"
 
 class VisualComponent : public IComponent
 {
@@ -11,6 +12,7 @@ public:
 	VisualComponent() : IComponent("VISUALS") {
 		this->AddGameService<TurretRangeService>();
 		this->AddGameService<PlayerVisualService>();
+		this->AddGameService<CooldownTrackerService>();
 	}
 
 	virtual void RenderMenu() {

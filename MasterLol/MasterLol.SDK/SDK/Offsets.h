@@ -68,11 +68,18 @@ public:
 	enum class MissileClient
 	{
 		MissileSpellInfo	= 0x278,
-		CreatedTime			= 0x280,
-		CasterId			= 0x2D4,
-		LaunchPos			= 0x2EC,
-		DestPos				= 0x2F8,
-		TargetId			= 0x31C
+		Slot				= 0x27C,
+		Level				= 0x2CC,
+		CasterIndex			= 0x2D4,
+		LaunchPosition		= 0x2EC,
+		EndPosition			= 0x2F8,
+		CastPosition		= 0x2F8,
+		TargetIndex			= 0x31C,
+
+		WindupTime			= 0x720,
+		AttackDelay		= 0x744,
+		IsAutoAttack		= 0x748,
+		CreatedTime			= 0x79C
 	};
 
 	////////////////////--SPELLBOOK--/////////////////////////

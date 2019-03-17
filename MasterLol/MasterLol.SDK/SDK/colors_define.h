@@ -15,7 +15,7 @@
 #define RED()					D3DCOLOR_ARGB(255, 255, 0, 0)
 
 #define GREEN_A(alpha)			D3DCOLOR_ARGB(alpha, 0, 128, 0)
-#define GREEN()					D3DCOLOR_ARGB(255, 0, 128, 0)
+#define GREEN()					D3DCOLOR_ARGB(255, 50, 205, 50)
 
 #define LAWNGREEN_A(alpha)		D3DCOLOR_ARGB(alpha, 124, 252, 0)
 #define LAWNGREEN()				D3DCOLOR_ARGB(alpha, 124, 252, 0)

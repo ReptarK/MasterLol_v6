@@ -14,6 +14,12 @@ fnFindCamp			: 51 56 8D 44 24 0C 50 8D 71 04 8D 44 24 08 8B CE 50 E8 ? ? ? ? 8B 
 
 fnWorldToScreen		: 83 EC 10 56 E8 ? ? ? ? 8B 08
 
+fnHpBarPosition		: 56 8B F1 E8 ? ? ? ? 80 BE ? ? ? ? ? 74 0C -> function under directly
+					  OR
+					  83 EC 08 53 57 E8 -> function above directly
+					  __m128i *__thiscall sub_fnHpBarPosition(void *this, __m128i *a2)
+					  
+
 fnAiManager			: 8B 01 FF 90 ? ? ? ? 50 E8 -> function under directly (aimanager signature : int __thiscall sub_4BDB60(int this))
 					51 0F B6 81 ? ? ? ? 56 8D B1 ? ? ? ? 33 C9 57 0F B6 7E 18 8B 54 86 04 89 54 24 08 85 FF 74 1F 8D 56 14 8B 44 8C 08 8D 52 04 33 42 FC 35 ? ? ? ? 89 44 8C 08 41 3B CF 72 E8 8B 54 24 08 8A 46 19 84 C0 74 38
 

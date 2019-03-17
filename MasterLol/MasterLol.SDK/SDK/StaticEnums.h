@@ -95,6 +95,7 @@ DECLARE_ENUM( ESpellSlot,
 	Item6,
 	Trinket,
 	Recall,
+	AA,
 	Unknown
 )
 

@@ -128,10 +128,12 @@
     <ClCompile Include="Project\Component\ComponentsManager.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugCollision.service.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp" />
+    <ClCompile Include="Project\Component\Debug.component\DebugObject.service.cpp" />
     <ClCompile Include="Project\Component\Orbwalker.component\ClearLogic.service.cpp" />
     <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp" />
     <ClCompile Include="Project\Component\Orbwalker.component\Timer.service.cpp" />
     <ClCompile Include="Project\Component\SummonerSpell.component\AutoSmite.service.cpp" />
+    <ClCompile Include="Project\Component\Visual.component\CooldownTracker.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\PlayerVisual.service.cpp" />
     <ClCompile Include="Project\Component\Visual.component\TurretRange.service.cpp" />
     <ClCompile Include="Project\Main.cpp" />
@@ -150,6 +152,7 @@
     <ClInclude Include="Project\Component\Orbwalker.component\Orbwalker.component.h" />
     <ClInclude Include="Project\Component\Orbwalker.component\Timer.service.h" />
     <ClInclude Include="Project\Component\SummonerSpell.component\SummonerSpell.component.h" />
+    <ClInclude Include="Project\Component\Visual.component\CooldownTracker.service.h" />
     <ClInclude Include="Project\Component\Visual.component\PlayerVisual.service.h" />
     <ClInclude Include="Project\Component\Visual.component\Visual.component.h" />
     <ClInclude Include="Project\Menu\Menu.h" />
@@ -157,6 +160,7 @@
     <ClInclude Include="Project\Test.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Project\Component\Debug.component\DebugObject.service.h" />
     <None Include="Project\Component\SummonerSpell.component\AutoSmite.service.h" />
     <None Include="Project\Component\Visual.component\TurretRange.service.h" />
   </ItemGroup>

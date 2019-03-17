@@ -2,6 +2,7 @@
 #include "../IComponent.h"
 #include "DebugCollision.service.h"
 #include "DebugMissile.service.h"
+#include "DebugObject.service.h"
 
 class DebugComponent : public IComponent
 {
@@ -9,6 +10,7 @@ public:
 	DebugComponent() : IComponent("DEBUG") {
 		this->AddGameService<DebugCollisionService>();
 		this->AddGameService<DebugMissileService>();
+		this->AddGameService<DebugObjectService>();
 	}
 
 	virtual void RenderMenu() {
@@ -26,23 +28,3 @@ public:
 	}
 };
 
-//	if (g_Options.show_lasthit_targets)
-//	{
-//		auto AARange = ObjectManager::GetPlayer()->GetUnitStats()->mAttackRange;
-//		auto AADamage = Common::Damage::GetStaticAutoAttackDamage();
-//
-//		ObjectIterator it = ObjectIterator();
-//		while (!it.End())
-//		{
-//			Obj_AI_Base* currObject = (Obj_AI_Base*)it.Next();
-//
-//			if (!currObject->IsMinion()) continue;
-//			if (!Common::ObjectHelper::IsValidTarget(currObject, AARange))continue;
-//
-//			auto damageOnTarget = Common::Damage::GetAutoAttackDamage(currObject, AADamage);
-//			if (*currObject->GetHealth() < damageOnTarget) {
-//				Draw.CircleFilled(currObject->GetPos(), currObject->GetBoundingRadius() / 2, GREEN());
-//			}
-//		}
-//	}
-//}

@@ -7,6 +7,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
+#include "D3DHooks.h"
 #include "colors_define.h"
 #include "imGui/imgui.h"
 #include "math/Vector.hpp"
@@ -40,7 +41,6 @@ public:
 	{
 		g_pVB = NULL;
 		g_pIB = NULL;
-		int FontNr = 0;
 	}
 
 	struct sScreen
@@ -51,49 +51,67 @@ public:
 		float y_center;
 	} Screen;
 
+	void SetScreenInfo() 
+	{
+		DWORD pRender = *(DWORD*)(Patchables::LolBase + oRenderer);
+		Render_struct* render = (Render_struct*)(pRender);
+		this->Screen.Width = render->screenResolutionX;
+		this->Screen.Height = render->screenResolutionY;
+		this->Screen.x_center = this->Screen.Width / 2;
+		this->Screen.y_center = this->Screen.Height / 2;
+	}
+
 	ID3DXFont *pFont[MAX_FONTS];
 
 	// GAME FUNCTION
-	void RangeCircle( Vector3 position, float range, D3DCOLOR color, int a4, float a5, int a6, float alpha );
-	void RangeCircle( Vector3 position, float range, D3DCOLOR color, float alpha );
+	void RangeCircle(Vector3 position, float range, D3DCOLOR color, int a4, float a5, int a6, float alpha);
+	void RangeCircle(Vector3 position, float range, D3DCOLOR color, float alpha);
 	void RangeCircle(Vector3 position, float range, ImColor color, float alpha);
 
-	bool WorldToScreen( Vector3 world, Vector3* screen );
+	bool WorldToScreen(Vector3 world, Vector3* screen);
 
-	void Sprite( LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, float scale, float rotation );
-
-	//=============================================================================================
-	void Line( float x1, float y1, float x2, float y2, float width, bool antialias, DWORD color );
-	void Line( Vector3 source, Vector3 dest, float gameWidth, DWORD color );
-
-	void Box( float x, float y, float w, float h, float linewidth, DWORD color );
-	void BoxFilled( float x, float y, float w, float h, DWORD color );
-	void BoxBordered( float x, float y, float w, float h, float border_width, DWORD color, DWORD color_border );
-	void BoxRounded( float x, float y, float w, float h, float radius, bool smoothing, DWORD color, DWORD bcolor );
-
-	void Circle( float x, float y, float radius, int rotate, int type, bool smoothing, int resolution, DWORD color );
-	void Circle( Vector3 pos, float gameRadius, D3DCOLOR );
-	void CircleFilled( float x, float y, float rad, float rotate, int type, int resolution, DWORD color );
-	void CircleFilled( Vector3 pos, float gameRadius, D3DCOLOR );
-
-	void Text( char *text, float x, float y, int orientation, int font, bool bordered, DWORD color, DWORD bcolor );
-	void Message( char *text, float x, float y, int font, int orientation );
-	void Message( int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message );
-	//=============================================================================================
+	void Sprite(LPDIRECT3DTEXTURE9 tex, float x, float y, float resolution, float scale, float rotation);
 
 	//=============================================================================================
-	bool Font();
-	void AddFont( char* Caption, float size, bool bold, bool italic );
-	void FontReset();
+	void Line(float x1, float y1, float x2, float y2, float width, bool antialias, DWORD color);
+	void Line(Vector3 source, Vector3 dest, float gameWidth, DWORD color);
+
+	void Box(float x, float y, float w, float h, float linewidth, DWORD color);
+	void BoxFilled(float x, float y, float w, float h, DWORD color);
+	void BoxBordered(float x, float y, float w, float h, float border_width, DWORD color, DWORD color_border);
+	void BoxRounded(float x, float y, float w, float h, float radius, bool smoothing, DWORD color, DWORD bcolor);
+
+	void Circle(float x, float y, float radius, int rotate, float circumferenceRatio, bool smoothing, int resolution, DWORD color);
+	void Circle(float x, float y, float radius, int rotate, int type, bool smoothing, int resolution, DWORD color);
+	void Circle(Vector3 pos, float gameRadius, D3DCOLOR);
+	void CircleFilled(float x, float y, float rad, float rotate, float circumferenceRatio, int resolution, DWORD color);
+	void CircleFilled(float x, float y, float rad, float rotate, int type, int resolution, DWORD color);
+	void CircleFilled(Vector3 pos, float gameRadius, D3DCOLOR);
+
+	void Text(const char *text, float x, float y, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor = 0);
+	void Text(const char *text, Vector3 worldPosition, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor = 0);
+	//void Message(char *text, float x, float y, int font, int orientation);
+	//void Message(int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message);
+	//=============================================================================================
+
+	//=============================================================================================
+	int FirstFontIndex();
+	void AddFont(const char* caption, float size, bool bold, bool italic);
 	void FontRelease();
 	void OnLostDevice();
+	void OnResetDevice();
 	//=============================================================================================
 
-	void setDevice( LPDIRECT3DDEVICE9 pDev ) { pDevice = pDev; }
-	LPDIRECT3DDEVICE9 getDevice() { return pDevice; }
+	LPDIRECT3DDEVICE9 GetDevice() {
+		if (!pDevice) {
+			pDevice = D3D::D3DHooks::Get().GetDevice();
+		}
+		return pDevice;
+	}
+	void SetDevice(LPDIRECT3DDEVICE9 device) { pDevice = device; }
 
 	void Reset();
-	int FontNr;
+	int mFontSize;
 private:
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECT3DVERTEXBUFFER9 g_pVB;    // Buffer to hold vertices

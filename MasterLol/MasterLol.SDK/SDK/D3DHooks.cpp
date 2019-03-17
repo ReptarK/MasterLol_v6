@@ -6,6 +6,7 @@
 #include "Draw.h"
 #include "Config.h"
 #include "EventManager.h"
+#include "Draw.h"
 
 #include <d3d9.h>
 #include <d3dx9.h>
@@ -19,9 +20,14 @@ namespace D3D
 	{
 		long __stdcall hkReset(IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* pPresentationParameters)
 		{
+			Draw.OnLostDevice();
+
 			EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance()->Trigger(device, pPresentationParameters);
 			auto hr = D3DHooks::Get().originalReset(device, pPresentationParameters);
-			/**/
+
+			if (hr == D3D_OK)
+				Draw.OnResetDevice();
+
 			return hr;
 		}
 
@@ -32,9 +38,13 @@ namespace D3D
 			{
 				if (!D3DHooks::Get().GetDevice())
 					D3DHooks::Get().SetDevice(pDevice);
-
-				Draw.setDevice(pDevice);
 			}
+
+			if (!Draw.Screen.Width) {
+				Draw.SetScreenInfo();
+			}
+
+			Draw.Text("MasterLol", Draw.Screen.x_center, 0, centered, 0, false, RED());
 
 			EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>
 				::GetInstance()->Trigger(pDevice, pSourceRect, pDestRect, hDestWindowOverride, pDirtyRegion);
