@@ -44,5 +44,7 @@ public:
 	EUnitType GetType();
 
 	Vector3 GetPos();
+	bool GetHpBarPosition(Vector3*);
+
 	std::string GetName();
 };

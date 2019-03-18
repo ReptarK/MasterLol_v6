@@ -40,25 +40,29 @@ void CDraw::RangeCircle(Vector3 position, float range, ImColor color, float alph
 //int __cdecl sub_AA3E20(int a1, int a2)
 bool CDraw::WorldToScreen(Vector3 world, Vector3 * screen)
 {
-	screen->x = 0; screen->y = 0; screen->z = 0;
-	DWORD pRender = 0;
-	pRender = *(DWORD*)(Patchables::LolBase + oRenderer);
-	Render_struct* render = (Render_struct*)(pRender);
+	typedef int(__cdecl* _fnWorldToScreen)(Vector3* world, Vector3* screen);
+	static _fnWorldToScreen oWorldToScreen = (_fnWorldToScreen)(Patchables::LolBase + fnWorldToScreen);
+	return oWorldToScreen(&world, screen);
 
-	D3DXMATRIX viewMatrix = render->viewMatrix;
-	D3DXMATRIX projectionMatrix = render->projMatrix;
-	D3DXMATRIX viewProjectionMatrix = D3DXMATRIX();
-	D3DXMatrixMultiply(&viewProjectionMatrix, &viewMatrix, &projectionMatrix);
+	//screen->x = 0; screen->y = 0; screen->z = 0;
+	//DWORD pRender = 0;
+	//pRender = *(DWORD*)(Patchables::LolBase + oRenderer);
+	//Render_struct* render = (Render_struct*)(pRender);
 
-	D3DXVECTOR3 pScreen = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	D3DXVECTOR3 pOrigin(world.x, world.y, world.z);
-	int width = render->screenResolutionX;
-	int heigth = render->screenResolutionY;
+	//D3DXMATRIX viewMatrix = render->viewMatrix;
+	//D3DXMATRIX projectionMatrix = render->projMatrix;
+	//D3DXMATRIX viewProjectionMatrix = D3DXMATRIX();
+	//D3DXMatrixMultiply(&viewProjectionMatrix, &viewMatrix, &projectionMatrix);
 
-	D3DXVec3TransformCoord(&pScreen, &pOrigin, &viewProjectionMatrix);
-	*screen = Vector3(float((1 + pScreen.x) * 0.5 * width), float((1 - pScreen.y) * 0.5 * heigth), 0);
+	//D3DXVECTOR3 pScreen = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	//D3DXVECTOR3 pOrigin(world.x, world.y, world.z);
+	//int width = render->screenResolutionX;
+	//int heigth = render->screenResolutionY;
 
-	return screen->x < width && screen->x > 0 && screen->y < heigth && screen->y > 0;
+	//D3DXVec3TransformCoord(&pScreen, &pOrigin, &viewProjectionMatrix);
+	//*screen = Vector3(float((1 + pScreen.x) * 0.5 * width), float((1 - pScreen.y) * 0.5 * heigth), 0);
+
+	//return screen->x < width && screen->x > 0 && screen->y < heigth && screen->y > 0;
 }
 
 void CDraw::Line(float x1, float y1, float x2, float y2, float width, bool antialias, DWORD color)

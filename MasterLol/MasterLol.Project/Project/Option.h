@@ -22,6 +22,8 @@ public:
 
 	OPTION(bool, show_turrets_AA_range, true);
 
+	OPTION(bool, enable_cooldown_tracker, true);
+
 	// SUMMONER SPELLS
 	OPTION(bool, enable_auto_smite, false);
 	OPTION(ImColor, smite_range_color, ImColor(90, 190, 60));

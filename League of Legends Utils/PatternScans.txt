@@ -13,6 +13,7 @@ fnFindCamp			: 51 56 8D 44 24 0C 50 8D 71 04 8D 44 24 08 8B CE 50 E8 ? ? ? ? 8B 
 					  OR : "Crit%1" - >function directly under it
 
 fnWorldToScreen		: 83 EC 10 56 E8 ? ? ? ? 8B 08
+fnIsNotWall			: 8B 44 24 04 53 56 57 8B 3D -> function under directly
 
 fnHpBarPosition		: 56 8B F1 E8 ? ? ? ? 80 BE ? ? ? ? ? 74 0C -> function under directly
 					  OR

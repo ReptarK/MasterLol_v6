@@ -12,6 +12,8 @@
 #include "imGui/imgui.h"
 #include "math/Vector.hpp"
 
+class GameObject;
+
 enum circle_type { full, half, quarter };
 enum text_alignment { lefted, centered, righted };
 

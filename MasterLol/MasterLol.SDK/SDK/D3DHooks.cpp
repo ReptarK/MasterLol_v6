@@ -34,11 +34,11 @@ namespace D3D
 		long __stdcall hkPresent(LPDIRECT3DDEVICE9 pDevice, const RECT* pSourceRect, const RECT* pDestRect,
 			HWND hDestWindowOverride, const RGNDATA* pDirtyRegion)
 		{
-			if (!g_Unload)
-			{
-				if (!D3DHooks::Get().GetDevice())
-					D3DHooks::Get().SetDevice(pDevice);
-			}
+			if (g_Unload)
+				return D3DHooks::Get().originalEndScene(pDevice);
+
+			if (!D3DHooks::Get().GetDevice())
+				D3DHooks::Get().SetDevice(pDevice);
 
 			if (!Draw.Screen.Width) {
 				Draw.SetScreenInfo();

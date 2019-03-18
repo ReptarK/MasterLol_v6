@@ -19,6 +19,7 @@ public:
 	static bool IsGameFocused();
 	static float GetGameTime();
 	static float GetPing();
+
 	static void PrintChat(const char* n);
 	static void PrintChat(const char* Message, DWORD color);
 

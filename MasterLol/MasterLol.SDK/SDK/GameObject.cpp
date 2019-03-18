@@ -225,6 +225,30 @@ Vector3 GameObject::GetPos()
 	return *vec;
 }
 
+bool GameObject::GetHpBarPosition(Vector3* out)
+{
+	typedef int(__thiscall* _fnBaseDrawPosition)(GameObject* object, Vector3* position);
+	static _fnBaseDrawPosition oBaseDrawPosition = (_fnBaseDrawPosition)(Patchables::LolBase + fnBaseDrawPosition);
+
+	typedef int(__cdecl* _fnWorldToScreen)(Vector3* world, Vector3* screen);
+	static _fnWorldToScreen oWorldToScreen = (_fnWorldToScreen)(Patchables::LolBase + fnWorldToScreen);
+
+	Vector3 baseDrawPosition;
+	Vector3 screen;
+	oBaseDrawPosition(this, &baseDrawPosition);
+	oWorldToScreen(&baseDrawPosition, &screen);
+	float delta = abs(baseDrawPosition.y - this->GetPos().y);
+	delta *= 5 / 6.0f;
+	if (!oWorldToScreen(&baseDrawPosition, out))
+		return false;
+
+	out->x -= 60;
+	out->y -= delta;
+	out->z = 0;
+	return true;
+
+}
+
 std::string GameObject::GetName()
 {
 	if ( this == nullptr )

@@ -16,4 +16,6 @@ class HudManager
 public:
 	static GameCursor * GetGameCursor();
 	static GameObject* GetUnderMouseObject();
+
+	static bool IsWall(Vector3 worldPosition);
 };

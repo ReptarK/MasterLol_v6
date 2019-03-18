@@ -46,15 +46,17 @@ namespace TEST
 			HudManager::GetGameCursor()->Position.z);
 
 		// Functions
-		GameFunctions::IssueOrder(HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo);
+		//GameFunctions::IssueOrder(HudManager::GetGameCursor()->Position, EGameObjectOrder::MoveTo);
 
-		Game::PrintChat("mAllHeros COUNT : %d", BLUE(), Common::ObjectList::mAllHeros.size());
-		Game::PrintChat("mAllMinions COUNT : %d", BLUE(), Common::ObjectList::mAllMinions.size());
-		Game::PrintChat("mAllTroy COUNT : %d", BLUE(), Common::ObjectList::mAllTroy.size());
-		Game::PrintChat("mAllTurrets COUNT : %d", BLUE(), Common::ObjectList::mAllTurrets.size());
-		Game::PrintChat("mAllMissiles COUNT : %d", BLUE(), Common::ObjectList::mAllMissiles.size());
-		Game::PrintChat("mAllInhibitors COUNT : %d", BLUE(), Common::ObjectList::mAllInhibitors.size());
-		Game::PrintChat("mAllNexus COUNT : %d", BLUE(), Common::ObjectList::mAllNexus.size());
+		//Game::PrintChat("mAllHeros COUNT : %d", BLUE(), Common::ObjectList::mAllHeros.size());
+		//Game::PrintChat("mAllMinions COUNT : %d", BLUE(), Common::ObjectList::mAllMinions.size());
+		//Game::PrintChat("mAllTroy COUNT : %d", BLUE(), Common::ObjectList::mAllTroy.size());
+		//Game::PrintChat("mAllTurrets COUNT : %d", BLUE(), Common::ObjectList::mAllTurrets.size());
+		//Game::PrintChat("mAllMissiles COUNT : %d", BLUE(), Common::ObjectList::mAllMissiles.size());
+		//Game::PrintChat("mAllInhibitors COUNT : %d", BLUE(), Common::ObjectList::mAllInhibitors.size());
+		//Game::PrintChat("mAllNexus COUNT : %d", BLUE(), Common::ObjectList::mAllNexus.size());
+		Game::PrintChat("IsWall On Mouse : %s\n", BLUE(), HudManager::IsWall(HudManager::GetGameCursor()->Position) ? "true" : "false");
+
 	}
 
 

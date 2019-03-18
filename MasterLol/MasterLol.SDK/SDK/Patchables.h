@@ -16,6 +16,7 @@
 #define fnGetBoundingRadius		0x1F1910 // 83 EC 08 56 8B F1 83 BE ? ? ? ? ? 74 69
 
 #define fnWorldToScreen			0x7E4CE0
+#define fnBaseDrawPosition		0x1B49E0
 
 #define fnIsTargetable          0x21F600
 #define fnIsAlive               0x1E2560
