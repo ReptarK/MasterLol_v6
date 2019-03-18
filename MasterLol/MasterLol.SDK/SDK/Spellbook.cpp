@@ -4,6 +4,10 @@
 #include "Obj_AI_Base.h"
 #include "ObjectManager.h"
 
+SpellCastInfo * Spellbook::GetActiveSpell(){
+	return *reinterpret_cast<SpellCastInfo**>(this + static_cast<int>(Offsets::Spellbook::ActiveSpell));
+}
+
 ESpellState Spellbook::GetSpellState( ESpellSlot::ESpellSlot slot )
 {
 	return

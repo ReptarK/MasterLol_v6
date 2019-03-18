@@ -90,7 +90,8 @@ DWORD WINAPI MainThread(LPVOID base)
 
 	Game::PrintChat("[ MasterLol Version 6.0 ]", BLUE());
 
-	Common::OnMissileProcessSpell::Initialize();
+	//Common::OnMissileProcessSpell::Initialize();
+	Common::OnProcessSpell::Initialize();
 	while (!GetAsyncKeyState(VK_END)) {
 		Common::OnUpdate::Run(1000 / 30);
 	}

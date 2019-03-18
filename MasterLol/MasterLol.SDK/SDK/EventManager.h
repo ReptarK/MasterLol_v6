@@ -35,7 +35,8 @@ enum class EventIndex
 	OnPlayerDoEmote = 13,
 	OnSpellbookCastSpell = 14,
 
-	OnMissileProcessSpell = 15
+	OnMissileProcessSpell = 15,
+	OnProcessSpell = 16
 };
 
 namespace EventDefines
@@ -45,6 +46,7 @@ namespace EventDefines
 	//Game
 	typedef void( OnMainLoop )();
 	typedef void (OnMissileProcessSpell)(MissileClient*, GameObject*);
+	typedef void (OnProcessSpell)(SpellCastInfo, Obj_AI_Base*);
 
 	//Drawing
 	typedef void( OnDrawingEndScene )( IDirect3DDevice9* );

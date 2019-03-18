@@ -8,6 +8,7 @@
 #include <SDK/Hooks.h>
 
 #include <Common/GameFunctions.h>
+#include <Common/GameEvent.h>
 
 namespace TEST
 {
@@ -124,6 +125,7 @@ namespace TEST
 
 	static void test5()
 	{
+		Game::PrintChat("ActiveProcessSpell : %d", GREEN(), Common::OnProcessSpell::mActiveProcessSpell.size());
 		//IssueOrderHook.Apply(Patchables::LolBase + 0x208A10, OnIssueOrder);
 	}
 }

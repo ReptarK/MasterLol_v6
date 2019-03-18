@@ -24,5 +24,18 @@ namespace Common
 		}
 		static std::unordered_map<MissileClient*, int> mActiveMissileMap;
 	};
+
+	class OnProcessSpell
+	{
+	public: 
+		static std::unordered_map<UINT16, SpellCastInfo> mActiveProcessSpell;
+
+		static void OnUpdate();
+		static void Initialize()
+		{
+			mActiveProcessSpell = std::unordered_map<UINT16, SpellCastInfo>();
+			EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(OnProcessSpell::OnUpdate);
+		}
+	};
 }
 

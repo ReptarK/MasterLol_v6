@@ -3,6 +3,7 @@
 #include "StaticEnums.h"
 #include "math/Vector.hpp"
 #include "Hooks.h"
+#include "SpellCastInfo.h"
 
 class SpellDataInst;
 class SpellData;
@@ -15,6 +16,8 @@ public:
 	MAKE_GET( ManaCostW, float, Offsets::Spellbook::ManaCostW );
 	MAKE_GET( ManaCostE, float, Offsets::Spellbook::ManaCostE );
 	MAKE_GET( ManaCostR, float, Offsets::Spellbook::ManaCostR );
+
+	SpellCastInfo* GetActiveSpell();
 
 	ESpellState GetSpellState( ESpellSlot::ESpellSlot );
 

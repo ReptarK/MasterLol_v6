@@ -86,12 +86,14 @@ public:
 
 	enum class Spellbook
 	{
-		ManaCostQ = 0x28,
-		ManaCostW = ManaCostQ + 0x10,
-		ManaCostE = ManaCostQ + ( 0x10 * 2 ),
-		ManaCostR = ManaCostQ + ( 0x10 * 3 ),
+		ActiveSpell = 0x20,
 
-		GetSpells = 0x508
+		ManaCostQ	= 0x28,
+		ManaCostW	= ManaCostQ + 0x10,
+		ManaCostE	= ManaCostQ + ( 0x10 * 2 ),
+		ManaCostR	= ManaCostQ + ( 0x10 * 3 ),
+
+		GetSpells	= 0x508
 	};
 
 	enum class SpellDataInst
@@ -134,7 +136,7 @@ public:
 
 	enum class SpellCastInfo
 	{
-		SpellInfo			= 0x0,
+		SpellInfo			= 0x08,
 		CasterIndex			= 0x20,
 		SourcePosition		= 0x38,
 		DestinationPosition = 0x44,

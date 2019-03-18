@@ -4,6 +4,8 @@
 #include <thread>
 
 #include <SDK/EventManager.h>
+#include <SDK/SpellInclude.h>
+#include <SDK/Game.h>
 
 #include "ObjectHelper.h"
 
@@ -60,6 +62,45 @@ namespace Common
 				return;
 			}
 		}
+	}
+
+	std::unordered_map<UINT16, SpellCastInfo> OnProcessSpell::mActiveProcessSpell;
+	void OnProcessSpell::OnUpdate()
+	{
+		auto allHero = ObjectList::mAllHeros;
+		for (Obj_AI_Base* hero : allHero)
+		{
+			Spellbook* spellbook = hero->GetSpellbook();
+			if (!spellbook) continue;
+
+			SpellCastInfo* activeSpell = spellbook->GetActiveSpell();
+			if (!activeSpell) continue;
+
+			auto got = mActiveProcessSpell.find(activeSpell->mMissileIndex);
+			if (got != mActiveProcessSpell.end())
+				continue;
+
+			std::pair<UINT16, SpellCastInfo> newProcessSpell(activeSpell->mMissileIndex, *activeSpell);
+
+			printf("ActiveProcessSpell :\n\
+					\tIndex : %d, Hero : %s\n",
+					activeSpell->mMissileIndex, hero->GetAIName().c_str());
+
+			mActiveProcessSpell.insert(newProcessSpell);
+
+			EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
+				SpellCastInfo, Obj_AI_Base*>::GetInstance()->Trigger(*activeSpell, hero);
+		}
+
+		for (auto it = mActiveProcessSpell.begin(); it != mActiveProcessSpell.end(); ) {
+			if (Game::GetGameTime() > it->second.mEndTime) {
+				printf("erase spell\n");
+				it = mActiveProcessSpell.erase(it);
+			}
+			else
+				it++;
+		}
+
 	}
 }
 

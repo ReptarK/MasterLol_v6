@@ -7,6 +7,7 @@ fnPrintChat			: 83 EC 38 A1 ? ? ? ? 33 C4 89 44 24 34 53 8B 5C 24 44 56
 
 fnIssueOrder		: 	   81 EC ? ? ? ? 56 57 8B F9 C7 84 24
 					 OLD : 81 EC ? ? ? ? 56 57 8B F9 C7 84 24
+fnOnProcessSpell	: 57 8B 7C 24 08 8B 17
 					 
 fnGetTimerExpiry	: 83 EC 08 53 8B D9 83 BB
 fnFindCamp			: 51 56 8D 44 24 0C 50 8D 71 04 8D 44 24 08 8B CE 50 E8 ? ? ? ? 8B 44 24 04 3B 06 5E 74 07

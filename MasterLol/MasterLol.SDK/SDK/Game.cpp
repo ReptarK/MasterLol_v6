@@ -18,6 +18,8 @@ static void linkEvents()
 	EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Remove( nullptr );
 	EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell, MissileClient*, GameObject*>::GetInstance()->Add(nullptr);
 	EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell, MissileClient*, GameObject*>::GetInstance()->Remove(nullptr);
+	EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell, SpellCastInfo, Obj_AI_Base*>::GetInstance()->Add(nullptr);
+	EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell, SpellCastInfo, Obj_AI_Base*>::GetInstance()->Remove(nullptr);
 	//Drawing
 	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Add( nullptr );
 	EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance()->Remove( nullptr );
