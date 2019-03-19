@@ -3,6 +3,8 @@
 
 #include <SDK/singleton.hpp>
 #include <SDK/EventManager.h>
+#include <SDK/SpellCastInfo.h>
+#include <SDK/Obj_AI_Base.h>
 
 namespace Common 
 {
@@ -27,13 +29,20 @@ namespace Common
 
 	class OnProcessSpell
 	{
+
+	private:
+		static void ProcessSpell(SpellCastInfo* activeSpell, Obj_AI_Base* caster);
+		static void ProcessHero();
+		static void ProcessMinion();
+		static void ClearUnactiveSpells();
+
 	public: 
-		static std::unordered_map<UINT16, SpellCastInfo> mActiveProcessSpell;
+		static std::unordered_map<int, SpellCastInfo> mActiveProcessSpell;
 
 		static void OnUpdate();
 		static void Initialize()
 		{
-			mActiveProcessSpell = std::unordered_map<UINT16, SpellCastInfo>();
+			mActiveProcessSpell = std::unordered_map<int, SpellCastInfo>();
 			EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(OnProcessSpell::OnUpdate);
 		}
 	};

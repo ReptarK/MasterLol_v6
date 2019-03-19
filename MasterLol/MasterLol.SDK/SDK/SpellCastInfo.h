@@ -14,10 +14,10 @@ public:
 	uint16_t mMissileIndex; //0x0014
 	char pad_0016[10]; //0x0016
 	LolString mCasterName; //0x0020
-	char pad_0038[56]; //0x0038
-	int32_t mSpellLevel; //0x0070
-	char pad_0074[28]; //0x0074
-	Vector3 mStartPosition; //0x0090
+	char pad_0038[36]; //0x0038
+	int32_t mSpellLevel; //0x005C
+	char pad_0060[28]; //0x0060
+	Vector3 mStartPosition; //0x007C
 	Vector3 mEndPosition; //0x0088
 	Vector3 mUnkVector; //0x0094
 	Vector3 mDirection; //0x00A0
@@ -39,5 +39,9 @@ public:
 
 	inline MissileClient* GetMissileClient(){
 		return (MissileClient*)ObjectManager::GetUnitArray()[this->mMissileIndex];
+	}
+
+	inline int GetUniqueId() {
+		return 1000 * ((int)this->mEndTime + (int)this->mCastTime);
 	}
 };

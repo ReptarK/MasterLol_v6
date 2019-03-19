@@ -4,6 +4,7 @@
 
 #include <SDK/D3DHooks.h>
 #include <SDK/Inputs.h>
+#include <SDK/Config.h>
 
 #include <Common/GameEvent.h>
 #include <Common/ObjectHelper.h>
@@ -95,11 +96,12 @@ DWORD WINAPI MainThread(LPVOID base)
 	while (!GetAsyncKeyState(VK_END)) {
 		Common::OnUpdate::Run(1000 / 30);
 	}
+	g_Unload = true;
+	Sleep(250);
 
 	Beep(523, 250);
 	FreeConsole();
 	ComponentsManager::Shutdown();
-	Sleep(250);
 	InputSys::Get().Shutdown();
 	D3D::D3DHooks::Get().Shutdown();
 	Sleep(250);

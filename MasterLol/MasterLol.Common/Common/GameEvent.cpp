@@ -4,8 +4,8 @@
 #include <thread>
 
 #include <SDK/EventManager.h>
-#include <SDK/SpellInclude.h>
 #include <SDK/Game.h>
+#include <SDK/SpellInclude.h>
 
 #include "ObjectHelper.h"
 
@@ -26,8 +26,6 @@ namespace Common
 		next += updateFreq;
 		std::this_thread::sleep_until(next);
 	}
-
-
 
 
 	std::unordered_map<MissileClient*, int> OnMissileProcessSpell::mActiveMissileMap;
@@ -64,8 +62,10 @@ namespace Common
 		}
 	}
 
-	std::unordered_map<UINT16, SpellCastInfo> OnProcessSpell::mActiveProcessSpell;
-	void OnProcessSpell::OnUpdate()
+	/////// OnMissileProcessSpell ///////
+	std::unordered_map<int, SpellCastInfo> OnProcessSpell::mActiveProcessSpell;
+
+	void OnProcessSpell::ProcessHero()
 	{
 		auto allHero = ObjectList::mAllHeros;
 		for (Obj_AI_Base* hero : allHero)
@@ -76,31 +76,61 @@ namespace Common
 			SpellCastInfo* activeSpell = spellbook->GetActiveSpell();
 			if (!activeSpell) continue;
 
-			auto got = mActiveProcessSpell.find(activeSpell->mMissileIndex);
-			if (got != mActiveProcessSpell.end())
-				continue;
+			OnProcessSpell::ProcessSpell(activeSpell, hero);
+		}
+	}
 
-			std::pair<UINT16, SpellCastInfo> newProcessSpell(activeSpell->mMissileIndex, *activeSpell);
+	void OnProcessSpell::ProcessMinion()
+	{
+		auto allMinion = ObjectList::mAllMinions;
+		for (Obj_AI_Base* minion : allMinion)
+		{
+			Spellbook* spellbook = minion->GetSpellbook();
+			if (!spellbook) continue;
 
-			printf("ActiveProcessSpell :\n\
-					\tIndex : %d, Hero : %s\n",
-					activeSpell->mMissileIndex, hero->GetAIName().c_str());
+			SpellCastInfo* activeSpell = spellbook->GetActiveSpell();
+			if (!activeSpell) continue;
 
-			mActiveProcessSpell.insert(newProcessSpell);
+			OnProcessSpell::ProcessSpell(activeSpell, minion);
+		}
+	}
 
-			EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
-				SpellCastInfo, Obj_AI_Base*>::GetInstance()->Trigger(*activeSpell, hero);
+	void OnProcessSpell::ProcessSpell(SpellCastInfo * activeSpell, Obj_AI_Base* caster)
+	{
+		auto got = mActiveProcessSpell.find(activeSpell->GetUniqueId());
+		if (got != mActiveProcessSpell.end()) {
+			// Already Processed
+			return;
 		}
 
+		std::pair<int, SpellCastInfo> newProcessSpell(activeSpell->GetUniqueId(), *activeSpell);
+
+		printf("ActiveProcessSpell :\n\tIndex : %#x, Caster : %s\n",
+			activeSpell->GetUniqueId(), caster->GetName().c_str());
+
+		mActiveProcessSpell.insert(newProcessSpell);
+
+		EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
+			SpellCastInfo, Obj_AI_Base*>::GetInstance()->Trigger(*activeSpell, caster);
+	}
+
+	void OnProcessSpell::ClearUnactiveSpells()
+	{
 		for (auto it = mActiveProcessSpell.begin(); it != mActiveProcessSpell.end(); ) {
 			if (Game::GetGameTime() > it->second.mEndTime) {
-				printf("erase spell\n");
 				it = mActiveProcessSpell.erase(it);
 			}
 			else
 				it++;
 		}
+	}
 
+	void OnProcessSpell::OnUpdate()
+	{
+		OnProcessSpell::ProcessHero();
+		OnProcessSpell::ProcessMinion();
+
+		OnProcessSpell::ClearUnactiveSpells();
 	}
 }
 
