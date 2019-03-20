@@ -28,14 +28,14 @@ namespace Common
 	}
 
 
-	std::unordered_map<MissileClient*, int> OnMissileProcessSpell::mActiveMissileMap;
-	void OnMissileProcessSpell::AddMissile(MissileClient * missile)
+	std::unordered_map<MissileClient*, int> OnCreateMissile::mActiveMissileMap;
+	void OnCreateMissile::AddMissile(MissileClient * missile)
 	{
 		std::pair<MissileClient*, int> newMissile(missile, missile->GetCreatedTimeMs());
 		mActiveMissileMap.insert(newMissile);
 	}
 
-	void OnMissileProcessSpell::OnUpdate()
+	void OnCreateMissile::OnUpdate()
 	{
 		auto allMissile = ObjectList::mAllMissiles;
 		for (auto missile : allMissile)
@@ -47,23 +47,23 @@ namespace Common
 				AddMissile(missile);
 
 				auto caster = (Obj_AI_Base*)ObjectHelper::GetSourceObject(missile);
-				EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell,
-					MissileClient*, GameObject*>::GetInstance()->Trigger(missile, caster);
+				EventHandler<EventIndex::OnCreateMissile, EventDefines::OnCreateMissile,
+					MissileClient*, Obj_AI_Base*>::GetInstance()->Trigger(missile, caster);
 				return;
 			}
 			if (got->second < missile->GetCreatedTimeMs())
 			{
 				got->second = missile->GetCreatedTimeMs();
 				auto caster = (Obj_AI_Base*)ObjectHelper::GetSourceObject(missile);
-				EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell,
-					MissileClient*, GameObject*>::GetInstance()->Trigger(missile, caster);
+				EventHandler<EventIndex::OnCreateMissile, EventDefines::OnCreateMissile,
+					MissileClient*, Obj_AI_Base*>::GetInstance()->Trigger(missile, caster);
 				return;
 			}
 		}
 	}
 
 	/////// OnMissileProcessSpell ///////
-	std::unordered_map<int, SpellCastInfo> OnProcessSpell::mActiveProcessSpell;
+	std::unordered_map<int, SpellCastInfo*> OnProcessSpell::mActiveProcessSpell;
 
 	void OnProcessSpell::ProcessHero()
 	{
@@ -103,21 +103,21 @@ namespace Common
 			return;
 		}
 
-		std::pair<int, SpellCastInfo> newProcessSpell(activeSpell->GetUniqueId(), *activeSpell);
+		std::pair<int, SpellCastInfo*> newProcessSpell(activeSpell->GetUniqueId(), activeSpell);
 
-		printf("ActiveProcessSpell :\n\tIndex : %#x, Caster : %s\n",
-			activeSpell->GetUniqueId(), caster->GetName().c_str());
+		//printf("ActiveProcessSpell :\n\tIndex : %#x, Caster : %s\n",
+		//	activeSpell->GetUniqueId(), caster->GetName().c_str());
 
 		mActiveProcessSpell.insert(newProcessSpell);
 
 		EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
-			SpellCastInfo, Obj_AI_Base*>::GetInstance()->Trigger(*activeSpell, caster);
+			SpellCastInfo*, Obj_AI_Base*>::GetInstance()->Trigger(activeSpell, caster);
 	}
 
 	void OnProcessSpell::ClearUnactiveSpells()
 	{
 		for (auto it = mActiveProcessSpell.begin(); it != mActiveProcessSpell.end(); ) {
-			if (Game::GetGameTime() > it->second.mEndTime) {
+			if (Game::GetGameTime() > it->second->mEndTime) {
 				it = mActiveProcessSpell.erase(it);
 			}
 			else

@@ -69,9 +69,6 @@
     <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Project\Component\Orbwalker.component\ClearLogic.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -82,6 +79,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Project\Component\Visual.component\CooldownTracker.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\Debug.component\DebugProcessSpell.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -128,9 +131,6 @@
     <ClInclude Include="Project\Component\Orbwalker.component\FleeLogic.service.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Project\Component\Debug.component\DebugMissile.service.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Project\Component\Orbwalker.component\ClearLogic.service.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -140,10 +140,14 @@
     <ClInclude Include="Project\Component\Visual.component\CooldownTracker.service.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Project\Component\Debug.component\DebugProcessSpell.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Project\Component\Visual.component\TurretRange.service.h" />
     <None Include="Project\Component\SummonerSpell.component\AutoSmite.service.h" />
     <None Include="Project\Component\Debug.component\DebugObject.service.h" />
+    <None Include="Project\Component\Debug.component\DebugMissile.service.h" />
   </ItemGroup>
 </Project>

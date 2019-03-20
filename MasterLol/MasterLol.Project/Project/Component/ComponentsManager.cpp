@@ -12,8 +12,11 @@ void ComponentsManager::Initialize()
 
 	EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(ComponentsManager::OnUpdate);
 
-	EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell,
-		MissileClient*, GameObject*>::GetInstance()->Add(ComponentsManager::OnMissileProcessSpell);
+	EventHandler<EventIndex::OnCreateMissile, EventDefines::OnCreateMissile,
+		MissileClient*, Obj_AI_Base*>::GetInstance()->Add(ComponentsManager::OnCreateMissile);
+
+	EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
+		SpellCastInfo*, Obj_AI_Base*>::GetInstance()->Add(ComponentsManager::OnProcessSpell);
 }
 
 void ComponentsManager::Shutdown()
@@ -22,8 +25,11 @@ void ComponentsManager::Shutdown()
 
 	EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Remove(ComponentsManager::OnUpdate);
 
-	EventHandler<EventIndex::OnMissileProcessSpell, EventDefines::OnMissileProcessSpell,
-		MissileClient*, GameObject*>::GetInstance()->Remove(ComponentsManager::OnMissileProcessSpell);
+	EventHandler<EventIndex::OnCreateMissile, EventDefines::OnCreateMissile,
+		MissileClient*, Obj_AI_Base*>::GetInstance()->Remove(ComponentsManager::OnCreateMissile);
+
+	EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
+		SpellCastInfo*, Obj_AI_Base*>::GetInstance()->Remove(ComponentsManager::OnProcessSpell);
 
 	ComponentsManager::mComponents.clear();
 }
@@ -42,9 +48,16 @@ void ComponentsManager::OnEndScene(IDirect3DDevice9 *)
 	}
 }
 
-void ComponentsManager::OnMissileProcessSpell(MissileClient * missile, Obj_AI_Base * caster)
+void ComponentsManager::OnCreateMissile(MissileClient * missile, Obj_AI_Base * caster)
 {
 	for (auto it = ComponentsManager::mComponents.begin(); it != ComponentsManager::mComponents.end(); it++) {
-		(*it)->OnMissileProcessSpell(missile, caster);
+		(*it)->OnCreateMissile(missile, caster);
+	}
+}
+
+void ComponentsManager::OnProcessSpell(SpellCastInfo* spell, Obj_AI_Base* caster)
+{
+	for (auto it = ComponentsManager::mComponents.begin(); it != ComponentsManager::mComponents.end(); it++) {
+		(*it)->OnProcessSpell(spell, caster);
 	}
 }

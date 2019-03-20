@@ -128,6 +128,7 @@
     <ClCompile Include="Project\Component\ComponentsManager.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugCollision.service.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp" />
+    <ClCompile Include="Project\Component\Debug.component\DebugProcessSpell.service.cpp" />
     <ClCompile Include="Project\Component\Debug.component\DebugObject.service.cpp" />
     <ClCompile Include="Project\Component\Orbwalker.component\ClearLogic.service.cpp" />
     <ClCompile Include="Project\Component\Orbwalker.component\FleeLogic.service.cpp" />
@@ -143,7 +144,7 @@
     <ClInclude Include="Project\Bootstarp.h" />
     <ClInclude Include="Project\Component\Debug.component\Debug.component.h" />
     <ClInclude Include="Project\Component\Debug.component\DebugCollision.service.h" />
-    <ClInclude Include="Project\Component\Debug.component\DebugMissile.service.h" />
+    <ClInclude Include="Project\Component\Debug.component\DebugProcessSpell.service.h" />
     <ClInclude Include="Project\Component\IComponent.h" />
     <ClInclude Include="Project\Component\IGameService.h" />
     <ClInclude Include="Project\Component\ComponentsManager.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Project\Test.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Project\Component\Debug.component\DebugMissile.service.h" />
     <None Include="Project\Component\Debug.component\DebugObject.service.h" />
     <None Include="Project\Component\SummonerSpell.component\AutoSmite.service.h" />
     <None Include="Project\Component\Visual.component\TurretRange.service.h" />

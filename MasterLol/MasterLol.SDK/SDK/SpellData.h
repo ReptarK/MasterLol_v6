@@ -54,6 +54,24 @@ public:
 	bool UpdateRotationWhenCasting; //0x002F
 	bool ConsideredAsAutoAttack; //0x0030
 	bool MinimapIconDisplayFlag; //0x0031
+	bool unk1; //0x0032
+	bool unk2; //0x0033
+	bool unk3; //0x0034
+	bool unk4; //0x0035
+	bool unk5; //0x0036
+	bool unk6; //0x0037
+	bool unk7; //0x0038
+	bool unk8; //0x0039
+	bool unk9; //0x003A
+	bool unk10; //0x003B
+	bool unk11; //0x003C
+	bool unk12; //0x003D
+	bool unk13; //0x003E
+	bool unk14; //0x003F
+	bool unk15; //0x0040
+	bool unk16; //0x0041
+	bool unk17; //0x0042
+	bool unk18; //0x0043
 }; //Size: 0x0044
 
 class SpellData
@@ -110,4 +128,5 @@ public:
 	FLOAT ManaCost[7]; //0x0520
 	char pad_053C[296]; //0x053C
 	int32_t CastType; //0x0664
+	char pad_0668[84]; //0x0668
 }; //Size: 0x06BC

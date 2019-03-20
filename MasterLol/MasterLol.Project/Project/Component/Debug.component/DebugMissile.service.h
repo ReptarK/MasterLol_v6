@@ -8,6 +8,6 @@ public:
 
 	virtual void OnUpdate();
 	virtual void OnEndScene();
-	virtual void OnMissileProcessSpell(MissileClient*, Obj_AI_Base*);
+	virtual void OnCreateMissile(MissileClient*, Obj_AI_Base*);
 
 };

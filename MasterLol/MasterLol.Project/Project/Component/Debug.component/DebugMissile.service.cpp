@@ -42,7 +42,7 @@ void ProcessMissile(MissileClient* missile)
 
 void DebugMissileService::OnEndScene()
 {
-	if (!Option::Get().enable_draw_debug_missile)
+	if (!Option::Get().show_debug_missile)
 		return;
 
 	auto allMissile = Common::ObjectList::mAllMissiles;
@@ -52,25 +52,25 @@ void DebugMissileService::OnEndScene()
 	}
 }
 
-void DebugMissileService::OnMissileProcessSpell(MissileClient * missile, Obj_AI_Base * caster)
+void DebugMissileService::OnCreateMissile(MissileClient * missile, Obj_AI_Base * caster)
 {
-	if (!Option::Get().enable_log_debug_hero_missile)
+	if (!Option::Get().log_missile)
 		return;
 
 	//if (caster && caster->IsHero()) {
 	//	printf("OnMissileProcessSpell :\n\t-Caster (%#x) %s\n\t-Missile (%#x) : %s\n\n",
 	//		caster, caster->GetAIName().c_str(), missile, missile->GetMissileSpellInfo()->GetSpellData()->MissileName);
 	// }
-		auto spellInfo = missile->GetMissileSpellInfo();
-		if (!spellInfo) return;
-		auto spellData = spellInfo->GetSpellData();
-		if (!spellData) return;
+	auto spellInfo = missile->GetMissileSpellInfo();
+	if (!spellInfo) return;
+	auto spellData = spellInfo->GetSpellData();
+	if (!spellData) return;
 
-		printf("ProcessMissile :\n"\
-			"\t-Caster ( %#x ) : %s\n"\
-			"\t-Missile ( %#x ) : %s\n"\
-			"\t\t-Time : %d\n",
-			caster, caster->GetAIName().c_str(),
-			missile, spellData->MissileName,
-			missile->GetCreatedTimeMs());
+	printf("ProcessMissile :\n"\
+		"\t-Caster ( %#x ) : %s\n"\
+		"\t-Missile ( %#x ) : %s\n"\
+		"\t\t-Time : %d\n",
+		caster, caster->GetAIName().c_str(),
+		missile, spellData->MissileName,
+		missile->GetCreatedTimeMs());
 }

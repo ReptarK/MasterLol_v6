@@ -29,13 +29,9 @@ enum class EventIndex
 	OnGameObjectDelete = 7,
 	OnObjAIBaseProcessSpell = 8,
 	OnObjAIBaseIssueOrder = 9,
-	OnPlayerBuyItem = 10,
-	OnPlayerSellItem = 11,
-	OnPlayerSwapItem = 12,
-	OnPlayerDoEmote = 13,
 	OnSpellbookCastSpell = 14,
 
-	OnMissileProcessSpell = 15,
+	OnCreateMissile = 15,
 	OnProcessSpell = 16
 };
 
@@ -45,8 +41,8 @@ namespace EventDefines
 
 	//Game
 	typedef void( OnMainLoop )();
-	typedef void (OnMissileProcessSpell)(MissileClient*, GameObject*);
-	typedef void (OnProcessSpell)(SpellCastInfo, Obj_AI_Base*);
+	typedef void (OnCreateMissile)(MissileClient*, Obj_AI_Base*);
+	typedef void (OnProcessSpell)(SpellCastInfo*, Obj_AI_Base*);
 
 	//Drawing
 	typedef void( OnDrawingEndScene )( IDirect3DDevice9* );
@@ -70,8 +66,6 @@ namespace EventDefines
 	typedef bool( OnPlayerSwapItem )( AIHeroClient*, uint, uint );
 	typedef bool( OnPlayerDoEmote )( AIHeroClient*, short );
 
-	//AttackableUnit
-
 	//Spellbook
 	typedef bool( OnSpellbookCastSpell )( Spellbook*, SpellDataInst*, ESpellSlot::ESpellSlot, Vector3*, Vector3*, uint );
 
@@ -80,12 +74,6 @@ namespace EventDefines
 	typedef bool( OnChatMessage )( AIHeroClient*, char** );
 	typedef bool( OnChatClientSideMessage )( char** );
 	typedef bool( OnChatSendWhisper )( char**, char** );
-
-	//AudioManager
-	typedef void( OnAudioManagerPlaySound )( std::string );
-
-	//r3dCamera
-	typedef bool( OnCameraZoom )();
 }
 
 

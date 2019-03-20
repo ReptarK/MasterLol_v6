@@ -20,7 +20,8 @@ public:
 	// GameEvents
 	static void OnUpdate();
 	static void OnEndScene(IDirect3DDevice9*);
-	static void OnMissileProcessSpell(MissileClient* missile, Obj_AI_Base* caster);
+	static void OnCreateMissile(MissileClient* missile, Obj_AI_Base* caster);
+	static void OnProcessSpell(SpellCastInfo* spell, Obj_AI_Base* caster);
 
 	template<typename T>
 	static void AddComponent();

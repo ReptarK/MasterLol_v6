@@ -35,8 +35,10 @@ public:
 
 	// DEBUG
 	OPTION(bool, enable_debug_collision, false);
+	OPTION(bool, log_process_spell_hero, false);
+	OPTION(bool, log_missile, false);
 	OPTION(bool, show_lasthit_targets, false);
-	OPTION(bool, enable_draw_debug_missile, false);
-	OPTION(bool, enable_log_debug_hero_missile, false);
+	OPTION(bool, show_debug_missile, false);
+	OPTION(bool, show_process_spell, false);
 	
 };

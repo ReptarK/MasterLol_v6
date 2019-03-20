@@ -40,9 +40,15 @@ public:
 		}
 	}
 
-	virtual void OnMissileProcessSpell(MissileClient* missile, Obj_AI_Base* caster) {
+	virtual void OnCreateMissile(MissileClient* missile, Obj_AI_Base* caster) {
 		for (auto it = this->mServices.begin(); it != this->mServices.end(); it++) {
-			(*it)->OnMissileProcessSpell(missile, caster);
+			(*it)->OnCreateMissile(missile, caster);
+		}
+	}
+
+	virtual void OnProcessSpell(SpellCastInfo* spell, Obj_AI_Base* caster) {
+		for (auto it = this->mServices.begin(); it != this->mServices.end(); it++) {
+			(*it)->OnProcessSpell(spell, caster);
 		}
 	}
 

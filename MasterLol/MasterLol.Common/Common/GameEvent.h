@@ -14,7 +14,7 @@ namespace Common
 		static void Run(unsigned long long updateFrequency);
 	};
 
-	class OnMissileProcessSpell
+	class OnCreateMissile
 	{
 	public:
 		static void AddMissile(MissileClient*);
@@ -22,7 +22,7 @@ namespace Common
 		static void Initialize() 
 		{
 			mActiveMissileMap = std::unordered_map<MissileClient*, int>();
-			EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(OnMissileProcessSpell::OnUpdate);
+			EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(OnCreateMissile::OnUpdate);
 		}
 		static std::unordered_map<MissileClient*, int> mActiveMissileMap;
 	};
@@ -37,12 +37,12 @@ namespace Common
 		static void ClearUnactiveSpells();
 
 	public: 
-		static std::unordered_map<int, SpellCastInfo> mActiveProcessSpell;
+		static std::unordered_map<int, SpellCastInfo*> mActiveProcessSpell;
 
 		static void OnUpdate();
 		static void Initialize()
 		{
-			mActiveProcessSpell = std::unordered_map<int, SpellCastInfo>();
+			mActiveProcessSpell = std::unordered_map<int, SpellCastInfo*>();
 			EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance()->Add(OnProcessSpell::OnUpdate);
 		}
 	};
