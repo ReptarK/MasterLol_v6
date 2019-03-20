@@ -19,8 +19,8 @@ GameObject * HudManager::GetUnderMouseObject()
 
 bool HudManager::IsWall(Vector3 worldPosition)
 {
-	typedef bool(__cdecl* fnIsNotWall)(Vector3*, unsigned __int16);
-	static fnIsNotWall oIsNotWall = (fnIsNotWall)(Patchables::LolBase + fnIsWall);
+	typedef bool(__cdecl* _fnIsNotWall)(Vector3*, unsigned __int16);
+	static _fnIsNotWall oIsNotWall = (_fnIsNotWall)(Patchables::LolBase + fnIsNotWall);
 
 	return !oIsNotWall(&worldPosition, 0);
 }

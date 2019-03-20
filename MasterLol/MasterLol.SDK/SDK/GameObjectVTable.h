@@ -153,13 +153,13 @@ public:
 	virtual void Function139();
 	virtual void Function140();
 	virtual void Function141();
-	virtual void Function142(); // WRONG
+	virtual void Function142();
 	virtual void Function143();
-	virtual void Function144(); // WRONG
+	virtual void Function144();
 	virtual void Function145();
 	virtual void Function146();
+	virtual void Function147();
 	virtual Navigation* GetNavigation();
-	virtual void Function148();
 	virtual void Function149();
 	virtual void Function150();
 	virtual void Function151();
