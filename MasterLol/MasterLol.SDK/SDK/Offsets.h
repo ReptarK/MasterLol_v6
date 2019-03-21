@@ -20,7 +20,7 @@ public:
 
 	enum class GameObject
 	{
-		Index			=	0x20,
+		Index			=	0x24,
 		Team			=	0x4C,
 		Name			=	0x88,
 		NetworkId		=	0x110,
