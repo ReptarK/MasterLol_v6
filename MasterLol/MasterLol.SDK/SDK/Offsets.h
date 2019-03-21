@@ -26,7 +26,7 @@ public:
 		NetworkId		=	0x110,
 		SourceIndex		=	0x2D4,
 		Position		=	0x264,
-		IsVisible       =	0x428
+		IsVisible       =	0x458 // 0x454 (+30)
 	};
 
 	enum class AttackableUnit
@@ -35,9 +35,9 @@ public:
 		//IsInvulnerable	= 0x0394,
 		//IsTargetable	= 0x060C,
 
-		Mana		    = 0x454,
+		Mana		    = 0x484,
 		MaxMana		    = Mana + 0x10,
-		Health		    = 0xF84,
+		Health		    = 0xFBC,
 		MaxHealth	    = Health + 0x10,
 
 		AllShield		= 0x6B8,
@@ -46,23 +46,23 @@ public:
 		StopShieldFade	= MagicalShield + 0x20,
 
 		CaracterState	= 0x804,
-		UnitStats		= 0x1820,
-		CombatType		= 0x1CC8,
+		UnitStats		= 0x1858, //+38
+		CombatType		= 0x1D08,
 
-		BuffManager		= 0x22A0
+		BuffManager		= 0x2308
 	};
 
 	enum class Obj_AI_Base
 	{
-		Gold        = 0x1CAC,
-		AIName		= 0x2500,
+		Gold        = 0x1CE4,
+		AIName		= 0x2568,
 
-		SpellBook	= 0x2A98,
+		SpellBook	= 0x2B00,
 	};
 
 	enum class AIHeroClient
 	{
-		Level = 0x4BAC
+		Level = 0x4BD4
 	};
 
 	enum class MissileClient
@@ -77,7 +77,7 @@ public:
 		TargetIndex			= 0x31C,
 
 		WindupTime			= 0x720,
-		AttackDelay		= 0x744,
+		AttackDelay			= 0x744,
 		IsAutoAttack		= 0x748,
 		CreatedTime			= 0x79C
 	};
