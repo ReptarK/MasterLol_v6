@@ -105,9 +105,6 @@ namespace Common
 
 		std::pair<int, SpellCastInfo*> newProcessSpell(activeSpell->GetUniqueId(), activeSpell);
 
-		//printf("ActiveProcessSpell :\n\tIndex : %#x, Caster : %s\n",
-		//	activeSpell->GetUniqueId(), caster->GetName().c_str());
-
 		mActiveProcessSpell.insert(newProcessSpell);
 
 		EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,

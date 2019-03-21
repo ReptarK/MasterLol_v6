@@ -26,7 +26,7 @@
 #define fnIsInhib               0x227380 // id = 0x20000
 #define fnIsNexus               0x227130 // id = 0x20000
 #define fnIsTroy                0x227470 // id = 0x1000
-#define fnIsTurret              0x226770 // id = 0x2000
+#define fnIsTurret              0x227380 // id = 0x2000
 #define fnIsMinion              0x2271F0 // id = 0x800
 #define fnIsHero                0x2271B0 // id = 0x1000
 #define fnIsMissile             0x227210 // id = 0x8000
