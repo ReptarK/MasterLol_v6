@@ -334,14 +334,14 @@ void CDraw::BoxRounded(float x, float y, float w, float h, float radius, bool sm
 	}
 }
 
-void CDraw::Text(const char *text, float x, float y, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor)
+void CDraw::Text(const char *text, float x, float y, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor)
 {
 	if (!Draw.mFontSize) {
 		this->AddFont("Arial Black", 16, true, false);
 	}
 	RECT rect;
 
-	switch (orientation)
+	switch (alignment)
 	{
 	case lefted:
 		if (bordered)
@@ -391,11 +391,11 @@ void CDraw::Text(const char *text, float x, float y, text_alignment orientation,
 	}
 }
 
-void CDraw::Text(const char * text, Vector3 worldPosition, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor)
+void CDraw::Text(const char * text, Vector3 worldPosition, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor)
 {
 	Vector3 screenPos;
 	if (this->WorldToScreen(worldPosition, &screenPos))
-		Draw.Text(text, screenPos.x, screenPos.y, orientation, font, bordered, color, bcolor);
+		Draw.Text(text, screenPos.x, screenPos.y, alignment, font, bordered, color, bcolor);
 }
 
 //void CDraw::Message(char *text, float x, float y, int font, int orientation)

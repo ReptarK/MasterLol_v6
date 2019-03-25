@@ -37,13 +37,17 @@ void DebugProcessSpellService::LogSpell(SpellCastInfo * spell, Obj_AI_Base * cas
 			\t CastType : %d,\n \
 			\t Slot : %d,\n \
 			\t Is AA ? : %s,\n \
-			\t Caster : %s\n",
+			\t Caster : %s\n\
+			\t WindupTime : %f\n\
+			\t CastTime : %f\n",
 		spell->mSpellInfo->GetSpellData()->SpellName,
 		spell->mSpellInfo,
 		spell->mSpellInfo->GetSpellData()->CastType,
 		spell->mSlot,
 		spell->mIsAutoAttack ? "true" : "false",
-		caster->GetName().c_str());
+		caster->GetName().c_str(),
+		spell->mWindupTime,
+		spell->mCastTime);
 }
 
 void DebugProcessSpellService::OnProcessSpell(SpellCastInfo* spell, Obj_AI_Base* caster)

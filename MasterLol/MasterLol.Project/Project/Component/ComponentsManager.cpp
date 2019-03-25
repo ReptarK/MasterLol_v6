@@ -31,6 +31,10 @@ void ComponentsManager::Shutdown()
 	EventHandler<EventIndex::OnProcessSpell, EventDefines::OnProcessSpell,
 		SpellCastInfo*, Obj_AI_Base*>::GetInstance()->Remove(ComponentsManager::OnProcessSpell);
 
+	for (auto it = ComponentsManager::mComponents.begin(); it != ComponentsManager::mComponents.end(); it++) {
+		(*it).release();
+	}
+
 	ComponentsManager::mComponents.clear();
 }
 

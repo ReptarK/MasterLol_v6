@@ -18,6 +18,7 @@ public:
 	MAKE_GET( ManaCostR, float, Offsets::Spellbook::ManaCostR );
 
 	SpellCastInfo* GetActiveSpell();
+	bool IsAutoAttacking();
 
 	ESpellState GetSpellState( ESpellSlot::ESpellSlot );
 

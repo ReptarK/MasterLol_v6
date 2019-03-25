@@ -129,10 +129,10 @@ public:
 	virtual void Function115();
 	virtual void Function116();
 	virtual void Function117();
-	virtual Navigation* Function118();
-	virtual Navigation* Function119();
-	virtual Navigation* Function120();
-	virtual Navigation* Function121();
+	virtual void Function118();
+	virtual void Function119();
+	virtual void Function120();
+	virtual void Function121();
 	virtual void Function122();
 	virtual void Function123();
 	virtual void Function124();

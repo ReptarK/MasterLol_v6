@@ -49,6 +49,10 @@ void InitializeHotkeys()
 		}
 		__except (1) { printf("Error in TEST5()"); }
 	});
+
+	InputSys::Get().RegisterHotkey(VK_F6, []() {
+		TEST::testNavigation();
+	});
 }
 
 void InitializeConsole()
@@ -91,19 +95,18 @@ DWORD WINAPI MainThread(LPVOID base)
 
 	Game::PrintChat("[ MasterLol Version 6.0 ]", BLUE());
 
-	//Common::OnMissileProcessSpell::Initialize();
 	Common::OnProcessSpell::Initialize();
 	while (!GetAsyncKeyState(VK_END)) {
 		Common::OnUpdate::Run(1000 / 30);
 	}
 	g_Unload = true;
-	Sleep(250);
+	D3D::D3DHooks::Get().Shutdown();
+	Sleep(500);
 
 	Beep(523, 250);
 	FreeConsole();
 	ComponentsManager::Shutdown();
 	InputSys::Get().Shutdown();
-	D3D::D3DHooks::Get().Shutdown();
 	Sleep(250);
 	Draw.FontRelease();
 

@@ -17,11 +17,11 @@ int __fastcall OnFunction16( Navigation* navigation, void* edx, int a2, DWORD* a
 
 void Obj_AI_Base::ApplyHooks()
 {
-	auto player = ObjectManager::GetPlayer();
-	DWORD** virtualTable = *( DWORD*** )player->GetNavigation();
-	DWORD* function16 = virtualTable[16];
-	printf( "Hooked function16 at : %#x \n", ( DWORD )function16 );
-	OnFunction16_Hook.Apply( ( DWORD )function16, OnFunction16 );
+	//auto player = ObjectManager::GetPlayer();
+	//DWORD** virtualTable = *( DWORD*** )player->GetNavigation();
+	//DWORD* function16 = virtualTable[16];
+	//printf( "Hooked function16 at : %#x \n", ( DWORD )function16 );
+	//OnFunction16_Hook.Apply( ( DWORD )function16, OnFunction16 );
 }
 
 Navigation * Obj_AI_Base::GetNavigation()

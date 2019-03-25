@@ -182,9 +182,14 @@ public:
 		return vOther.Normalized() * this->Length();
 	}
 
-	Vector3 to2D()
+	Vector3 toGround()
 	{
 		return Vector3(this->x, 0, this->z);
+	}
+
+	Vector3 to2D()
+	{
+		return Vector3(this->x, this->z, this->y);
 	}
 
     float Length() const

@@ -46,48 +46,52 @@ public:
 	float mPercentBaseAttackDamageMod; //0x0140
 	char pad_0144[12]; //0x0144
 	float mBaseAbilityDamage; //0x0150
-	char pad_0154[60]; //0x0154
-	float mScaleSkinCoef; //0x0180
+	char pad_0154[44]; //0x0154
+	float mCritBonusPerc; //0x0180
 	char pad_0184[12]; //0x0184
-	float mDodge; //0x0190
+	float mScaleSkinCoef; //0x0190
 	char pad_0194[12]; //0x0194
-	float mCrit; //0x01A0
+	float mDodge; //0x01A0
 	char pad_01A4[12]; //0x01A4
-	float mArmor; //0x01B0
+	float mCrit; //0x01B0
 	char pad_01B4[12]; //0x01B4
-	float mBonusArmor; //0x01C0
+	float mArmor; //0x01C0
 	char pad_01C4[12]; //0x01C4
-	float mMagicResist; //0x01D0
+	float mBonusArmor; //0x01D0
 	char pad_01D4[12]; //0x01D4
-	float mBonusMagicResist; //0x01E0
+	float mMagicResist; //0x01E0
 	char pad_01E4[12]; //0x01E4
-	float mHPRegenRate; //0x01F0
+	float mBonusMagicResist; //0x01F0
 	char pad_01F4[12]; //0x01F4
-	float mBaseHPRegenRate; //0x0200
+	float mHPRegenRate; //0x0200
 	char pad_0204[12]; //0x0204
-	float mMoveSpeed; //0x0210
-	char pad_0214[28]; //0x0214
-	float mAttackRange; //0x0230
-	char pad_0234[44]; //0x0234
-	float mFlatArmorPenetration; //0x0260
-	char pad_0264[12]; //0x0264
-	float mPhysicalLethality; //0x0270
+	float mBaseHPRegenRate; //0x0210
+	char pad_0214[12]; //0x0214
+	float mMoveSpeed; //0x0220
+	char pad_0224[28]; //0x0224
+	float mAttackRange; //0x0240
+	char pad_0244[44]; //0x0244
+	float mFlatArmorPenetration; //0x0270
 	char pad_0274[12]; //0x0274
-	float mPercentBonusArmorPenetration; //0x0280
-	char pad_0284[28]; //0x0284
-	float mPercentCritBonusArmorPenetration; //0x02A0
-	char pad_02A4[12]; //0x02A4
-	float mPercentCritTotalArmorPenetration; //0x02B0
+	float mPhysicalLethality; //0x0280
+	char pad_0284[12]; //0x0284
+	float mPercentBonusArmorPenetration; //0x0290
+	char pad_0294[28]; //0x0294
+	float mPercentCritBonusArmorPenetration; //0x02B0
 	char pad_02B4[12]; //0x02B4
-	float mFlatMagicPenetration; //0x02C0
+	float mPercentCritTotalArmorPenetration; //0x02C0
 	char pad_02C4[12]; //0x02C4
-	float mMagicLethality; //0x02D0
-	char pad_02D4[44]; //0x02D4
-	float mPercentLifeStealMod; //0x0300
-	float mPercentSpellVampMod; //0x0304
-	char pad_0308[40]; //0x0308
-	float mPercentCCReduction; //0x0330
-}; //Size: 0x0334
+	float mFlatMagicPenetration; //0x02D0
+	char pad_02D4[12]; //0x02D4
+	float mMagicLethality; //0x02E0
+	char pad_02E4[44]; //0x02E4
+	float mPercentLifeStealMod; //0x0310
+	char pad_0314[12]; //0x0314
+	float mPercentSpellVampMod; //0x0320
+	char pad_0324[28]; //0x0324
+	float mPercentCCReduction; //0x0340
+	char pad_0344[4]; //0x0344
+}; //Size: 0x0348
 #pragma endregion
 
 	enum class CombatType

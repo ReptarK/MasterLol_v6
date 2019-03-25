@@ -7,7 +7,6 @@
 #include <SDK/Obj_AI_Base.h>
 
 class IGameService {
-
 public:
 	virtual void OnUpdate() {}
 	virtual void OnEndScene() {}

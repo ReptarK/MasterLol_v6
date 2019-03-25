@@ -49,9 +49,6 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{fffd0512-53d5-4fc1-a4eb-2057c2b63fc6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Game\Patchables">
-      <UniqueIdentifier>{708ab262-186b-4006-88a3-f69d33685827}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Game\Patchables">
       <UniqueIdentifier>{6ae6a597-afba-49f4-a1fc-534b13d28336}</UniqueIdentifier>
     </Filter>
@@ -91,9 +88,6 @@
     <Filter Include="Source Files\Game\GameFunctions">
       <UniqueIdentifier>{41114295-c36a-460d-9fd9-3e69b64e33d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Game\Hooks">
-      <UniqueIdentifier>{c8ccc726-de61-4683-9603-d426552ddf0c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Names">
       <UniqueIdentifier>{54e3591c-7ea8-45b0-8e0e-c02db6bf70c5}</UniqueIdentifier>
     </Filter>
@@ -108,6 +102,9 @@
     </Filter>
     <Filter Include="Header Files\Objects\CampManager">
       <UniqueIdentifier>{18af2c60-1679-4593-a05e-b4fe2f98d12e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Navigation">
+      <UniqueIdentifier>{58d58075-93ee-4a95-ae56-addc7269985e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -173,12 +170,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDK\Offsets.h">
-      <Filter>Header Files\Game\Patchables</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Patchables.h">
-      <Filter>Header Files\Game\Patchables</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\math\Vector.hpp">
       <Filter>Header Files\math</Filter>
     </ClInclude>
@@ -238,9 +229,6 @@
     </ClInclude>
     <ClInclude Include="SDK\Game.h">
       <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Hooks.h">
-      <Filter>Header Files\Game\Hooks</Filter>
     </ClInclude>
     <ClInclude Include="SDK\EventManager.h">
       <Filter>Header Files\Misks</Filter>
@@ -304,6 +292,18 @@
     </ClInclude>
     <ClInclude Include="SDK\colors_define.h">
       <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Navigation.h">
+      <Filter>Header Files\Objects\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Patchables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Offsets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Hooks.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

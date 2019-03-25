@@ -132,6 +132,7 @@
     <ClInclude Include="Common\GameEvent.h" />
     <ClInclude Include="Common\Misk\date.h" />
     <ClInclude Include="Common\ObjectHelper.h" />
+    <ClInclude Include="Common\Prediction.h" />
     <ClInclude Include="Common\SummonerSpells.h" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +143,7 @@
     <ClCompile Include="Common\Geometry\LineCollision.cpp" />
     <ClCompile Include="Common\GameEvent.cpp" />
     <ClCompile Include="Common\ObjectHelper.cpp" />
+    <ClCompile Include="Common\Prediction.cpp" />
     <ClCompile Include="Common\SummonerSpells.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -47,10 +47,10 @@ public:
 
 	struct sScreen
 	{
-		float Width;
-		float Height;
-		float x_center;
-		float y_center;
+		int Width;
+		int Height;
+		int x_center;
+		int y_center;
 	} Screen;
 
 	void SetScreenInfo() 
@@ -90,8 +90,15 @@ public:
 	void CircleFilled(float x, float y, float rad, float rotate, int type, int resolution, DWORD color);
 	void CircleFilled(Vector3 pos, float gameRadius, D3DCOLOR);
 
-	void Text(const char *text, float x, float y, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor = 0);
-	void Text(const char *text, Vector3 worldPosition, text_alignment orientation, int font, bool bordered, DWORD color, DWORD bcolor = 0);
+	void Text(const char *text, float x, float y, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor = 0);
+	/*template<typename... Args>
+	void TextArg(const char *text, float x, float y, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor = 0, Args ...);*/
+
+	template<typename... Args>
+	void TextArg(const char *text, Vector3 worldPosition, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor = 0, Args ...);
+	void Text(const char *text, Vector3 worldPosition, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor = 0);
+
+
 	//void Message(char *text, float x, float y, int font, int orientation);
 	//void Message(int fontId, unsigned int x, unsigned int y, D3DCOLOR color, LPCSTR Message);
 	//=============================================================================================
@@ -125,4 +132,22 @@ private:
 
 extern CDraw Draw;
 
+template<typename ...Args>
+inline void CDraw::TextArg(const char * text, Vector3 worldPosition, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor, Args ... args)
+{
+	char messageBuffer[100];
+	sprintf(messageBuffer, text, args...);
+	this->Text(messageBuffer, worldPosition, alignment, font, bordered, color, bcolor);
+}
+
 #endif /* _DRAW_H_ */
+
+//template<typename ...Args>
+//inline void CDraw::TextArg(const char * text, float x, float y, text_alignment alignment, int font, bool bordered, DWORD color, DWORD bcolor, Args ... args)
+//{
+//	char messageBuffer[100];
+//	sprintf(messageBuffer, text, args...);
+//	this->Text(messageBuffer, x, y, alignment, font, bordered, color, bcolor);
+//}
+
+

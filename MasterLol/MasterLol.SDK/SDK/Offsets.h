@@ -47,7 +47,7 @@ public:
 
 		CaracterState	= 0x804,
 		UnitStats		= 0x1858, //+38
-		CombatType		= 0x1D08,
+		CombatType		= 0x2218,
 
 		BuffManager		= 0x2308
 	};

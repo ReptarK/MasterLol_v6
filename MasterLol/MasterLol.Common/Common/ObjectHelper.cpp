@@ -66,6 +66,21 @@ namespace Common
 		return ObjectManager::GetUnitArray()[sourceIndex];
 	}
 
+	Obj_AI_Base * ObjectHelper::GetLowestHp(std::vector<Obj_AI_Base*> unitList)
+	{
+		float lowHp = FLT_MAX;
+		Obj_AI_Base* result = nullptr;
+		for (auto unit : unitList)
+		{
+			if (*unit->GetHealth() < lowHp) {
+				lowHp = *unit->GetHealth();
+				result = unit;
+			}
+		}
+
+		return result;
+	}
+
 #pragma endregion
 
 	std::vector<Obj_AI_Base*> ObjectList::mAllMinions;

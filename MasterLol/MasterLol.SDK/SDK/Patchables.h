@@ -16,6 +16,7 @@
 #define fnGetBoundingRadius		0x1F1910 // 83 EC 08 56 8B F1 83 BE ? ? ? ? ? 74 69
 
 #define fnWorldToScreen			0x7E55F0
+#define fnWorldToMinimap		0x7E55F0 // 83 EC 08 8B 44 24 0C F3 0F 10 15
 #define fnBaseDrawPosition		0x1B4D80
 
 #define fnIsTargetable          0x21FEB0
@@ -52,6 +53,7 @@
 #define oRenderer			0x2F60A5C		// "UI_LoadScreen_Frame_01.dds" -> five instructions above -> cmp dword_oRenderer, 0
 #define oUnderMouseObj		0x22E8CEC		// C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 04 FF B4 24
 #define oCampManagerClient	0x16843D4		// "game_ping_[Jungle]_Alive" -> above : mov     ecx, dword_19543D4
+#define oTacticalMap		0x2F438F4		// A1 ? ? ? ? 56 8B F1 85 C0 74 1A -> first instruction -> mov eax, dword_oTacticalMap || "MinimapTooltip" -> first xref -> 3 instructions down -> mov ecx, dword_oTacticalMap
 
 #define oD3DInstance		0x2F66BBC		// 8B 11 85 D2 74 0F -> mov  ecx, dword_30B392C 
 											// OR

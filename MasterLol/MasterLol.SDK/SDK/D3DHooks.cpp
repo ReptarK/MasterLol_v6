@@ -156,11 +156,11 @@ namespace D3D
 
 	void D3DHooks::Shutdown()
 	{
-		delete EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance();
-		delete EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance();
-		delete EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>
-			::GetInstance();
-		delete EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance();
+		//delete EventHandler<EventIndex::OnDrawingEndScene, EventDefines::OnDrawingEndScene, IDirect3DDevice9*>::GetInstance();
+		//delete EventHandler<EventIndex::OnReset, EventDefines::OnReset, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*>::GetInstance();
+		//delete EventHandler<EventIndex::OnDrawingPresent, EventDefines::OnDrawingPresent, LPDIRECT3DDEVICE9, const RECT*, const RECT*, HWND, const RGNDATA*>
+		//	::GetInstance();
+		//EventHandler<EventIndex::OnUpdate, EventDefines::OnMainLoop>::GetInstance();
 
 		if (originalReset)
 			(Functions::Reset)DetourRemove((PBYTE)originalReset, (PBYTE)Functions::hkReset);

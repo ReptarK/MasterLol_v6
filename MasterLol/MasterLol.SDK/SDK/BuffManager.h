@@ -57,8 +57,12 @@ public:
 	class BuffNode** mBuffArray; //0x0010
 	class BuffNode* mEnd; //0x0014
 
-	BuffNode* GetBuffFromName(const char* name) {
-		int size = ((DWORD)this->mEnd - (DWORD)this->mBuffArray) / 0x4;
+	inline int GetSize() {
+		return ((DWORD)this->mEnd - (DWORD)this->mBuffArray) / 0x4;
+	}
+
+	inline BuffNode* GetBuffFromName(const char* name) {
+		int size = this->GetSize();
 		for (int i = 0; i < size; ++i)
 		{
 			BuffNode* currBuff = this->mBuffArray[i];

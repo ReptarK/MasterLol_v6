@@ -23,6 +23,8 @@ namespace TEST
 			ObjectManager::GetPlayer()->GetPos().y,
 			ObjectManager::GetPlayer()->GetPos().z);
 		printf("\t BoundingRadius : %.0f \n", ObjectManager::GetPlayer()->GetBoundingRadius());
+		printf("\t GetAttackCastDelay : %.4f \n", ObjectManager::GetPlayer()->GetAttackCastDelay());
+		printf("\t GetAttackDelay : %.4f \n", ObjectManager::GetPlayer()->GetAttackDelay());
 
 		printf("IsAlive : %s\n", ObjectManager::GetPlayer()->IsAlive() ? "true" : "false");
 		printf("IsTargetable : %s\n", ObjectManager::GetPlayer()->IsTargetable() ? "true" : "false");
@@ -63,9 +65,31 @@ namespace TEST
 
 	static void test2()
 	{
-		GameObject* currentObject = HudManager::GetUnderMouseObject();
-		if (currentObject)
+		Obj_AI_Base* currentObject = (Obj_AI_Base*)HudManager::GetUnderMouseObject();
+		if (currentObject) 
+		{
 			printf("Object ID : %x \n", currentObject->GetUnitId());
+			printf("\t Navigation : %#x \n", currentObject->GetNavigation());
+			printf("\t Name : %s \n", currentObject->GetName().c_str());
+			printf("\t Position : (%.0f, %.0f, %.0f) \n",
+				currentObject->GetPos().x,
+				currentObject->GetPos().y,
+				currentObject->GetPos().z);
+			printf("\t BoundingRadius : %.0f \n", currentObject->GetBoundingRadius());
+
+			printf("IsAlive : %s\n", currentObject->IsAlive() ? "true" : "false");
+			printf("IsTargetable : %s\n", currentObject->IsTargetable() ? "true" : "false");
+
+
+			printf("IsHero : %s\n", currentObject->IsHero() ? "true" : "false");
+			printf("IsTroy : %s\n", currentObject->IsTroy() ? "true" : "false");
+			printf("IsNexus : %s\n", currentObject->IsNexus() ? "true" : "false");
+			printf("IsMinion : %s\n", currentObject->IsMinion() ? "true" : "false");
+			printf("IsInhibitor : %s\n", currentObject->IsInhibitor() ? "true" : "false");
+			printf("IsMissile : %s\n", currentObject->IsMissile() ? "true" : "false");
+			printf("IsTurret : %s\n", currentObject->IsTurret() ? "true" : "false");
+			printf("IsDragon : %s\n", currentObject->IsDragon() ? "true" : "false");
+		}
 	}
 
 	static void test3()
@@ -127,5 +151,23 @@ namespace TEST
 	{
 		Game::PrintChat("ActiveProcessSpell : %d", GREEN(), Common::OnProcessSpell::mActiveProcessSpell.size());
 		//IssueOrderHook.Apply(Patchables::LolBase + 0x208A10, OnIssueOrder);
+	}
+
+	static void testNavigation() 
+	{
+		AIHeroClient* player = ObjectManager::GetPlayer();
+		Navigation* navigation = player->GetNavigation();
+		PathManager pathManager = navigation->mPathManager;
+		printf("Log Navigation : \n");
+		printf("\t Size : %d \n", pathManager.GetSize());
+		printf("\t End : %#x \n", pathManager.mEnd);
+		printf("\t Begin : %#x \n", pathManager.mPath);
+
+		int size = pathManager.GetSize();
+		for (int i = 0; i < size; ++i)
+		{
+			Vector3 currWaypoint = pathManager.mPath[i];
+			printf("\t WayPoint : ( %.0f, %.0f, %.0f )\n", currWaypoint.x, currWaypoint.y, currWaypoint.z);
+		}
 	}
 }

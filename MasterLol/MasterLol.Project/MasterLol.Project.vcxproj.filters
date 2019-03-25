@@ -87,6 +87,12 @@
     <ClCompile Include="Project\Component\Debug.component\DebugMissile.service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Project\Component\Debug.component\DebugNavigation.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Project\Component\Debug.component\DebugPrediction.service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Project\Test.h">
@@ -141,6 +147,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Project\Component\Debug.component\DebugProcessSpell.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Debug.component\DebugNavigation.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Debug.component\DebugPrediction.service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Project\Component\Orbwalker.component\IOrbwalker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -54,6 +54,9 @@
     <ClInclude Include="Common\GameEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Common\Prediction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\Geometry\Circle3D.cpp">
@@ -78,6 +81,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Common\GameEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Prediction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

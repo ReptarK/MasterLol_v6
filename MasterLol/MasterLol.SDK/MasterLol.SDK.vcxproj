@@ -175,6 +175,7 @@
     <ClInclude Include="SDK\math\Vector.hpp" />
     <ClInclude Include="SDK\MissileClient.h" />
     <ClInclude Include="SDK\Names.h" />
+    <ClInclude Include="SDK\Navigation.h" />
     <ClInclude Include="SDK\ObjectManager.h" />
     <ClInclude Include="SDK\Obj_AI_Base.h" />
     <ClInclude Include="SDK\Obj_AI_Turret.h" />

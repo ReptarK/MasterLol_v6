@@ -44,5 +44,7 @@ namespace Common
 		static bool IsJungleMob(Obj_AI_Base* unit);
 
 		static GameObject* GetSourceObject(GameObject* childObject);
+
+		static Obj_AI_Base* GetLowestHp(std::vector<Obj_AI_Base*> unitList);
 	};
 }

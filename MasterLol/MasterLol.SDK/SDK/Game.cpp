@@ -93,7 +93,7 @@ float Game::GetGameTime()
 
 float Game::GetPing()
 {
-	return 60;
+	return 50;
 }
 
 void Game::PrintChat( const char* message )

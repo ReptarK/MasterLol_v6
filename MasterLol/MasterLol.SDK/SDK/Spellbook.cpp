@@ -8,6 +8,12 @@ SpellCastInfo * Spellbook::GetActiveSpell(){
 	return *reinterpret_cast<SpellCastInfo**>(this + static_cast<int>(Offsets::Spellbook::ActiveSpell));
 }
 
+bool Spellbook::IsAutoAttacking()
+{
+	auto activeSpell = this->GetActiveSpell();
+	return activeSpell && activeSpell->mIsAutoAttack;
+}
+
 ESpellState Spellbook::GetSpellState( ESpellSlot::ESpellSlot slot )
 {
 	return
